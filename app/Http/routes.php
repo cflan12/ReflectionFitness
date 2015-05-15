@@ -19,3 +19,12 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+Route::resource('api/exercises', 'API\ExerciseAPIController');
+
+Route::resource('api/bodyweights', 'API\BodyweightAPIController');
+
+Route::resource('api/cardios', 'API\CardioAPIController');
+
+Route::resource('api/reps', 'API\RepsAPIController');
