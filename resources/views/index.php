@@ -18,16 +18,16 @@
         				<span class="icon-bar"></span>
         				<span class="icon-bar"></span>
       				</button>
-      				<a class="navbar-brand" href="#">Workout App</a>
+      				<a class="navbar-brand" href="#/">Workout App</a>
     			</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
     			<div class="collapse navbar-collapse" collapse="isCollapsed">
       				<ul class="nav navbar-nav navbar-right">
       					<li><a href="#testRoute">Test</a></li>
-        				<li><a href="#">Exercises</a></li>
-        				<li><a href="#">Users</a></li>
-        				<li><a href="#">Admin</a></li>
-        				<li><a href="#">Analytics</a></li>
+        				<li><a href="#exercises">Exercises</a></li>
+        				<li><a href="#users">Users</a></li>
+        				<li><a href="#admin">Admin</a></li>
+        				<li><a href="#analytics">Analytics</a></li>
       				</ul>
     			</div><!-- /.navbar-collapse -->
   			</div><!-- /.container-fluid -->
@@ -44,6 +44,10 @@
           </div>
         </div>
       </div>
+
+      <!-- view injection -->
+        <div ng-view></div>
+      
 
 
 

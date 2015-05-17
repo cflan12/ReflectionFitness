@@ -16,28 +16,40 @@
 		workoutApp.config(function($routeProvider) {
 			$routeProvider
 
+			//route for home page
+			.when('/', {
+				templateUrl : 'templates/home.html',
+				controller : 'WorkoutController'
+			})
+			
 			//route for test page
 			.when('/testRoute', {
 				templateUrl : 'templates/test.html',
-				controller : 'Workout'
+				controller : 'WorkoutController'
 			})
 
-			//route for exercises
+			//route for exercises page
 			.when('/exercises', {
 				templateUrl : 'templates/exercises.html',
-				controller : 'Workout'
+				controller : 'WorkoutController'
 			})
 
-			//route for users
+			//route for users page
 			.when('/users', {
 				templateUrl : 'templates/users.html',
-				controller : 'Workout'
+				controller : 'WorkoutController'
 			})
 
-			//route for analytics
+			//route for admin page
+			.when('/admin', {
+				templateUrl : 'templates/admin.html',
+				controller : 'WorkoutController'
+			})
+
+			//route for analytics page
 			.when('/analytics', {
 				templateUrl : 'templates/analytics.html',
-				controller : 'Workout'
+				controller : 'WorkoutController'
 			});
 		});
 
