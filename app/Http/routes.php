@@ -31,3 +31,5 @@ Route::resource('api/bodyweights', 'API\BodyweightAPIController');
 Route::resource('api/cardios', 'API\CardioAPIController');
 
 Route::resource('api/reps', 'API\RepsAPIController');
+
+Route::resource('api/users', 'API\UserAPIController');

@@ -17,6 +17,10 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UserTableSeeder');
 		$this->call('exerciseSeeder');
+		//$this->call('UserSeeder');
+		//$this->call('RepSeeder');
+		//$this->call('CardioSeeder');
+		//$this->call('BodyweightSeeder');
 	}
 
 }

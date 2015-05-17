@@ -17,8 +17,8 @@ class CreateRepsTable extends Migration
 		{
 			$table->increments('id');
 			$table->string('range');
-			$table->integer('time_frame');
-			$table->integer('rest_time');
+			$table->string('time_frame');
+			$table->string('rest_time');
 			$table->timestamps();
 		});
 	}
