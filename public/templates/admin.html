@@ -1,0 +1,29 @@
+
+<div class="container">
+	<div class="row">
+		<table class="table table-hover table-bordered">
+			<thead>
+				<h1 class="text-center">Customers</h1>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Sign-Up Date</th>
+					<th>Subscription Status</th>
+					<th>Revenue Generated</th>
+					<th>Contact User</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="users in vm.users">
+					<td>{{users.name}}</td>
+					<td>{{users.email}}</td>
+					<td>Date</td>
+					<td>Active</td>
+					<td>$100</td>
+					<td><btn class="btn btn-primary btn-xs">Send Email</btn></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+

@@ -22,12 +22,6 @@
 				templateUrl : 'templates/home.html',
 				controller : 'WorkoutController'
 			})
-			
-			//route for test page
-			.when('/testRoute', {
-				templateUrl : 'templates/test.html',
-				controller : 'WorkoutController'
-			})
 
 			//route for exercises page
 			.when('/exercises', {
@@ -60,18 +54,19 @@
 
 			$stateProvider
 
+			//nested weighted exercises view
 			.state("exercises", {
 				templateUrl: 'templates/partials/exercises/weighted.html'
 			})
-
+			//nested bodyweight view
 			.state("bodyweight", {
 				templateUrl: 'templates/partials/exercises/bodyweight.html'
 			})
-
+			//nested cardio view
 			.state("cardio", {
 				templateUrl: 'templates/partials/exercises/cardio.html'
 			})
-
+			//nested reps view
 			.state("reps", {
 				templateUrl: 'templates/partials/exercises/reps.html'
 			})
