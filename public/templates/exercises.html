@@ -14,10 +14,11 @@
 		
 		<div class="container">
 			<div class="row">				
-				<a ui-sref="exercises"><btn class="btn btn-primary">Weighted Exercises</btn></a> |
-				<a ui-sref="exercises"><btn class="btn btn-primary">Bodyweight Exercises</btn></a>
-					<div ui-view="weighted"></div>
-					<div ui-view="bodyweight"></div>
+				<a ui-sref="exercises"><btn class="btn btn-primary">Weighted Exercises</btn></a> 
+				<a ui-sref="bodyweight"><btn class="btn btn-primary">Bodyweight Exercises</btn></a>
+					
+					<!-- ui-router view injector via $stateProvider -->
+					<div ui-view></div>
 			</div>
 		</div> 
 

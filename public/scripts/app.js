@@ -58,16 +58,16 @@
 		//configure nested views with ui-router
 		workoutApp.config(function($stateProvider) {
 
-			$stateProvider.state("exercises", {
-				views: {
-					"weighted": {
-						templateUrl : 'templates/partials/exercises/weighted.html'
-					},
-					"bodyweight": {
-						templateUrl: 'templates/partials/exercises/bodyweight.html'
-					}
-				}
-			});
+			$stateProvider
+
+			.state("exercises", {
+				templateUrl: 'templates/partials/exercises/weighted.html'
+			})
+
+			.state("bodyweight", {
+				templateUrl: 'templates/partials/exercises/bodyweight.html'
+			})
+
 		});
 				
 
