@@ -1,9 +1,5 @@
 	<div class="container">
 		<div class="row">
-			<h1>Weighted Exercises</h1>
-				<p ng-repeat="exercises in vm.exercises">{{exercises.exercise}}</p>
-		</div>
-		<div class="row">
 			<h1>Bodyweight Exercises</h1>
 				<p ng-repeat="bodyweight in vm.exerciseBodyweight">{{bodyweight.exercise}}</p>
 		</div>
@@ -15,5 +11,17 @@
 			<h1>Cardio</h1>
 				<p ng-repeat="cardio in vm.exerciseCardio">{{cardio.type}}<span> {{cardio.exercise}}</span></p>
 		</div>
+		
+		<div class="container">
+			<div class="row">				
+				<a ui-sref="exercises"><btn class="btn btn-primary">Weighted Exercises</btn></a> |
+				<a ui-sref="exercises"><btn class="btn btn-primary">Bodyweight Exercises</btn></a>
+					<div ui-view="weighted"></div>
+					<div ui-view="bodyweight"></div>
+			</div>
+		</div> 
+
+
+		
 	</div>
 

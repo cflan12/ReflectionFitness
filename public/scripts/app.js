@@ -9,10 +9,11 @@
 							'ngResource',
 							'ui.bootstrap',
 							'ui.utils',
-							'ngRoute'
+							'ngRoute',
+							'ui.router'
 						]);
 		
-		//configure routes
+		//configure routes with ngRoute
 		workoutApp.config(function($routeProvider) {
 			$routeProvider
 
@@ -51,7 +52,24 @@
 				templateUrl : 'templates/analytics.html',
 				controller : 'WorkoutController'
 			});
+		
 		});
+
+		//configure nested views with ui-router
+		workoutApp.config(function($stateProvider) {
+
+			$stateProvider.state("exercises", {
+				views: {
+					"weighted": {
+						templateUrl : 'templates/partials/exercises/weighted.html'
+					},
+					"bodyweight": {
+						templateUrl: 'templates/partials/exercises/bodyweight.html'
+					}
+				}
+			});
+		});
+				
 
 		//function for bootstrap collapsed menu
 		function NavBarCtrl($scope) {
