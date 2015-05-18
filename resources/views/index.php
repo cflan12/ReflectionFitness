@@ -35,26 +35,11 @@
 		
 		<!-- Main container and content with injected views -->
 		<div id="container-fluid">
-			
-      <div class="container">
-        <div class="row">
-				  <h1>Welcome to the Fitness Admin Page</h1>
-          <div ng-repeat="exercise in vm.exercises">
-            <p>{{exercise.exercise}}</p>
-          </div>
-        </div>
-      </div>
 
       <!-- view injection -->
         <div ng-view></div>
       
-
-
-
-
-
-
-		</div> <!-- global container -->
+    </div> <!-- global container -->
 	</body>
 	
 	<!-- Application Dependencies -->
@@ -69,6 +54,10 @@
     <script type="text/javascript" src="scripts/app.js"></script>
     <script type="text/javascript" src="scripts/controllers/WorkoutController.js"></script>
     <script type="text/javascript" src="scripts/services/workout.js"></script>
+    <script type="text/javascript" src="scripts/services/users.js"></script>
+    <script type="text/javascript" src="scripts/services/bodyweight.js"></script>
+    <script type="text/javascript" src="scripts/services/rep.js"></script>
+    <script type="text/javascript" src="scripts/services/cardio.js"></script>
 </html>
 
 

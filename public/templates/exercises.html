@@ -1,0 +1,19 @@
+	<div class="container">
+		<div class="row">
+			<h1>Weighted Exercises</h1>
+				<p ng-repeat="exercises in vm.exercises">{{exercises.exercise}}</p>
+		</div>
+		<div class="row">
+			<h1>Bodyweight Exercises</h1>
+				<p ng-repeat="bodyweight in vm.exerciseBodyweight">{{bodyweight.exercise}}</p>
+		</div>
+		<div class="row">
+			<h1>Reps</h1>
+				<p ng-repeat="reps in vm.reps">{{reps.range}} reps<span> {{reps.time_frame}}</span><span> {{reps.rest_time}}</span></p>
+		</div>
+		<div class="row">
+			<h1>Cardio</h1>
+				<p ng-repeat="cardio in vm.exerciseCardio">{{cardio.type}}<span> {{cardio.exercise}}</span></p>
+		</div>
+	</div>
+
