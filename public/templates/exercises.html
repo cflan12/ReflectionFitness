@@ -1,24 +1,15 @@
 	<div class="container">
-		<div class="row">
-			<h1>Bodyweight Exercises</h1>
-				<p ng-repeat="bodyweight in vm.exerciseBodyweight">{{bodyweight.exercise}}</p>
-		</div>
-		<div class="row">
-			<h1>Reps</h1>
-				<p ng-repeat="reps in vm.reps">{{reps.range}} reps<span> {{reps.time_frame}}</span><span> {{reps.rest_time}}</span></p>
-		</div>
-		<div class="row">
-			<h1>Cardio</h1>
-				<p ng-repeat="cardio in vm.exerciseCardio">{{cardio.type}}<span> {{cardio.exercise}}</span></p>
-		</div>
+		<h1>Exercise Database</h1>
 		
 		<div class="container">
 			<div class="row">				
 				<a ui-sref="exercises"><btn class="btn btn-primary">Weighted Exercises</btn></a> 
 				<a ui-sref="bodyweight"><btn class="btn btn-primary">Bodyweight Exercises</btn></a>
-					
-					<!-- ui-router view injector via $stateProvider -->
-					<div ui-view></div>
+				<a ui-sref="cardio"><btn class="btn btn-primary">Cardio Exercises</btn></a>
+				<a ui-sref="reps"><btn class="btn btn-primary">Reps</btn></a>
+
+				<!-- ui-router view injector via $stateProvider -->
+				<div ui-view></div>
 			</div>
 		</div> 
 

@@ -68,6 +68,14 @@
 				templateUrl: 'templates/partials/exercises/bodyweight.html'
 			})
 
+			.state("cardio", {
+				templateUrl: 'templates/partials/exercises/cardio.html'
+			})
+
+			.state("reps", {
+				templateUrl: 'templates/partials/exercises/reps.html'
+			})
+
 		});
 				
 
