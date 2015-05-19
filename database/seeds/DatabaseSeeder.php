@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder {
 		Model::unguard();
 
 		// $this->call('UserTableSeeder');
-		//$this->call('exerciseSeeder');
-		//$this->call('UserSeeder');
-		//$this->call('RepSeeder');
-		//$this->call('CardioSeeder');
-		//$this->call('BodyweightSeeder');
+		$this->call('exerciseSeeder');
+		$this->call('UserSeeder');
+		$this->call('RepSeeder');
+		$this->call('CardioSeeder');
+		$this->call('BodyweightSeeder');
 	}
 
 }
