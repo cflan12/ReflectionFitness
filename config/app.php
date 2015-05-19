@@ -138,6 +138,7 @@ return [
 		'Illuminate\Html\HtmlServiceProvider',
 		'Laracasts\Flash\FlashServiceProvider',
 		'Mitul\Generator\GeneratorServiceProvider',
+		'Barryvdh\Cors\CorsServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -147,6 +148,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+
+
 
 	],
 

@@ -81,7 +81,7 @@
 			//delete user
 			vm.deleteUser = function(subscribers) {
 
-				var id = users.id;
+				var id = subscribers.id;
 
 				users.deleteUser(id).then(function(success) {
 					getUsers();
