@@ -15,7 +15,7 @@
 
 			vm.exercises = [];
 
-			vm.users = [];
+			vm.subscribers = [];
 
 			vm.exerciseBodyweight = [];
 
@@ -47,8 +47,45 @@
 			//return JSON object from user API and convert to an array
 			function getUsers() {
 				users.getUser().then(function(result) {
-					vm.users = result.data;
-					console.log(vm.users);
+					vm.subscribers = result.data;
+					console.log(vm.subscribers);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			//log New User
+			vm.logNewUser = function() {
+
+				users.saveUser({
+					"name":vm.full_name,
+					"email":vm.email,
+					"password":vm.password,
+					"subscriber": 1
+				}).then(function(success) {
+					//refresh user list
+					getUsers();
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+
+				getUsers();
+
+				//Clear input fields
+				vm.full_name = "";
+				vm.email = "";
+				vm.password = "";
+			}
+
+			//delete user
+			vm.deleteUser = function(subscribers) {
+
+				var id = users.id;
+
+				users.deleteUser(id).then(function(success) {
+					getUsers();
+					console.log(success);
 				}, function(error) {
 					console.log(error);
 				});

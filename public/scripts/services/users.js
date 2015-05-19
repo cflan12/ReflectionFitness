@@ -9,7 +9,7 @@
 
 		function users($resource) {
 
-			var User = $resource('api/users', {}, {
+			var User = $resource('api/users/:id', {}, {
 				update: {
 					method: 'PUT'
 				}
@@ -24,8 +24,28 @@
 				});
 			}
 
+			//send POST data to API
+			function saveUser(data) {
+				return User.save(data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			//send DELETE data to API
+			function deleteUser(id) {
+				return User.delete({id:id}).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
-				getUser: getUser
+				getUser: getUser,
+				saveUser: saveUser,
+				deleteUser: deleteUser
 			}
 		}
 })();

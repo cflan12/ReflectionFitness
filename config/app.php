@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG'),
+	'debug' => true,//env('APP_DEBUG'), add .env file for project
 
 	/*
 	|--------------------------------------------------------------------------

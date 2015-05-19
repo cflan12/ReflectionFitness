@@ -41,8 +41,8 @@ class UserAPIController extends AppBaseController
 	 */
 	public function store(Request $request)
 	{
-		if(sizeof(User::$rules) > 0)
-            $this->validateRequest($request, User::$rules);
+		//if(sizeof(User::$rules) > 0)
+            //$this->validateRequest($request, User::$rules);
 
         $input = $request->all();
 

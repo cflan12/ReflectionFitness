@@ -1,7 +1,20 @@
 
 <div class="container">
 	<div class="row">
-		<h1>Users</h1>
-			<p ng-repeat="users in vm.users">{{users.name}}</p>
+		<h1 class="text-center">Users</h1>
+			<table class="table table-hover table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in vm.subscribers">
+					<td>{{user.name}}</td>
+					<td>{{user.email}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

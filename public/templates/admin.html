@@ -3,19 +3,16 @@
 	<div class="row">
 		
 		<btn class="btn btn-primary" ng-click="addUser = true">Add User</btn>
-		<btn class="btn btn-danger">Delete User</btn>
 
 		<div class="row" ng-show="addUser === true">
 			<form class="navbar-form">
-				<input class="form-control" type="text" ng-model="vm.user.name" placeholder="Name">
-				<input class="form-control" type="email" ng-model="vm.user.email" placeholder="Email">
-				<input class="form-control" type="password" ng-model="vm.user.password" placeholder="Email">
-				<input class="form-control" type="hidden" ng-model="vm.user.subscriber">
-				<btn class="btn btn-primary">Submit</btn><btn class="btn btn-danger" ng-click="addUser = false">Close</btn>
+				<input class="form-control" type="text" ng-model="vm.full_name" placeholder="Name">
+				<input class="form-control" type="email" ng-model="vm.email" placeholder="Email">
+				<input class="form-control" type="password" ng-model="vm.password" placeholder="Password">
+				<btn class="btn btn-primary" ng-click="vm.logNewUser()">Submit</btn>
+				<btn class="btn btn-danger" ng-click="addUser = false">Close</btn>
 			</form>
 		</div>
-
-
 
 		<table class="table table-hover table-bordered">
 			<thead>
@@ -26,17 +23,23 @@
 					<th>Sign-Up Date</th>
 					<th>Subscription Status</th>
 					<th>Revenue Generated</th>
+					<th>User Analysis</th>
 					<th>Contact User</th>
+					<th>Update User</th>
+					<th>Delete User</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="users in vm.users">
-					<td>{{users.name}}</td>
-					<td>{{users.email}}</td>
+				<tr ng-repeat="user in vm.subscribers">
+					<td>{{user.name}}</td>
+					<td>{{user.email}}</td>
 					<td>Date</td>
 					<td>Active</td>
 					<td>$100</td>
+					<td>User Panel</td>
 					<td><btn class="btn btn-primary btn-xs">Send Email</btn></td>
+					<td><btn class="btn btn-default btn-xs">Update User</btn></td>
+					<td><btn class="btn btn-danger btn-xs" ng-click="vm.deleteUser(user)">Delete User</btn></td>
 				</tr>
 			</tbody>
 		</table>
