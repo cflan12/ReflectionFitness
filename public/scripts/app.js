@@ -20,31 +20,31 @@
 			//route for home page
 			.when('/', {
 				templateUrl : 'templates/home.html',
-				controller : 'WorkoutController'
+				//controller : 'WorkoutController'
 			})
 
 			//route for exercises page
 			.when('/exercises', {
 				templateUrl : 'templates/exercises.html',
-				controller : 'WorkoutController'
+				//controller : 'WorkoutController'
 			})
 
 			//route for users page
 			.when('/users', {
 				templateUrl : 'templates/users.html',
-				controller : 'WorkoutController'
+				//controller : 'WorkoutController'
 			})
 
 			//route for admin page
 			.when('/admin', {
 				templateUrl : 'templates/admin.html',
-				controller : 'WorkoutController'
+				//controller : 'WorkoutController'
 			})
 
 			//route for analytics page
 			.when('/analytics', {
 				templateUrl : 'templates/analytics.html',
-				controller : 'WorkoutController'
+				//controller : 'WorkoutController'
 			});
 		
 		});
