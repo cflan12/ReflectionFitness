@@ -10,7 +10,8 @@
 							'ui.bootstrap',
 							'ui.utils',
 							'ngRoute',
-							'ui.router'
+							'ui.router',
+							'ui.tree'
 						]);
 		
 		//configure routes with ngRoute
@@ -70,6 +71,14 @@
 			.state("reps", {
 				templateUrl: 'templates/partials/exercises/reps.html'
 			})
+
+			/*
+			//workout plan view
+			.state("workout", {
+				views: {
+					"workout": {templateUrl: 'templates/partials/exercises/workout.html'}
+				}
+			}) */
 
 		});
 				

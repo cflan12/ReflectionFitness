@@ -1,8 +1,9 @@
 <!doctype html>
 <html ng-app="workoutApp">
 	<head>
-		<title>Workout App</title>
+		<title>Reflection Fitness</title>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
 	</head>
 	
 	<!-- define angular controller -->
@@ -49,6 +50,7 @@
     <script type="text/javascript" src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>

@@ -17,12 +17,16 @@
 
 			vm.subscribers = [];
 
+			vm.paid = [];
+
 			vm.exerciseBodyweight = [];
 
 			vm.reps = [];
 
 			vm.exerciseCardio = [];
 
+			console.log("angular ui");
+			console.log(vm.paid);
 			//get JSON objects from DB
 			getExercises();
 
@@ -89,6 +93,20 @@
 				}, function(error) {
 					console.log(error);
 				});
+			}
+
+			//log New Workout
+			vm.logWorkout = function() {
+
+				workout.saveWorkout({
+					"name":vm.workoutType,
+					"identifier":vm.programName,
+					"length":vm.programVariation,
+					"users":vm.paid
+	
+				})
+
+
 			}
 
 			//return JSON object from Bodyweight API and convert to array
