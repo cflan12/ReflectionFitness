@@ -17,16 +17,13 @@
 
 			vm.subscribers = [];
 
-			vm.paid = [];
-
 			vm.exerciseBodyweight = [];
 
 			vm.reps = [];
 
 			vm.exerciseCardio = [];
 
-			console.log("angular ui");
-			console.log(vm.paid);
+			vm.node = [];
 			//get JSON objects from DB
 			getExercises();
 
@@ -95,6 +92,13 @@
 				});
 			}
 
+			vm.drag = function() {
+
+				console.log("vm.node");
+				console.log(vm.node);
+			}
+
+			/*
 			//log New Workout
 			vm.logWorkout = function() {
 
@@ -105,9 +109,8 @@
 					"users":vm.paid
 	
 				})
-
-
 			}
+			 */
 
 			//return JSON object from Bodyweight API and convert to array
 			function getBodyweight() {

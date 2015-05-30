@@ -45,6 +45,7 @@
 								<btn class="btn btn-danger btn-xs" ng-click="buildWorkout = false">Close</btn>
 						</form>
 						
+						<h1>Subscribers</h1>
 						<div ui-tree>
   							<ol ui-tree-nodes="" ng-model="vm.subscribers">
     							<li ng-repeat="user in vm.subscribers" ui-tree-node>
@@ -53,6 +54,33 @@
       								</div>
     							</li>
   							</ol>
+						</div>
+						
+						<div>
+							<table class="table table-hover table-bordered">
+							<thead>
+								<h1>New Subscribers</h1>
+									<tr>
+										<th>Subscriber</th>
+									</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div ui-tree>
+  										<ol ui-tree-nodes="" ng-model="vm.node">
+    									<li ng-repeat="user in vm.node" ui-tree-node>
+      									<div ui-tree-handle>
+        									{{user.name}}
+      									</div>
+    									</li>
+  										</ol>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							</table>
+							<btn class="btn btn-primary" ng-click="vm.drag()">Save</btn>
 						</div>
 						
 				</div>
