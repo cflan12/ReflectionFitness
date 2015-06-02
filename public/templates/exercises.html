@@ -52,6 +52,9 @@
       								<div ui-tree-handle>
         								{{user.name}}
       								</div>
+      								<div ui-tree-handle>
+      									{{user.email}}
+      								</div>
     							</li>
   							</ol>
 						</div>
@@ -59,9 +62,11 @@
 						<div>
 							<table class="table table-hover table-bordered">
 							<thead>
-								<h1>New Subscribers</h1>
+								<h1>Workout Plan</h1>
 									<tr>
-										<th>Subscriber</th>
+										<th>Body</th>
+										<th>Exercise</th>
+										<th>Rep Range</th>
 									</tr>
 							</thead>
 							<tbody>
@@ -69,9 +74,34 @@
 									<td>
 										<div ui-tree>
   										<ol ui-tree-nodes="" ng-model="vm.node">
-    									<li ng-repeat="user in vm.node" ui-tree-node>
+    									<li ng-repeat="workout in vm.node" ui-tree-node>
+    									<!-- declare which properties in vm.node array are visible from other array -->
       									<div ui-tree-handle>
-        									{{user.name}}
+        									{{workout.body}}
+      									</div>
+    									</li>
+  										</ol>
+										</div>
+									</td>
+									<td>
+										<div ui-tree>
+  										<ol ui-tree-nodes="" ng-model="vm.node">
+    									<li ng-repeat="workout in vm.node" ui-tree-node>
+    									<!-- declare which properties in vm.node array are visible from other array -->
+      									<div ui-tree-handle>
+        									{{workout.exercise}}
+      									</div>
+    									</li>
+  										</ol>
+										</div>
+									</td>
+									<td>
+										<div ui-tree>
+  										<ol ui-tree-nodes="" ng-model="vm.node">
+    									<li ng-repeat="workout in vm.node" ui-tree-node>
+    									<!-- declare which properties in vm.node array are visible from other array -->
+      									<div ui-tree-handle>
+        									 {{workout.range}} Reps {{workout.time_frame}} Time Frame {{workout.rest_time}} Rest Time
       									</div>
     									</li>
   										</ol>
@@ -102,11 +132,12 @@
 						<a ui-sref="reps"><btn class="btn btn-primary">Reps</btn></a>
 					</div>
 				</div>
-
-				<!-- ui-router view injector via $stateProvider -->
-				<div ui-view></div>
 			</div>
 		</div> 
+
+		<!-- ui-router view injector via $stateProvider -->
+		<div ui-view></div>
+		
 
 
 		

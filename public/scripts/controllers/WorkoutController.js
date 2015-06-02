@@ -24,6 +24,16 @@
 			vm.exerciseCardio = [];
 
 			vm.node = [];
+
+			vm.types = [{"type":"weighted"}, 
+						{"type":"bodyweight"}, 
+						{"type":"cardio"}
+					];
+
+			//object collection
+			vm.promises = [];
+			var object = {"object":"list"};
+			
 			//get JSON objects from DB
 			getExercises();
 
@@ -34,16 +44,57 @@
 			getReps();
 
 			getCardio();
+			
 
+
+
+			console.log("extend type");
+			/*angular.forEach(vm.types, function(result) {
+				angular.extend(result, object);
+				console.log(result);
+			}); 
+
+			/*
+			$scope.$watch(vm.types, function(add) {
+
+				angular.extend(vm.types.type, object);
+			}, true);			
+			
+			/*
+			//All API calls are made to Laravel backend, angular.forEach array for nested tree view
+			angular.forEach(vm.types, function(result) {
+				if(result.type == "weighted")
+					{
+						result.concat(vm.exercises);
+					}else if(result.type == "bodyweight")
+					{	
+						console.log(result);
+					}else {
+						console.log(result);
+					}
+			}); 
+				*/
+			
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
 				workout.getExercises().then(function(result) {
 					vm.exercises = result.data;
+					//$resouce is returned directly rendered to the view without storing array,
+					//add API call to function
+					angular.forEach(vm.types, function(result) {
+						if(result.type == "weighted"){
+							angular.extend(result, vm.exercises);
+						}
+					console.log(result);
+					}); 
+					console.log("vm.types");
+					console.log(vm.types);
 					console.log(vm.exercises);
 				}, function(error) {
 					console.log(error);
 				});
 			}
+
 
 			//return JSON object from user API and convert to an array
 			function getUsers() {

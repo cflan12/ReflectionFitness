@@ -34,7 +34,7 @@
 	</nav>
 		
 		<!-- Main container and content with injected views -->
-		<div id="container-fluid">
+		<div class="container-fluid" id="container-fluid">
 
       <!-- view injection -->
         <div ng-view></div>
