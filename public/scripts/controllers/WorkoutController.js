@@ -29,10 +29,6 @@
 						{"type":"bodyweight"}, 
 						{"type":"cardio"}
 					];
-
-			//object collection
-			vm.promises = [];
-			var object = {"object":"list"};
 			
 			//get JSON objects from DB
 			getExercises();
@@ -44,15 +40,16 @@
 			getReps();
 
 			getCardio();
-			
 
-
-
+			/*
 			console.log("extend type");
-			/*angular.forEach(vm.types, function(result) {
-				angular.extend(result, object);
+			angular.forEach(vm.types, function(result) {
+				return angular.extend(result, user);
 				console.log(result);
 			}); 
+
+			console.log("vm.types added property");
+			console.log(vm.types);
 
 			/*
 			$scope.$watch(vm.types, function(add) {
@@ -83,18 +80,14 @@
 					//add API call to function
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "weighted"){
-							angular.extend(result, vm.exercises);
+							return angular.extend(result, vm.exercises);
 						}
-					console.log(result);
 					}); 
-					console.log("vm.types");
-					console.log(vm.types);
 					console.log(vm.exercises);
 				}, function(error) {
 					console.log(error);
 				});
 			}
-
 
 			//return JSON object from user API and convert to an array
 			function getUsers() {
@@ -167,6 +160,13 @@
 			function getBodyweight() {
 				bodyweight.getBodyweight().then(function(result) {
 					vm.exerciseBodyweight = result.data;
+					//$resouce is returned directly rendered to the view without storing array,
+					//add API call to function
+					angular.forEach(vm.types, function(result) {
+						if(result.type == "bodyweight"){
+							return angular.extend(result, vm.exerciseBodyweight);
+						}
+					}); 
 					console.log(vm.exerciseBodyweight);
 				}, function(error) {
 					console.log(error);
@@ -177,6 +177,13 @@
 			function getReps() {
 				rep.getReps().then(function(result) {
 					vm.reps = result.data;
+					//$resouce is returned directly rendered to the view without storing array,
+					//add API call to function
+					/*angular.forEach(vm.types, function(result) {
+						if(result.type == "weight" || result.type == "bodyweight"){
+							return angular.extend(result, vm.reps);
+						}
+					}); */
 					console.log(vm.reps);
 				}, function(error) {
 					console.log(error);
@@ -187,11 +194,20 @@
 			function getCardio() {
 				cardio.getCardio().then(function(result) {
 					vm.exerciseCardio = result.data;
+					//$resouce is returned directly rendered to the view without storing array,
+					//add API call to function
+					angular.forEach(vm.types, function(result) {
+						if(result.type == "cardio"){
+							return angular.extend(result, vm.exerciseCardio);
+						}
+					}); 
 					console.log(vm.exerciseCardio);
 				}, function(error) {
 					console.log(error);
 				});
 			}
 
+			console.log("vm.types array");
+			console.log(vm.types);
 		}
 })();

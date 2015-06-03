@@ -5,13 +5,13 @@
  			<div class="well" ui-tree-handle>
  					{{type.type}}
  			</div>
- 			<ol ui-tree-nodes="" ng-model="type.body">
- 				<li ng-repeat="body in type.body" ui-tree-node>
+ 			<ol ui-tree-nodes="" ng-model="vm.types.object">
+ 				<li ng-repeat="body in vm.types.object" ui-tree-node>
  					<div ui-tree-handle>
  						{{body.body}}
  					</div>
  				</li>
- 			</ol>
+ 			</ol> 
  		</li>
  	</ol>
  </div>
