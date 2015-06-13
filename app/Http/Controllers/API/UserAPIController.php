@@ -19,7 +19,7 @@ class UserAPIController extends AppBaseController
 	{
 		$users = User::all();
 
-		return Response::json(ResponseManager::makeResult($users->toArray(), "Reps retrieved successfully."));
+		return Response::json(ResponseManager::makeResult($users->toArray(), "Users retrieved successfully."));
 	}
 
 	/**
