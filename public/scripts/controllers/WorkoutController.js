@@ -84,7 +84,7 @@
 							return angular.extend(result, vm.exercises);
 						}
 					}); */
-					console.log("vm.exercises returned from query in controller");
+					//console.log("vm.exercises returned from query in controller");
 					console.log(vm.exercises);
 					
 				}, function(error) {
@@ -95,7 +95,7 @@
 			//return JSON object from user API and convert to an array
 			function getUsers() {
 				users.getUser().then(function(result) {
-					vm.subscribers = result.data;
+					vm.subscribers = result;
 					console.log(vm.subscribers);
 				}, function(error) {
 					console.log(error);
@@ -162,7 +162,7 @@
 			//return JSON object from Bodyweight API and convert to array
 			function getBodyweight() {
 				bodyweight.getBodyweight().then(function(result) {
-					vm.exerciseBodyweight = result.data;
+					vm.exerciseBodyweight = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*
@@ -181,7 +181,7 @@
 			//return JSON object from Reps API and convert to array
 			function getReps() {
 				rep.getReps().then(function(result) {
-					vm.reps = result.data;
+					vm.reps = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*angular.forEach(vm.types, function(result) {
@@ -198,7 +198,7 @@
 			//return JSON object from Cardios API and convert to array
 			function getCardio() {
 				cardio.getCardio().then(function(result) {
-					vm.exerciseCardio = result.data;
+					vm.exerciseCardio = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*
@@ -214,12 +214,13 @@
 				});
 			}
 
+			/*
 			console.log("vm.types array");
 			console.log(vm.types);
 			//console.log(vm.types.type.{0});
 			console.log("angular.forEach first object collection");
 			angular.forEach(vm.types, function(result) {
 				console.log(result);
-			});
+			}); */
 		}
 })();
