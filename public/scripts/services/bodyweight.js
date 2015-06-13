@@ -9,14 +9,15 @@
 
 		function bodyweight($resource) {
 
-			var Bodyweight = $resource('api/bodyweights', {}, {
+			var Bodyweight = $resource('api/bodyweights/:id', {}, {
 				update: {
 					method: 'PUT'
-				}
+				},
+				'query': {method: 'GET', isArray: false}
 			});
 
 			function getBodyweight() {
-				return Bodyweight.get().$promise.then(function(results) {
+				return Bodyweight.query().$promise.then(function(results) {
 					return results;
 				}, function(error) {
 					console.log(error);

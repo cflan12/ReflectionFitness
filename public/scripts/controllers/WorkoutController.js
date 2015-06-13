@@ -75,15 +75,18 @@
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
 				workout.getExercises().then(function(result) {
-					vm.exercises = result.data;
+					vm.exercises = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+					/*
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "weighted"){
 							return angular.extend(result, vm.exercises);
 						}
-					}); 
+					}); */
+					console.log("vm.exercises returned from query in controller");
 					console.log(vm.exercises);
+					
 				}, function(error) {
 					console.log(error);
 				});
@@ -162,11 +165,13 @@
 					vm.exerciseBodyweight = result.data;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+					/*
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "bodyweight"){
 							return angular.extend(result, vm.exerciseBodyweight);
 						}
 					}); 
+					*/
 					console.log(vm.exerciseBodyweight);
 				}, function(error) {
 					console.log(error);
@@ -196,11 +201,13 @@
 					vm.exerciseCardio = result.data;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+					/*
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "cardio"){
 							return angular.extend(result, vm.exerciseCardio);
 						}
 					}); 
+					*/
 					console.log(vm.exerciseCardio);
 				}, function(error) {
 					console.log(error);
@@ -209,5 +216,10 @@
 
 			console.log("vm.types array");
 			console.log(vm.types);
+			//console.log(vm.types.type.{0});
+			console.log("angular.forEach first object collection");
+			angular.forEach(vm.types, function(result) {
+				console.log(result);
+			});
 		}
 })();

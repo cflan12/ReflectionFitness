@@ -12,12 +12,13 @@
 			var User = $resource('api/users/:id', {}, {
 				update: {
 					method: 'PUT'
-				}
+				},
+				'query': {method: 'GET', isArray: false}
 			});
 
 			//query API for users and return JSON object with get method
 			function getUser() {
-				return User.get().$promise.then(function(results) {
+				return User.query().$promise.then(function(results) {
 					return results;
 				}, function(error) {
 					console.log(error);

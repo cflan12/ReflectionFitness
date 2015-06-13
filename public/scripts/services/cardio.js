@@ -9,15 +9,16 @@
 
 		function cardio($resource) {
 
-			var Cardio = $resource('api/cardios', {}, {
+			var Cardio = $resource('api/cardios/:id', {}, {
 				update: {
 					method: 'PUT'
-				}
+				},
+				'query': {method: 'GET', isArray: false}
 			});
 
 			//query API for cardio exercises and return JSON object with get method
 			function getCardio() {
-				return Cardio.get().$promise.then(function(results) {
+				return Cardio.query().$promise.then(function(results) {
 					return results;
 				}, function(error) {
 					console.log(error);
