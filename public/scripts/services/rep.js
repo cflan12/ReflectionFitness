@@ -12,12 +12,13 @@
 			var Reps = $resource('api/reps', {}, {
 				update: {
 					method: 'PUT'
-				}
+				},
+				'query': {method: 'GET', isArray: false}
 			});
 
 			//query APU for reps and return JSON object with get method
 			function getReps() {
-				return Reps.get().$promise.then(function(results) {
+				return Reps.query().$promise.then(function(results) {
 					return results;
 				}, function(error) {
 					console.log(error);

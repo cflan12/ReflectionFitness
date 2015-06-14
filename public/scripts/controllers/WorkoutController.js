@@ -75,7 +75,7 @@
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
 				workout.getExercises().then(function(result) {
-					vm.exercises = result;
+					vm.exercises = result.data;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*
@@ -95,7 +95,7 @@
 			//return JSON object from user API and convert to an array
 			function getUsers() {
 				users.getUser().then(function(result) {
-					vm.subscribers = result;
+					vm.subscribers = result.data;
 					console.log(vm.subscribers);
 				}, function(error) {
 					console.log(error);
@@ -162,7 +162,7 @@
 			//return JSON object from Bodyweight API and convert to array
 			function getBodyweight() {
 				bodyweight.getBodyweight().then(function(result) {
-					vm.exerciseBodyweight = result;
+					vm.exerciseBodyweight = result.data;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*
@@ -181,7 +181,7 @@
 			//return JSON object from Reps API and convert to array
 			function getReps() {
 				rep.getReps().then(function(result) {
-					vm.reps = result;
+					vm.reps = result.data;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*angular.forEach(vm.types, function(result) {
@@ -198,7 +198,7 @@
 			//return JSON object from Cardios API and convert to array
 			function getCardio() {
 				cardio.getCardio().then(function(result) {
-					vm.exerciseCardio = result;
+					vm.exerciseCardio = result.data;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*
@@ -214,13 +214,9 @@
 				});
 			}
 
-			/*
-			console.log("vm.types array");
-			console.log(vm.types);
-			//console.log(vm.types.type.{0});
-			console.log("angular.forEach first object collection");
-			angular.forEach(vm.types, function(result) {
+			console.log("vm.reps");
+			angular.forEach(vm.reps.data, function(result) {
 				console.log(result);
-			}); */
+			});
 		}
 })();
