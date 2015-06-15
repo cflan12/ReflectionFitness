@@ -75,7 +75,7 @@
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
 				workout.getExercises().then(function(result) {
-					vm.exercises = result.data;
+					vm.exercises = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*
@@ -181,7 +181,7 @@
 			//return JSON object from Reps API and convert to array
 			function getReps() {
 				rep.getReps().then(function(result) {
-					vm.reps = result.data;
+					vm.reps = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					/*angular.forEach(vm.types, function(result) {
