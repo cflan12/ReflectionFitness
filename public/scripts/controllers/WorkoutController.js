@@ -181,13 +181,13 @@
 					vm.exerciseBodyweight = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-					/*
+					
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "bodyweight"){
 							return angular.extend(result, vm.exerciseBodyweight);
 						}
 					}); 
-					*/
+					
 					console.log(vm.exerciseBodyweight);
 				}, function(error) {
 					console.log(error);
@@ -217,13 +217,13 @@
 					vm.exerciseCardio = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-					/*
+					
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "cardio"){
 							return angular.extend(result, vm.exerciseCardio);
 						}
 					}); 
-					*/
+					
 					console.log(vm.exerciseCardio);
 				}, function(error) {
 					console.log(error);
