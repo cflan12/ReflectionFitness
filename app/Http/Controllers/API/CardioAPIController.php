@@ -19,7 +19,9 @@ class CardioAPIController extends AppBaseController
 	{
 		$cardios = Cardio::all();
 
-		return Response::json(ResponseManager::makeResult($cardios->toArray(), "Cardios retrieved successfully."));
+		return $cardios;
+
+		//return Response::json(ResponseManager::makeResult($cardios->toArray(), "Cardios retrieved successfully."));
 	}
 
 	/**

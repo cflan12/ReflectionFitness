@@ -13,7 +13,7 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {method: 'GET', isArray: false}
+				'query': {method: 'GET', isArray: true}
 			});
 
 			function getBodyweight() {

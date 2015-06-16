@@ -13,7 +13,7 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {method: 'GET', isArray: false}
+				'query': {method: 'GET', isArray: true}
 			});
 
 			//query API for users and return JSON object with get method

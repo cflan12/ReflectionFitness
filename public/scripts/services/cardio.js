@@ -13,7 +13,7 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {method: 'GET', isArray: false}
+				'query': {method: 'GET', isArray: true}
 			});
 
 			//query API for cardio exercises and return JSON object with get method

@@ -9,7 +9,7 @@
 
 		function rep($resource) {
 
-			var Reps = $resource('api/reps', {}, {
+			var Reps = $resource('api/reps/:id', {}, {
 				update: {
 					method: 'PUT'
 				},
