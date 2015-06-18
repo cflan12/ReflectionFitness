@@ -26,17 +26,10 @@
 			vm.node = [];
 
 			//is an array object collections used for angular.extend
-			vm.types = [
-							{"type":"weighted"}, 
-							{"type":"bodyweight"}, 
-							{"type":"cardio"}
-						];
-			//object for angular.extend
-			vm.typesObject = {
-				"type":"weighted",
-				"type":"bodyweight",
-				"type":"cardio"
-			};
+			vm.types = [ {"type":"weighted"}, 
+						 {"type":"bodyweight"}, 
+						 {"type":"cardio"}
+					];
 			
 			//get JSON objects from DB
 			getExercises();
@@ -51,7 +44,7 @@
 
 			console.log("vm.types:");
 			console.log(vm.types);
-			console.log("vm.typeObjects");
+			/*console.log("vm.typeObjects");
 			//Not posting correctly or cycling through all properties
 			console.log(vm.typesObject);
 			
@@ -91,17 +84,15 @@
 			function getExercises() {
 				workout.getExercises().then(function(result) {
 					vm.exercises = result;
+
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "weighted"){
 							return angular.extend(result, vm.exercises);
 							console.log("vm.exercises returned from query in controller")
 						}
 					});
-					console.log("vm.types with angular.extend from API call");
-					console.log(vm.types);
 					console.log(vm.exercises);
 					}, function(error) {
 					console.log(error);
@@ -229,6 +220,14 @@
 					console.log(error);
 				});
 			}
+
+			console.log("test vm.types objects for ui-nested");
+			//console.log(vm.types == "bodyweight");
+			console.log(vm.types);
+			/*angular.forEach(vm.types, function(result) {
+				console.log(vm.types.{result});
+			}); */
+
 
 			/*
 			console.log("vm.reps");

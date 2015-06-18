@@ -1,26 +1,64 @@
 
  <div ui-tree="options" class="ng-scope angular-ui-tree">
  	<ol ui-tree-nodes ng-model="vm.types">
- 		<li ng-repeat="type in vm.types" ui-tree-node>
+ 		<li ng-repeat="exerciseType in vm.types" ui-tree-node>
  			<div class="well" ui-tree-handle>
- 					{{type.type}}
+ 					{{exerciseType.type}}
  			</div>
- 			<ol ui-tree-nodes="" ng-model="vm.types.object">
- 				<li ng-repeat="body in vm.types.object" ui-tree-node>
+ 			<!--<ol ui-tree-nodes="" ng-model="vm.exercises">
+ 				<li ng-repeat="workout in vm.exercises" ui-tree-node>
  					<div ui-tree-handle>
- 						{{body.body}}
+ 						{{workout.body}}
  					</div>
  				</li>
- 			</ol> 
+ 			</ol> -->
  		</li>
  	</ol>
  </div>
 
  <div class="container">
  	<div class="row">
- 		<pre>{{vm.types | json}}</pre>
+ 		<h1>vm.exercises array</h1>
  	</div>
  </div>
+
+ <!-- Exercise draggabled table -->
+ <div ui-tree="options" class="ng-scope angular-ui-tree">
+ 	<ol ui-tree-nodes ng-model="vm.exercises">
+ 		<li ng-repeat="body in vm.exercises | unique:'body'" ui-tree-node>
+ 			<div class="well" ui-tree-handle>
+ 					{{body.body}}
+ 			</div>
+ 			<ol ui-tree-nodes="" ng-model="vm.exercises">
+ 				<li ng-repeat="exercise in vm.exercises | unique:'body' | orderBy: 'exercise.exercise'" ui-tree-node>
+ 					<div class="well" ui-tree-handle>
+ 						{{exercise.exercise}}
+ 					</div>
+ 				</li>
+ 			</ol>
+ 		</li>
+ 	</ol>
+ </div>
+
+ <!-- <div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
+      <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop>
+        <li ng-repeat="body in vm.exercises" ui-tree-node>
+          <div ui-tree-handle ng-click="toggle(this)">
+            <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}">Exercises</span></a>
+                {{body.body}}
+          </div>
+         </li>
+        </ol>
+      </div> -->
+
+
+  <div class="container">
+ 	<div class="row">
+ 		<pre>{{vm.exercises | json}}</pre>
+ 	</div>
+ </div>
+
+  
 
 
 

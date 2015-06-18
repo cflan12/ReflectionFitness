@@ -13,7 +13,11 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {method: 'GET', isArray: true}
+				'query': {
+					method: 'GET',
+					//transformResponse: function(data) {},
+					isArray: true 
+				}
 			});
 
 			//query API for exercises and return JSON object with get method
