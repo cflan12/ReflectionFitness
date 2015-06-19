@@ -26,9 +26,9 @@
 			vm.node = [];
 
 			//is an array object collections used for angular.extend
-			vm.types = [ {"type":"weighted"}, 
-						 {"type":"bodyweight"}, 
-						 {"type":"cardio"}
+			vm.types = [ {"type":"Weighted"}, 
+						 {"type":"Bodyweight"}, 
+						 {"type":"Cardio"}
 					];
 			
 			//get JSON objects from DB

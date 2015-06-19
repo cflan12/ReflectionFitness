@@ -5,13 +5,13 @@
  			<div class="well" ui-tree-handle>
  					{{exerciseType.type}}
  			</div>
- 			<!--<ol ui-tree-nodes="" ng-model="vm.exercises">
- 				<li ng-repeat="workout in vm.exercises" ui-tree-node>
- 					<div ui-tree-handle>
- 						{{workout.body}}
+ 			<ol ui-tree-nodes="" ng-model="vm.exercises">
+ 				<li ng-repeat="body in vm.exercises | unique:'body'" ui-tree-node>
+ 					<div class="well" ui-tree-handle>
+ 						{{body.body}}
  					</div>
  				</li>
- 			</ol> -->
+ 			</ol>
  		</li>
  	</ol>
  </div>
@@ -30,9 +30,9 @@
  					{{body.body}}
  			</div>
  			<ol ui-tree-nodes="" ng-model="vm.exercises">
- 				<li ng-repeat="exercise in vm.exercises | unique:'body' | orderBy: 'exercise.exercise'" ui-tree-node>
+ 				<li ng-repeat="exercises in vm.exercises" ui-tree-node>
  					<div class="well" ui-tree-handle>
- 						{{exercise.exercise}}
+ 						{{exercises.exercise}}
  					</div>
  				</li>
  			</ol>

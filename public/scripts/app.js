@@ -81,6 +81,21 @@
 			}) */
 
 		});
+
+		/*
+		//custom filters
+		workoutApp.filter('exercises', function() {
+			//
+			return function(items, vm.exercises) {
+				var filtered = [];
+
+				for( var i = 0; i < items.length; ++i) {
+					//do something
+				}
+				return filtered;
+			};
+		}); 
+		*/
 				
 
 		//function for bootstrap collapsed menu
