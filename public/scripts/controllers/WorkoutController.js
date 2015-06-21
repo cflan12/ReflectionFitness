@@ -158,7 +158,7 @@
 					//add API call to function
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Bodyweight"){
-							result.exerise = angular.copy(vm.exerciseBodyweight);
+							result.exercise = angular.copy(vm.exerciseBodyweight);
 						}
 					}); 
 					console.log(vm.exerciseBodyweight);
