@@ -1,0 +1,17 @@
+<div class="well" ng-click="toggle(this)">
+	<a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+           Weighted
+</div>
+
+
+<div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
+          <!-- Added to the types Node above, filter to correct node -->
+         <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}"> <!-- Body exercises node -->
+            <li ng-repeat="body in vm.exercises | unique: 'body'" ui-tree-node>
+              <div class="well" ui-tree-handle ng-click="toggle(this)">
+                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                    {{body.body}}
+              </div>
+             </li>
+            </ol>
+</div>

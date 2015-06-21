@@ -30,6 +30,8 @@
 						 {"type":"Bodyweight"}, 
 						 {"type":"Cardio"}
 					];
+
+
 			
 			//get JSON objects from DB
 			getExercises();
@@ -42,43 +44,26 @@
 
 			getCardio();
 
+			/*
+			//Angular ui-tree $callbacks
+			$treeOptions = {
+				accept: function(sourceNodeScope, destNodeScope, destIndex) {
+					return true;
+				},
+			}; 
+			 	*/
+
 			console.log("vm.types:");
 			console.log(vm.types);
-			/*console.log("vm.typeObjects");
-			//Not posting correctly or cycling through all properties
-			console.log(vm.typesObject);
 			
-
-			/*
-			console.log("extend type");
-			angular.forEach(vm.types, function(result) {
-				return angular.extend(result, user);
-				console.log(result);
-			}); 
-
-			console.log("vm.types added property");
-			console.log(vm.types);
 
 			/*
 			$scope.$watch(vm.types, function(add) {
 
 				angular.extend(vm.types.type, object);
-			}, true);			
-			
-			/*
-			//All API calls are made to Laravel backend, angular.forEach array for nested tree view
-			angular.forEach(vm.types, function(result) {
-				if(result.type == "weighted")
-					{
-						result.concat(vm.exercises);
-					}else if(result.type == "bodyweight")
-					{	
-						console.log(result);
-					}else {
-						console.log(result);
-					}
-			}); 
-				*/
+			}, true);	
+			*/		
+		
 			
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
@@ -88,9 +73,8 @@
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					angular.forEach(vm.types, function(result) {
-						if(result.type == "weighted"){
-							return angular.extend(result, vm.exercises);
-							console.log("vm.exercises returned from query in controller")
+						if(result.type == "Weighted"){
+							result.exercise = angular.copy(vm.exercises);
 						}
 					});
 					console.log(vm.exercises);
@@ -172,13 +156,11 @@
 					vm.exerciseBodyweight = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-					
 					angular.forEach(vm.types, function(result) {
-						if(result.type == "bodyweight"){
-							return angular.extend(result, vm.exerciseBodyweight);
+						if(result.type == "Bodyweight"){
+							result.exerise = angular.copy(vm.exerciseBodyweight);
 						}
 					}); 
-					
 					console.log(vm.exerciseBodyweight);
 				}, function(error) {
 					console.log(error);
@@ -191,11 +173,11 @@
 					vm.reps = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-					/*angular.forEach(vm.types, function(result) {
-						if(result.type == "weight" || result.type == "bodyweight"){
-							return angular.extend(result, vm.reps);
-						}
-					}); */
+					//array instantiated only on $resource query, not saved as new array
+					/* angular.forEach(vm.types, function(result) {
+						result.reps = angular.copy(vm.reps);
+					});
+					/*vm.types.reps = angular.copy(vm.reps); */
 					console.log(vm.reps);
 				}, function(error) {
 					console.log(error);
@@ -208,32 +190,27 @@
 					vm.exerciseCardio = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-					
 					angular.forEach(vm.types, function(result) {
-						if(result.type == "cardio"){
-							return angular.extend(result, vm.exerciseCardio);
+						if(result.type == "Cardio"){
+							result.exercise = angular.copy(vm.exerciseCardio);
 						}
 					}); 
-					
 					console.log(vm.exerciseCardio);
 				}, function(error) {
 					console.log(error);
 				});
 			}
 
+
+			console.log("array for copy");
+			//empty array because of $Resource object
+			console.log(vm.reps);
+			//copy array to nested array for ui-tree 
+			
+
 			console.log("test vm.types objects for ui-nested");
-			//console.log(vm.types == "bodyweight");
 			console.log(vm.types);
-			/*angular.forEach(vm.types, function(result) {
-				console.log(vm.types.{result});
-			}); */
+			
 
-
-			/*
-			console.log("vm.reps");
-			angular.forEach(vm.reps.data, function(result) {
-				console.log(result);
-			});
-			*/
 		}
 })();

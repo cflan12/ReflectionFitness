@@ -19,7 +19,7 @@ class RepsAPIController extends AppBaseController
 	{
 		$reps = Reps::all();
 
-		return $reps;
+		return $reps->toArray();
 
 		//return Response::json(ResponseManager::makeResult($reps, "Reps retrieved successfully."));
 	}

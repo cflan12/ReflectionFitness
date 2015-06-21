@@ -1,147 +1,76 @@
 
-<!-- <div ui-tree="options" class="ng-scope angular-ui-tree">
- 	<ol ui-tree-nodes ng-model="vm.types">
- 		<li ng-repeat="exerciseType in vm.types" ui-tree-node>
- 			<div class="well" ui-tree-handle>
- 					{{exerciseType.type}}
- 			</div>
- 			<ol ui-tree-nodes="" ng-model="vm.exercises">
- 				<li ng-repeat="body in vm.exercises | unique:'body'" ui-tree-node>
- 					<div class="well" ui-tree-handle>
- 						{{body.body}}
- 					</div>
- 				</li>
- 			</ol>
- 		</li>
- 	</ol>
- </div> -->
+<!--<h1>Script ng-include</h1>
+<script type="text/ng-template" id="'templates/scripts/include_1.html'">
+</script> -->
 
-<h2>Toggle with ui-tree</h2>
+<!--<p>Ng-include</p>
+<div ng-include="'templates/scripts/weighted_ui.html'"></div> -->
+
+
+<h2>Nesting models correctly</h2>
   <div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
-      <ol ui-tree-nodes ng-model="vm.types" data-nodrop>
-        <li ng-repeat="exerciseTypes in vm.types" ui-tree-node>
-          <div class="well" ui-tree-handle ng-click="toggle(this)">
-            <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                {{exerciseTypes.type}}
-          </div>
-         <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}">
+          <!-- Added to the types Node above, filter to correct node -->
+         <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}"> <!-- Body exercises node -->
             <li ng-repeat="body in vm.exercises | unique: 'body'" ui-tree-node>
               <div class="well" ui-tree-handle ng-click="toggle(this)">
                 <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
                     {{body.body}}
               </div>
+			<!-- Added to the body node above, filter exercise to correct node 
+			<ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}">
+            <li ng-repeat="workout in vm.exercises" ui-tree-node>
+              <div class="well" ui-tree-handle ng-click="toggle(this)">
+                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                    {{workout.exercise}}
+              </div>             
+             </li>
+            </ol> -->
+           </li>
+          </ol> 
+    </div>
 
+
+
+ <!-- <h2>Toggle with ui-tree</h2>
+  <div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
+      <ol ui-tree-nodes ng-model="vm.types" data-nodrop> <!-- Exercise type nodes 
+        <li ng-repeat="exerciseTypes in vm.types" ui-tree-node>
+          <div class="well" ui-tree-handle ng-click="toggle(this)">
+            <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                {{exerciseTypes.type}}
+          </div>
+          <!-- Added to the types Node above, filter to correct node 
+         <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}"> <!-- Body exercises node 
+            <li ng-repeat="body in vm.exercises | unique: 'body'" ui-tree-node>
+              <div class="well" ui-tree-handle ng-click="toggle(this)">
+                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                    {{body.body}}
+              </div>
+			<!-- Added to the body node above, filter exercise to correct node
 			<ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}">
             <li ng-repeat="exercises in vm.exercises" ui-tree-node>
               <div class="well" ui-tree-handle ng-click="toggle(this)">
                 <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
                     {{exercises.exercise}}
               </div>              
-             <!-- <div ui-tree-nodes ng-model="stage.cases" ng-class="{hidden: collapsed}">
-                  <div ng-repeat="case in stage.cases" ui-tree-node>
-                  <div ui-tree-handle>
-
-                    <!-- HERE I HAVE TWO LINKS 
-
-                    <a href="/#/admin/cases/{{case._id}}">{{case.name}}</a>                       
-                    <a href="/#/admin/cases/edit/{{case._id}}" class="pull-right btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</a>                 
-                  </div>
-                  </div>
-                </div> -->
-                </li>
-                </ol>
+             <!-- Add reps array
+				<a href="/#/admin/cases/{{case._id}}">{{case.name}}</a>                       
+                <a href="/#/admin/cases/edit/{{case._id}}" class="pull-right btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+              </li>
+             </ol>
             </li>
           </ol> 
         </li>
       </ol>
-    </div>
+    </div> -->
+
 
  <div class="container">
  	<div class="row">
- 		<h1>ui-tree with new nodes</h1>
+ 		<pre>{{vm.types | json}}</pre>
  	</div>
  </div>
 
- <div ui-tree="options" class="ng-scope angular-ui-tree">
- 	<ol ui-tree-nodes ng-model="vm.types"> <!-- Node 1 -->
- 		<li ng-repeat="exerciseType in vm.types" ui-tree-node> <!-- Node 1 -->
- 			<div class="well" ui-tree-handle> <!-- Node 1.1 -->
- 					{{exerciseType.type}}
- 			</div>
- 		</li>
-	<ol ng-model="vm.exercises"> <!-- No ui-tree-nodes -->
- 		<li ng-repeat="body in vm.exercises | unique:'body'" ui-tree-node>
- 			<div class="well" ui-tree-handle>
- 					{{body.body}}
- 			</div>
- 		</li>
 
- 			<ol ng-model="vm.exercises">
- 			<li ng-repeat="exercises in vm.exercises" ui-tree-node>
- 				<div class="well" ui-tree-handle>
- 					{{exercises.exercise}}
- 				</div>
- 			</li>
- 			</ol>
- 	</ol>
- 	</ol>
- </div>
-
- <!-- Exercise draggabled table -->
-<!-- <div ui-tree="options" class="ng-scope angular-ui-tree">
- 	<ol ui-tree-nodes ng-model="vm.exercises">
- 		<li ng-repeat="body in vm.exercises | unique:'body'" ui-tree-node>
- 			<div class="well" ui-tree-handle>
- 					{{body.body}}
- 			</div>
- 			<ol ui-tree-nodes="" ng-model="vm.exercises">
- 				<li ng-repeat="exercises in vm.exercises" ui-tree-node>
- 					<div class="well" ui-tree-handle>
- 						{{exercises.exercise}}
- 					</div>
- 				</li>
- 			</ol>
- 		</li>
- 	</ol>
- </div>
-
- <!-- <div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
-      <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop>
-        <li ng-repeat="body in vm.exercises" ui-tree-node>
-          <div ui-tree-handle ng-click="toggle(this)">
-            <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}">Exercises</span></a>
-                {{body.body}}
-          </div>
-         </li>
-        </ol>
-      </div> -->
-
-
-   <!-- <div class="container">
- 	<div class="row">
- 		<pre>{{vm.exercises | json}}</pre>
- 	</div>
- </div>
-
-  
-
-
-
-
- 	<!--
-  <div ui-tree-handle>
-    {{node.title}}
-  </div>
-  <ol ui-tree-nodes="" ng-model="node.nodes">
-    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
-    </li>
-  </ol>
-</script>
-<div ui-tree>
-  <ol ui-tree-nodes="" ng-model="data" id="tree-root">
-    <li ng-repeat="node in data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
-  </ol>
-</div>
- -->
 
 
