@@ -18,16 +18,18 @@
 
 		Array.prototype.functionName = function() {
     		//sorting Resource object to array
-    		console.log("Array prototype", this, this.length);
+    		//console.log("Array prototype", this, this.length);
     		//Modify Resource object with prototype for specific properties
+    			var i = 0;
     			this.forEach(function(item) {
-        			console.log(item);
-        			tmp.push(item);
-			
+    				tmp.push({ body: item.body, exercise: item.exercise});
+    				//tmp.push(item.body, item.exercise);
+
+    				
 				});
 			
-					var length = tmp.length;
-					console.log(tmp);
+					//var length = tmp.length;
+					//console.log(tmp);
 					console.log(length);
 					return tmp;
 					 

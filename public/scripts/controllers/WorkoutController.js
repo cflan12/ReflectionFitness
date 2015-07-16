@@ -73,6 +73,7 @@
 
 					items = result.functionName();
 
+					console.log("items");
 					console.log(items);
 
 					//result.list();
@@ -84,7 +85,7 @@
 					angular.forEach(vm.types, function(array) {
 						if(array.type == "Weighted") {
 							//save without iterating over $resource array
-							array.copies = angular.copy(vm.exercises);
+							//array.copies = angular.copy(vm.exercises);
 							array.extend = angular.extend(vm.exercises);
 
 							array.body = angular.copy(vm.exercises);
