@@ -14,35 +14,22 @@
 							'ui.tree'
 						]);
 
-		var tmp = [];
-
 		Array.prototype.functionName = function() {
+
+			//clear the array in each call stack from API Resource call
+			var tmp = [];
     		//sorting Resource object to array
     		//console.log("Array prototype", this, this.length);
     		//Modify Resource object with prototype for specific properties
-    			var i = 0;
     			this.forEach(function(item) {
-    				tmp.push({ body: item.body, exercise: item.exercise});
-    				//tmp.push(item.body, item.exercise);
-
-    				
+    				tmp.push({body: item.body, exercise: item.exercise});
+    				//tmp.push(item.body, item.exercise);	
 				});
-			
 					//var length = tmp.length;
 					//console.log(tmp);
-					console.log(length);
+					//console.log(length);
 					return tmp;
-					 
-		}
-
-		/*
-		Object.prototype.list = function() {
-
-			this.forEach(function(item) {
-				console.log(item);
-			});
-		}	
-			*/			
+			}			
 		
 		//configure routes with ngRoute
 		workoutApp.config(function($routeProvider) {

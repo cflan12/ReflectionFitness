@@ -76,11 +76,6 @@
 					console.log("items");
 					console.log(items);
 
-					//result.list();
-
-					//Resource array prototype 
-					//array.proto = angular.copy(result.functionName());
-
 					//object array copied from $resource object
 					angular.forEach(vm.types, function(array) {
 						if(array.type == "Weighted") {
@@ -180,9 +175,18 @@
 					vm.exerciseBodyweight = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+
+					var items = [];
+
+					items = result.functionName();
+
+					console.log("items body");
+					console.log(items);
+
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Bodyweight"){
 							result.resource = angular.copy(vm.exerciseBodyweight);
+							result.item = angular.copy(items);
 						}
 					}); 
 					console.log(vm.exerciseBodyweight);
@@ -214,9 +218,18 @@
 					vm.exerciseCardio = result;
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+
+					var items = [];
+
+					items = result.functionName();
+
+					console.log("items body");
+					console.log(items);
+
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Cardio"){
 							result.resource = angular.copy(vm.exerciseCardio);
+							result.item = angular.copy(items);
 						}
 					}); 
 					console.log(vm.exerciseCardio);
