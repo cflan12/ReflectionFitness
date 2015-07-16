@@ -15,9 +15,10 @@
 				},
 				'query': {
 					method: 'GET',
-					isArray: true 
+					isArray: true,
 				}
 			});
+
 
 			//query API for exercises and return JSON object with get method
 			function getExercises() {

@@ -13,6 +13,34 @@
 							'ui.router',
 							'ui.tree'
 						]);
+
+		var tmp = [];
+
+		Array.prototype.functionName = function() {
+    		//sorting Resource object to array
+    		console.log("Array prototype", this, this.length);
+    		//Modify Resource object with prototype for specific properties
+    			this.forEach(function(item) {
+        			console.log(item);
+        			tmp.push(item);
+			
+				});
+			
+					var length = tmp.length;
+					console.log(tmp);
+					console.log(length);
+					return tmp;
+					 
+		}
+
+		/*
+		Object.prototype.list = function() {
+
+			this.forEach(function(item) {
+				console.log(item);
+			});
+		}	
+			*/			
 		
 		//configure routes with ngRoute
 		workoutApp.config(function($routeProvider) {

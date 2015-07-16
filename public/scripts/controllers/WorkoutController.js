@@ -31,9 +31,7 @@
 						 {"type":"Cardio"}
 					];
 
-
-			
-			//get JSON objects from DB
+			//get JSON objects from DB as $resource
 			getExercises();
 
 			getUsers();
@@ -68,15 +66,40 @@
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
 				workout.getExercises().then(function(result) {
+					//$resource object returned to controller 
 					vm.exercises = result;
 
-					//$resouce is returned directly rendered to the view without storing array,
-					//add API call to function
-					angular.forEach(vm.types, function(result) {
-						if(result.type == "Weighted"){
-							result.exercise = angular.copy(vm.exercises);
+					var items = [];
+
+					items = result.functionName();
+
+					console.log(items);
+
+					//result.list();
+
+					//Resource array prototype 
+					//array.proto = angular.copy(result.functionName());
+
+					//object array copied from $resource object
+					angular.forEach(vm.types, function(array) {
+						if(array.type == "Weighted") {
+							//save without iterating over $resource array
+							array.copies = angular.copy(vm.exercises);
+							array.extend = angular.extend(vm.exercises);
+
+							array.body = angular.copy(vm.exercises);
+							array.item = angular.copy(items);
+
 						}
-					});
+						//Not iterating over Resource array
+						/*
+						angular.forEach(vm.exercises, function(exercise) {
+							var thisExercise = exercise.body;
+							console.log(thisExercise);
+							array.body = angular.copy(thisExercise);
+						}); */
+					}); 
+						
 					console.log(vm.exercises);
 					}, function(error) {
 					console.log(error);
@@ -158,7 +181,7 @@
 					//add API call to function
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Bodyweight"){
-							result.exercise = angular.copy(vm.exerciseBodyweight);
+							result.resource = angular.copy(vm.exerciseBodyweight);
 						}
 					}); 
 					console.log(vm.exerciseBodyweight);
@@ -192,7 +215,7 @@
 					//add API call to function
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Cardio"){
-							result.exercise = angular.copy(vm.exerciseCardio);
+							result.resource = angular.copy(vm.exerciseCardio);
 						}
 					}); 
 					console.log(vm.exerciseCardio);
@@ -201,16 +224,7 @@
 				});
 			}
 
-
-			console.log("array for copy");
-			//empty array because of $Resource object
-			console.log(vm.reps);
-			//copy array to nested array for ui-tree 
-			
-
 			console.log("test vm.types objects for ui-nested");
-			console.log(vm.types);
-			
-
+			console.log(vm.types)
 		}
 })();
