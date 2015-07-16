@@ -202,10 +202,17 @@
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					//array instantiated only on $resource query, not saved as new array
-					/* angular.forEach(vm.types, function(result) {
-						result.reps = angular.copy(vm.reps);
+					var items = [];
+
+					items = result.listReps();
+
+					console.log("items body");
+					console.log(items);
+
+					angular.forEach(vm.types, function(result) {
+						result.reps = angular.copy(items);
 					});
-					/*vm.types.reps = angular.copy(vm.reps); */
+					
 					console.log(vm.reps);
 				}, function(error) {
 					console.log(error);
@@ -227,7 +234,7 @@
 					console.log(items);
 
 					angular.forEach(vm.types, function(result) {
-						if(result.type == "Cardio"){
+						if(result.type == "Cardio") {
 							result.resource = angular.copy(vm.exerciseCardio);
 							result.item = angular.copy(items);
 						}

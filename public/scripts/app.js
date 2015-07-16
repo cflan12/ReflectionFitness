@@ -25,11 +25,18 @@
     				tmp.push({body: item.body, exercise: item.exercise});
     				//tmp.push(item.body, item.exercise);	
 				});
-					//var length = tmp.length;
-					//console.log(tmp);
-					//console.log(length);
 					return tmp;
-			}			
+			}
+
+		Array.prototype.listReps = function() {
+
+			var tmp = [];
+
+			this.forEach(function(item) {
+				tmp.push({range: item.range, rest_time: item.rest_time, time_frame: item.time_frame});
+			});
+				return tmp;
+		}			
 		
 		//configure routes with ngRoute
 		workoutApp.config(function($routeProvider) {
