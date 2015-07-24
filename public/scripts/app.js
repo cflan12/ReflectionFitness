@@ -14,15 +14,32 @@
 							'ui.tree'
 						]);
 
+		//Constructor for prototype
+		/*
+		function List() {
+			this.title = "list";
+		} */
+
+		//Constructor points back to original function we defined
+		//List.prototype.constructor == List;
+
 		Array.prototype.functionName = function() {
 
 			//clear the array in each call stack from API Resource call
 			var tmp = [];
+
     		//sorting Resource object to array
     		//console.log("Array prototype", this, this.length);
     		//Modify Resource object with prototype for specific properties
     			this.forEach(function(item) {
-    				tmp.push({body: item.body, exercise: item.exercise});
+
+					//constructor for prototype properties
+
+    				//specific for the object
+    				var body = item.body
+    				var exercise = item.exercise;
+
+    				tmp.push({"body": body, "exercise": exercise});
     				//tmp.push(item.body, item.exercise);	
 				});
 					return tmp;

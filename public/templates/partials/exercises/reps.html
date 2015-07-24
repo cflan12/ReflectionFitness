@@ -17,18 +17,18 @@
                     {{exercise.type}}
               </div>
 			<!--Body node, filtered for unique body categories -->
-			<ol ui-tree-nodes ng-model="exercise.exercise" data-nodrop ng-class="{hidden: collapsed}">
-            <li ng-repeat="type in exercise.exercise | unique: 'body'" ui-tree-node>
+			<ol ui-tree-nodes ng-model="exercise.item" data-nodrop ng-class="{hidden: collapsed}">
+            <li ng-repeat="type in exercise.item | unique: 'body'" ui-tree-node>
               <div class="well" ui-tree-handle ng-click="toggle(this)">
                 <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
                     {{type.body}}
               </div> 
 				<!-- Exercise node, filter for exercise and exercise == body -->
-				<ol ui-tree-nodes ng-model="exercise.exercise" data-nodrop ng-class="{hidden: collapsed}">
-            <li ng-repeat="type in exercise.exercise | filter: 'type.exercise == type.body'" ui-tree-node>
+				<ol ui-tree-nodes ng-model="exercise.item" data-nodrop ng-class="{hidden: collapsed}">
+            <li ng-repeat="exercise in exercise.item" ui-tree-node>
               <div class="well" ui-tree-handle ng-click="toggle(this)">
                 <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{type.exercise}}
+                    {{exercise.exercise}}
               </div>
               </li>
               </ol>             
@@ -73,12 +73,13 @@
       </ol>
     </div> -->
 
+	
 
- <!-- <div class="container">
+ <div class="container">
  	<div class="row">
  		<pre>{{vm.types | json}}</pre>
  	</div>
- </div> -->
+ </div> 
 
  <div class="container">
  	<div class="row">

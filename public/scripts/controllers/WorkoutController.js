@@ -31,7 +31,7 @@
 						 {"type":"Cardio"}
 					];
 
-			//get JSON objects from DB as $resource
+			//get JSON objects from API as $resource
 			getExercises();
 
 			getUsers();
@@ -53,6 +53,13 @@
 
 			console.log("vm.types:");
 			console.log(vm.types);
+
+			//var list = new List();
+			//console.log(list);
+
+			var list = new Object();
+			console.log("new object with prototype");
+			console.log(list);
 			
 
 			/*
@@ -81,21 +88,20 @@
 						if(array.type == "Weighted") {
 							//save without iterating over $resource array
 							//array.copies = angular.copy(vm.exercises);
-							array.extend = angular.extend(vm.exercises);
+							//array.extend = angular.extend(vm.exercises);
 
-							array.body = angular.copy(vm.exercises);
+							//array.body = angular.copy(vm.exercises);
 							array.item = angular.copy(items);
-
 						}
-						//Not iterating over Resource array
-						/*
-						angular.forEach(vm.exercises, function(exercise) {
-							var thisExercise = exercise.body;
-							console.log(thisExercise);
-							array.body = angular.copy(thisExercise);
-						}); */
 					}); 
-						
+						console.log("properties");
+						console.log(vm.types);
+						console.log(vm.types.item);
+						//console.log(vm.types.item.body);
+
+						//Check hasOwnProperty()
+						console.log(vm.types.hasOwnProperty('type'));
+
 					console.log(vm.exercises);
 					}, function(error) {
 					console.log(error);
@@ -185,7 +191,7 @@
 
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Bodyweight"){
-							result.resource = angular.copy(vm.exerciseBodyweight);
+							//result.resource = angular.copy(vm.exerciseBodyweight);
 							result.item = angular.copy(items);
 						}
 					}); 
@@ -212,7 +218,7 @@
 					angular.forEach(vm.types, function(result) {
 						result.reps = angular.copy(items);
 					});
-					
+
 					console.log(vm.reps);
 				}, function(error) {
 					console.log(error);
