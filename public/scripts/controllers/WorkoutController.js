@@ -68,7 +68,7 @@
 				angular.extend(vm.types.type, object);
 			}, true);	
 			*/		
-		
+			
 			
 			//return JSON object from exercise API, array is result.data
 			function getExercises() {
