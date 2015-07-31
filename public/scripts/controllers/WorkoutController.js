@@ -157,7 +157,9 @@
 
 			vm.selectExercise = function(data, item) {
 
-				//alert('Select Reps Before Adding to Program');
+				if(item == false) {
+					alert('Select Reps Before Adding to Program');
+				}
 				//data is an object, not any array for the array prototype
 				//var items = [];
 
@@ -165,13 +167,11 @@
 
 				//save objects to array as $resource objects 
 				//selected from ng-click
-				vm.select.push(data);
-				console.log(vm.select);
+				var mergedObject = angular.extend(data, item);
+
+				vm.select.push(mergedObject);
+			
 				console.log(item)
-			}
-
-			vm.selectReps = function(data) {
-
 			}
 
 			//log New Workout

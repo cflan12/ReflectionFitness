@@ -3,6 +3,21 @@
 
 			<btn class="btn btn-primary text-center" ng-click="buildWorkout = true">Build Workout Plan</btn>
 
+			<div class="container">
+				<div class="row">
+					<h1>Test checkboxes</h1>
+					<pre>
+						Type: {{vm.workoutType}} Name: {{vm.programName}} Day: {{vm.selectDay.day}}
+						Exercises: {{vm.select}}
+						<ul>
+							<li ng-repeat="(key, value) in vm.select">
+								{{key}}:{{value}}
+							</li>
+						</ul>
+					</pre>
+				</div>
+			</div>
+
 			<div class="container" ng-show="buildWorkout === true">
 				<div class="row">
 					<h1>Workout Program</h1>
@@ -40,19 +55,6 @@
 										<select name="reps"	class="form-control" ng-model="vm.selectReps" ng-options="reps.range for reps in vm.reps">
 											<option value="">--Select Reps--</option>
 										</select>
-										<!--<div class="btn-group" dropdown>
-											<button id="single-button" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled" ng-click="displayReps = true">
-												Select Rep Range
-											</button>
-											<ul class="dropdown-menu" role="menu" aria-labelledby="single-button" ng-show="displayReps === true">
-												<a href ng-click="displayReps = false">
-													<li role="menuitem" ng-repeat="reps in vm.reps">{{reps.range}} Reps</li> 
-												</a>
-												<select name="reps"	class="form-control" ng-model="vm.selectReps" ng-options="reps.range for reps in vm.reps">
-												<option value="">--Select Reps--</option>
-												</select>
-											</ul>
-										</div> -->
 
 									</td>
 								</tr>
@@ -65,15 +67,6 @@
 							<btn class="btn btn-danger" ng-click="buildWorkout = false">Close</btn>
 						</form>
 						
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="row">
-					<h1>Test checkboxes</h1>
-					<pre>
-						{{vm.workoutType}} {{vm.programName}}
-					</pre>
 				</div>
 			</div>
 
