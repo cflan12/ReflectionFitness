@@ -157,6 +157,7 @@
 
 			vm.selectExercise = function(data) {
 
+				alert('Select Reps Before Adding to Program');
 				//data is an object, not any array for the array prototype
 				//var items = [];
 
@@ -166,6 +167,10 @@
 				//selected from ng-click
 				vm.select.push(data);
 				console.log(vm.select);
+			}
+
+			vm.selectReps = function(data) {
+
 			}
 
 			//log New Workout
