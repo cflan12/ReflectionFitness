@@ -23,24 +23,33 @@
 
 			vm.exerciseCardio = [];
 
-			vm.node = [];
-
 			//is an array object collections used for angular.extend
 			vm.types = [ {"type":"Weighted"}, 
 						 {"type":"Bodyweight"}, 
-						 {"type":"Cardio"}
-					];
+						 {"type":"Cardio"}];
 
-			//get JSON objects from API as $resource
+			vm.calendar = [ {"day":"Monday"},
+							{"day":"Tuesday"},
+							{"day":"Wednesday"},
+							{"day":"Thursday"},
+							{"day":"Friday"},
+							{"day":"Saturday"},
+							{"day":"Sunday"} ];
+
+			//Selected Exercises
+			vm.select = [];
+
+			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
 
 			getUsers();
 
 			getBodyweight();
 
-			getReps();
-
 			getCardio();
+
+			//last in call stack for nested objects in ui-tree modification
+			getReps();
 
 			/*
 			//Angular ui-tree $callbacks
@@ -57,9 +66,9 @@
 			//var list = new List();
 			//console.log(list);
 
-			var list = new Object();
-			console.log("new object with prototype");
-			console.log(list);
+			//var list = new Object();
+			//console.log("new object with prototype");
+			//console.log(list);
 			
 
 			/*
@@ -80,27 +89,18 @@
 
 					items = result.functionName();
 
-					console.log("items");
-					console.log(items);
-
 					//object array copied from $resource object
 					angular.forEach(vm.types, function(array) {
 						if(array.type == "Weighted") {
-							//save without iterating over $resource array
-							//array.copies = angular.copy(vm.exercises);
-							//array.extend = angular.extend(vm.exercises);
-
-							//array.body = angular.copy(vm.exercises);
 							array.item = angular.copy(items);
 						}
 					}); 
-						console.log("properties");
-						console.log(vm.types);
-						console.log(vm.types.item);
-						//console.log(vm.types.item.body);
+						//console.log("properties");
+						//console.log(vm.types);
+						//console.log(vm.types.item);
 
 						//Check hasOwnProperty()
-						console.log(vm.types.hasOwnProperty('type'));
+						//console.log(vm.types.hasOwnProperty('type'));
 
 					console.log(vm.exercises);
 					}, function(error) {
@@ -155,43 +155,51 @@
 				});
 			}
 
-			vm.drag = function() {
+			vm.selectExercise = function(data) {
 
-				console.log("vm.node");
-				console.log(vm.node);
+				//data is an object, not any array for the array prototype
+				//var items = [];
+
+				//items = data.functionName();
+
+				//save objects to array as $resource objects 
+				//selected from ng-click
+				vm.select.push(data);
+				console.log(vm.select);
 			}
 
-			/*
 			//log New Workout
+			//save workout based on user subscription plan
 			vm.logWorkout = function() {
+
+				console.log("clicked saved workout");
 
 				workout.saveWorkout({
 					"name":vm.workoutType,
 					"identifier":vm.programName,
 					"length":vm.programVariation,
-					"users":vm.paid
-	
-				})
+					"amount":vm.programLength,
+					"day":vm.selectDay,
+					"exercises":vm.select
+				});
+
+				console.log("vm.select");
+				console.log(vm.select);
 			}
-			 */
 
 			//return JSON object from Bodyweight API and convert to array
 			function getBodyweight() {
 				bodyweight.getBodyweight().then(function(result) {
 					vm.exerciseBodyweight = result;
+
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-
 					var items = [];
 
 					items = result.functionName();
 
-					console.log("items body");
-					console.log(items);
-
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Bodyweight"){
-							//result.resource = angular.copy(vm.exerciseBodyweight);
 							result.item = angular.copy(items);
 						}
 					}); 
@@ -201,47 +209,19 @@
 				});
 			}
 
-			//return JSON object from Reps API and convert to array
-			function getReps() {
-				rep.getReps().then(function(result) {
-					vm.reps = result;
-					//$resouce is returned directly rendered to the view without storing array,
-					//add API call to function
-					//array instantiated only on $resource query, not saved as new array
-					var items = [];
-
-					items = result.listReps();
-
-					console.log("items body");
-					console.log(items);
-
-					angular.forEach(vm.types, function(result) {
-						result.reps = angular.copy(items);
-					});
-
-					console.log(vm.reps);
-				}, function(error) {
-					console.log(error);
-				});
-			}
-
 			//return JSON object from Cardios API and convert to array
 			function getCardio() {
 				cardio.getCardio().then(function(result) {
 					vm.exerciseCardio = result;
+
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
-
 					var items = [];
 
 					items = result.functionName();
 
-					console.log("items body");
-					console.log(items);
-
 					angular.forEach(vm.types, function(result) {
 						if(result.type == "Cardio") {
-							result.resource = angular.copy(vm.exerciseCardio);
 							result.item = angular.copy(items);
 						}
 					}); 
@@ -251,7 +231,29 @@
 				});
 			}
 
-			console.log("test vm.types objects for ui-nested");
-			console.log(vm.types)
+			//return JSON object from Reps API using async promise
+			//Should be last in the callstack due to nested vm.types 
+			//array for the ui-tree
+			function getReps() {
+				rep.getReps().then(function(result) {
+					//return result after promise completed
+					vm.reps = result;
+					//$resouce is returned directly rendered to the view without storing array,
+					//add API call to function
+					//array instantiated only on $resource query, not saved as new array
+					var items = [];
+
+					items = result.listReps();
+					
+					/*
+					angular.forEach(vm.types.item, function(result) {
+						result.reps = angular.copy(items);
+					}); */
+					console.log(vm.reps);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 		}
 })();

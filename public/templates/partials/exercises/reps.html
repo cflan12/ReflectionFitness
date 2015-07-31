@@ -1,10 +1,5 @@
 
-<!--<h1>Script ng-include</h1>
-<script type="text/ng-template" id="'templates/scripts/include_1.html'">
-</script> -->
 
-<!--<p>Ng-include</p>
-<div ng-include="'templates/scripts/weighted_ui.html'"></div> -->
 
 
 <h2>Nesting models correctly</h2>
@@ -16,6 +11,7 @@
                 <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
                     {{exercise.type}}
               </div>
+
 			<!--Body node, filtered for unique body categories -->
 			<ol ui-tree-nodes ng-model="exercise.item" data-nodrop ng-class="{hidden: collapsed}">
             <li ng-repeat="type in exercise.item | unique: 'body'" ui-tree-node>
@@ -25,68 +21,51 @@
               </div> 
 				
 				<ol ui-tree-nodes ng-model="exercise.item" data-nodrop ng-class="{hidden: collapsed}">
-			<!-- filter based on previous type.body node -->
-            <li ng-repeat="exercise in exercise.item | filter: { body: type.body }" ui-tree-node>
-              <div class="well" ui-tree-handle ng-click="toggle(this)">
-                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{exercise.exercise}}
-              </div>
+				<!-- filter based on previous type.body node -->
+            	<li ng-repeat="exercise in exercise.item | filter: { body: type.body }" ui-tree-node>
+              		<div class="well" ui-tree-handle ng-click="toggle(this)">
+                		<a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                    		{{exercise.exercise}}
+              		</div>
+
+              		<!--Select reps 
+					<ol ui-tree-nodes ng-model="vm.types" data-nodrop ng-class="{hidden: collapsed}">
+					Needs to be filtered by nestd array in vm.types object
+            		<li ng-repeat="reps in vm.types" ui-tree-node>
+              			<div class="well" ui-tree-handle ng-click="toggle(this)">
+                			<a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                    		{{reps.range}}
+              			</div>
+
+
+
               </li>
-              </ol>             
+              </ol>  -->           
              </li>
             </ol> 
            </li>
-          </ol> 
+          </ol>
+         </li>
+        </ol>
+
+
+  	<!-- ui-tree -->
     </div>
 
 
 
- <!-- <h2>Toggle with ui-tree</h2>
-  <div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
-      <ol ui-tree-nodes ng-model="vm.types" data-nodrop> <!-- Exercise type nodes 
-        <li ng-repeat="exerciseTypes in vm.types" ui-tree-node>
-          <div class="well" ui-tree-handle ng-click="toggle(this)">
-            <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                {{exerciseTypes.type}}
-          </div>
-          <!-- Added to the types Node above, filter to correct node 
-         <ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}"> <!-- Body exercises node 
-            <li ng-repeat="body in vm.exercises | unique: 'body'" ui-tree-node>
-              <div class="well" ui-tree-handle ng-click="toggle(this)">
-                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{body.body}}
-              </div>
-			<!-- Added to the body node above, filter exercise to correct node
-			<ol ui-tree-nodes ng-model="vm.exercises" data-nodrop ng-class="{hidden: collapsed}">
-            <li ng-repeat="exercises in vm.exercises" ui-tree-node>
-              <div class="well" ui-tree-handle ng-click="toggle(this)">
-                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{exercises.exercise}}
-              </div>              
-             <!-- Add reps array
-				<a href="/#/admin/cases/{{case._id}}">{{case.name}}</a>                       
-                <a href="/#/admin/cases/edit/{{case._id}}" class="pull-right btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-              </li>
-             </ol>
-            </li>
-          </ol> 
-        </li>
-      </ol>
-    </div> -->
-
 	
-
- <div class="container">
+<!-- <div class="container">
  	<div class="row">
  		<pre>{{vm.types | json}}</pre>
  	</div>
- </div> 
+ </div> -->
 
- <div class="container">
+ <!-- <div class="container">
  	<div class="row">
  		<pre>{{vm.exercises | json}}</pre>
  	</div>
- </div>
+ </div> -->
 
 
 

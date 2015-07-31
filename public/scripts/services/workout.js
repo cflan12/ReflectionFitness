@@ -29,8 +29,13 @@
 				});
 			}
 
+			function saveWorkout(data) {
+				console.log(data);
+			}
+
 			return {
-				getExercises: getExercises
+				getExercises: getExercises,
+				saveWorkout: saveWorkout
 			}
 		}
 })();

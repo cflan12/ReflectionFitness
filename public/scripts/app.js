@@ -23,33 +23,10 @@
 		//Constructor points back to original function we defined
 		//List.prototype.constructor == List;
 
-		workoutApp.filter('exerciseFilter', function() {
-			return function(items) {
-				var filtered = [];
-				//sort the collection on the group property 
-				//to split the collection
-				sortOn(items, items.body);
-
-				//determine which group we are currenty in
-				var groupValue = "_INVALID_GROUP_VALUE";
-
-				//iterate oer the array, add each property to the
-				//current group - a new group will be created
-				//each time we come across a new attribute value
-				for(var i = 0; i < items.length; ++i) 
-				{
-					var item = items[i];
-				}
-
-			}
-		})
-
 		Array.prototype.functionName = function() {
 
 			//clear the array in each call stack from API Resource call
 			var tmp = [];
-
-			var tmpBody = [];
 
     		//sorting Resource object to array
     		//console.log("Array prototype", this, this.length);
@@ -61,26 +38,11 @@
     				//specific for the object
     				var body = item.body
     				var exercise = item.exercise;
-    				/*
-    				//filter body object
-    				tmpBody.push({"body": body});
-
-    				//foreach item in tmpBody
-    				angular.forEach(tmpBody, funtion(body) {
-    					if (body.body == item.body)
-    					{
-    						//push to array, push for reps and exercises
-    					}
-    				}) 
-					*/
+    				
     				tmp.push({"body": body, "exercise": exercise});
     				//tmp.push(item.body, item.exercise);	
 				});
-    				console.log("tmpBody");
-    				console.log(tmpBody);
-
 					return tmp;
-
 			}
 
 		Array.prototype.listReps = function() {
