@@ -31,7 +31,7 @@
 							<tbody>
 								<tr ng-repeat="weighted in vm.exercises">
 									<td>
-										<input class="form-control" name="selectExercise" type="checkbox" ng-click="vm.selectExercise(weighted)">
+										<input class="form-control" name="selectExercise" type="checkbox" ng-click="vm.selectExercise(weighted, vm.selectReps)">
 									</td>
 									<td>{{weighted.body}}</td>
 									<td>{{weighted.exercise}}</td>

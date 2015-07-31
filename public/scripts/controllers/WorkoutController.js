@@ -155,9 +155,9 @@
 				});
 			}
 
-			vm.selectExercise = function(data) {
+			vm.selectExercise = function(data, item) {
 
-				alert('Select Reps Before Adding to Program');
+				//alert('Select Reps Before Adding to Program');
 				//data is an object, not any array for the array prototype
 				//var items = [];
 
@@ -167,6 +167,7 @@
 				//selected from ng-click
 				vm.select.push(data);
 				console.log(vm.select);
+				console.log(item)
 			}
 
 			vm.selectReps = function(data) {
