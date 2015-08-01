@@ -155,7 +155,7 @@
 				});
 			}
 
-			vm.selectExercise = function(data, item) {
+			vm.selectExercise = function(data, item, date) {
 
 				if(item == false) {
 					alert('Select Reps Before Adding to Program');
@@ -167,12 +167,13 @@
 
 				//save objects to array as $resource objects 
 				//selected from ng-click
-				var mergedObject = angular.extend(data, item);
+				var mergedObject = angular.extend(data, item, date);
 
 				vm.select.push(mergedObject);
 			
 				console.log(item)
 			}
+
 
 			//log New Workout
 			//save workout based on user subscription plan

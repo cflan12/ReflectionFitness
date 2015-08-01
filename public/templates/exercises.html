@@ -5,13 +5,37 @@
 
 			<div class="container">
 				<div class="row">
+					
+				<table class="table table-hover table-bordered">
+							<thead>
+								<h1 class="text-center">{{vm.workoutType}}  {{vm.programName}}</h1>
+									<tr>
+										<th>Day</th>
+										<th>Exercises</th>
+										<th>Reps</th>
+									</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="(key, value) in vm.select">
+									<td>{{value.day}}</td>
+									<td>{{value.exercise}}</td>
+									<td>{{value.range}}</td>
+								</tr>
+							</tbody>
+							</table>
+
+
+
+
+
+
 					<h1>Test checkboxes</h1>
 					<pre>
 						Type: {{vm.workoutType}} Name: {{vm.programName}} Day: {{vm.selectDay.day}}
 						Exercises: {{vm.select}}
 						<ul>
 							<li ng-repeat="(key, value) in vm.select">
-								{{key}}:{{value}}
+								{{exercise}}:{{value}}
 							</li>
 						</ul>
 					</pre>
@@ -46,7 +70,7 @@
 							<tbody>
 								<tr ng-repeat="weighted in vm.exercises">
 									<td>
-										<input class="form-control" name="selectExercise" type="checkbox" ng-click="vm.selectExercise(weighted, vm.selectReps)">
+										<input class="form-control" name="selectExercise" type="checkbox" ng-click="vm.selectExercise(weighted, vm.selectReps, vm.selectDay)">
 									</td>
 									<td>{{weighted.body}}</td>
 									<td>{{weighted.exercise}}</td>
