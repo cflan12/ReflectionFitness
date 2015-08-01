@@ -2,70 +2,30 @@
 
 
 
-<h2>Nesting models correctly</h2>
-  <div ui-tree="treeOptions" drag-delay="1000" id="tree-root">
-          <!-- Added to the types Node above, filter to correct node -->
-         <ol ui-tree-nodes ng-model="vm.types" data-nodrop ng-class="{hidden: collapsed}"> <!-- Body exercises node -->
-            <li ng-repeat="exercise in vm.types" ui-tree-node>
-              <div class="well" ui-tree-handle ng-click="toggle(this)">
-                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{exercise.type}}
-              </div>
-
-			<!--Body node, filtered for unique body categories -->
-			<ol ui-tree-nodes ng-model="exercise.item" data-nodrop ng-class="{hidden: collapsed}">
-            <li ng-repeat="type in exercise.item | unique: 'body'" ui-tree-node>
-              <div class="well" ui-tree-handle ng-click="toggle(this)">
-                <a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    {{type.body}}
-              </div> 
-				
-				<ol ui-tree-nodes ng-model="exercise.item" data-nodrop ng-class="{hidden: collapsed}">
-				<!-- filter based on previous type.body node -->
-            	<li ng-repeat="exercise in exercise.item | filter: { body: type.body }" ui-tree-node>
-              		<div class="well" ui-tree-handle ng-click="toggle(this)">
-                		<a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    		{{exercise.exercise}}
-              		</div>
-
-              		<!--Select reps 
-					<ol ui-tree-nodes ng-model="vm.types" data-nodrop ng-class="{hidden: collapsed}">
-					Needs to be filtered by nestd array in vm.types object
-            		<li ng-repeat="reps in vm.types" ui-tree-node>
-              			<div class="well" ui-tree-handle ng-click="toggle(this)">
-                			<a class="btn btn-xs"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-                    		{{reps.range}}
-              			</div>
+<!--<div class="table-responsive"> -->
+							<div>
+							<table class="table table-hover table-bordered">
+							<thead>
+								<h1 class="text-center">Reps</h1>
+									<tr>
+										<th>Rep Range</th>
+										<th>Time Frame</th>
+										<th>Rest Time</th>
+									</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="reps in vm.reps">
+									<td>{{reps.range}}</td>
+									<td>{{reps.time_frame}}</td>
+									<td>{{reps.rest_time}}</td>
+								</tr>
+							</tbody>
+							</table>
+							</div>
+							<!--</div> -->
 
 
 
-              </li>
-              </ol>  -->           
-             </li>
-            </ol> 
-           </li>
-          </ol>
-         </li>
-        </ol>
-
-
-  	<!-- ui-tree -->
-    </div>
-
-
-
-	
-<!-- <div class="container">
- 	<div class="row">
- 		<pre>{{vm.types | json}}</pre>
- 	</div>
- </div> -->
-
- <!-- <div class="container">
- 	<div class="row">
- 		<pre>{{vm.exercises | json}}</pre>
- 	</div>
- </div> -->
 
 
 

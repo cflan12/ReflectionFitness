@@ -112,14 +112,18 @@
 			.state("reps", {
 				templateUrl: 'templates/partials/exercises/reps.html'
 			})
-
-			/*
-			//workout plan view
+			//admin customers views
+			.state("customers", {	
+				templateUrl: 'templates/partials/admin/customers.html'
+			})
+			//admin workout build
 			.state("workout", {
-				views: {
-					"workout": {templateUrl: 'templates/partials/exercises/workout.html'}
-				}
-			}) */
+				templateUrl: 'templates/partials/admin/workoutprogram.html'
+			})
+			//admin exercise database
+			.state("exerciseDatabase", {
+				templateUrl: 'templates/partials/admin/exercisedatabase.html'
+			})
 
 		});
 
