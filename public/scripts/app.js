@@ -112,6 +112,10 @@
 			.state("reps", {
 				templateUrl: 'templates/partials/exercises/reps.html'
 			})
+
+
+
+
 			//admin customers views
 			.state("customers", {	
 				templateUrl: 'templates/partials/admin/customers.html'
@@ -120,9 +124,27 @@
 			.state("workout", {
 				templateUrl: 'templates/partials/admin/workoutprogram.html'
 			})
+			//admin workout plans 
+			.state("workoutplan",{
+				templateUrl: 'templates/partials/admin/workout.html'
+			})
 			//admin exercise database
 			.state("exerciseDatabase", {
 				templateUrl: 'templates/partials/admin/exercisedatabase.html'
+			})
+
+
+			//admin build workout weighted
+			.state("workout.weighted", {
+				templateUrl: 'templates/partials/admin/weightexercises.html'
+			})
+			//admin build workout bodyweight 
+			.state("workout.bodyweight", {
+				templateUrl: 'templates/partials/admin/bodyweightexercises.html'
+			})
+			//admin build workout cardio
+			.state("workout.cardio", {
+				templateUrl: 'templates/partials/admin/cardioexercises.html'
 			})
 
 		});

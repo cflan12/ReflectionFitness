@@ -3,9 +3,7 @@
 
 
 <div class="container">
-		<h1 class="text-center">Exercise Database</h1>
-
-			<btn class="btn btn-primary text-center" ng-click="buildWorkout = true">Build Workout Plan</btn>
+		<h1 class="text-center">Build Workout Plan</h1>
 
 			<div class="container">
 				<div class="row">
@@ -28,12 +26,6 @@
 							</tbody>
 							</table>
 
-
-
-
-
-
-					<h1>Test checkboxes</h1>
 					<pre>
 						Type: {{vm.workoutType}} Name: {{vm.programName}} Day: {{vm.selectDay.day}}
 						Exercises: {{vm.select}}
@@ -46,7 +38,7 @@
 				</div>
 			</div>
 
-			<div class="container" ng-show="buildWorkout === true">
+			<div class="container">
 				<div class="row">
 					<h1>Workout Program</h1>
 
@@ -59,7 +51,34 @@
 								<option value="">--Select Day--</option>
 							</select>
 							
-							<!--<div class="table-responsive"> -->
+							<!-- injected views -->
+							<div class="container">
+								<div class="row">
+									<div class="btn-group btn-group-justified">
+										<div class="btn-group">				
+											<a ui-sref=".weighted"><btn class="btn btn-primary">Weighted</btn></a>
+										</div> 
+										<div class="btn-group">
+											<a ui-sref=".bodyweight"><btn class="btn btn-primary">Bodyweight</btn></a>
+										</div>
+										<div class="btn-group">
+											<a ui-sref=".cardio"><btn class="btn btn-primary">Cardio</btn></a>
+										</div>
+									</div>
+								</div>
+							</div> 
+
+							<!-- ui-router view injector via $stateProvider -->
+							<div ui-view></div>
+	
+
+
+
+
+
+
+
+							<!--<div class="table-responsive"> 
 							<div>
 							<table class="table table-hover table-bordered">
 							<thead>
@@ -93,7 +112,7 @@
 							
 							<btn class="btn btn-primary" ng-click="vm.logWorkout()">Save Workout</btn>
 							<btn class="btn btn-danger" ng-click="buildWorkout = false">Close</btn>
-						</form>
+						</form> 
 						
 				</div>
 			</div>
