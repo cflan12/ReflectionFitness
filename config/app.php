@@ -202,7 +202,7 @@ return [
 		'Form'		=> 'Illuminate\Html\FormFacade',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
 		'Flash'		=> 'Laracasts\Flash\Flash',
-		'JWTAuth'	=> 'Tymon\JWTAut\Facades\JWTAuth',
+		'JWTAuth'	=> 'Tymon\JWTAuth\Facades\JWTAuth',
 		'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
 
 	],

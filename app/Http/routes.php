@@ -22,6 +22,12 @@ Route::controllers([
 ]);
 
 
+Route::group(['prefix' => 'api'], function() 
+{
+	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+	Route::post('authenticate', 'AuthenticateController@authenticate');
+});
+
 Route::resource('api/exercises', 'API\ExerciseAPIController');
 
 Route::resource('api/bodyweights', 'API\BodyweightAPIController');

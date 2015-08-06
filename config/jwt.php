@@ -61,10 +61,11 @@ return [
     |
     | Specify the full namespace to your User model.
     | e.g. 'Acme\Entities\User'
-    |
+    | 
+    | Once the vendor is published, the config file active is with the app
     */
 
-    'user' => 'App\User',
+    'user' => 'App\Models\User',
 
     /*
     |--------------------------------------------------------------------------
