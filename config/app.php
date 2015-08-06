@@ -139,6 +139,7 @@ return [
 		'Laracasts\Flash\FlashServiceProvider',
 		'Mitul\Generator\GeneratorServiceProvider',
 		'Barryvdh\Cors\CorsServiceProvider',
+		'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -201,6 +202,8 @@ return [
 		'Form'		=> 'Illuminate\Html\FormFacade',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
 		'Flash'		=> 'Laracasts\Flash\Flash',
+		'JWTAuth'	=> 'Tymon\JWTAut\Facades\JWTAuth',
+		'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
 
 	],
 

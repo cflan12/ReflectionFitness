@@ -8,7 +8,7 @@
 		.module('workoutApp')
 		.controller('WorkoutController', WorkoutController);
 
-		//injecting services into controller
+		//inject services into controller
 		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope) {
 
 			var vm = this;

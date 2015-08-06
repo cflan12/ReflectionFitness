@@ -16,12 +16,10 @@ Route::get('/', function()
 		return view('index');
 	});
 
-//Route::get('home', 'HomeController@index');
-
-//Route::controllers([
-//	'auth' => 'Auth\AuthController',
-//	'password' => 'Auth\PasswordController',
-//]);
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 
 
 Route::resource('api/exercises', 'API\ExerciseAPIController');
@@ -32,4 +30,5 @@ Route::resource('api/cardios', 'API\CardioAPIController');
 
 Route::resource('api/reps', 'API\RepsAPIController');
 
+//Protect route
 Route::resource('api/users', 'API\UserAPIController');
