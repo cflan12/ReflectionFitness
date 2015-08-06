@@ -3,7 +3,7 @@
 	<head>
 		<title>Reflection Fitness</title>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
+        <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
 	</head>
 	
 	<!-- define angular controller -->
@@ -25,7 +25,7 @@
     			<div class="collapse navbar-collapse" collapse="isCollapsed">
       				<ul class="nav navbar-nav navbar-right">
         				<li><a href="#exercises">Exercises</a></li>
-        				<li><a href="#users">Users</a></li>
+        				<li><a href="#clients">Users</a></li>
         				<li><a href="#admin">Admin</a></li>
         				<li><a href="#analytics">Analytics</a></li>
       				</ul>
@@ -35,6 +35,10 @@
 		
 		<!-- Main container and content with injected views -->
 		<div class="container-fluid" id="container-fluid">
+
+            <a ui-sref="auth"><btn class="btn btn-primary">Login</btn>
+
+            <div ui-view></div>
 
       <!-- view injection -->
         <div ng-view></div>
@@ -51,10 +55,15 @@
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
+    <script type="text/javascript" src="bower_components/satellizer/satellizer.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
+
     <script type="text/javascript" src="scripts/controllers/WorkoutController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/AuthController.js"></script>
+    <script type="text/javascript" scr="scripts/controllers/UserController.js"></script>
+
     <script type="text/javascript" src="scripts/services/workout.js"></script>
     <script type="text/javascript" src="scripts/services/users.js"></script>
     <script type="text/javascript" src="scripts/services/bodyweight.js"></script>

@@ -73,7 +73,7 @@
 			})
 
 			//route for users page
-			.when('/users', {
+			.when('/clients', {
 				templateUrl : 'templates/users.html',
 				//controller : 'WorkoutController'
 			})
@@ -149,6 +149,35 @@
 			})
 
 		});
+
+		workoutApp.config(function($stateProvider, $urlRouterProvider, $authProvider) {
+
+			// Satellizer configuration that specifies which 
+			// route the JWT should be retrieved from
+			// Satellizer provides $authProvider
+			// stateProvider setup is for the two states the app 
+			// can have: auth and user
+
+			// Satellizer makes an $http.post call to this API login
+			$authProvider.loginUrl = '/api/authenticate';
+
+			//Redirect to the auth state if any other states
+			//are requested other than user
+			$urlRouterProvider.otherwise('/auth');
+
+			$stateProvider
+				.state('auth', {
+					url: '/auth',
+					templateUrl: 'templates/auth/authView.html',
+					controller: 'AuthController as auth'
+				})
+				.state('users', {
+					url: '/users',
+					templateUrl: 'templates/auth/userView.html',
+					controller: 'UserController as user'
+				});
+		}); 
+		
 
 		/*
 		//custom filters

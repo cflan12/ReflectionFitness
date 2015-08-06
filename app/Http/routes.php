@@ -16,10 +16,10 @@ Route::get('/', function()
 		return view('index');
 	});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+//Route::controllers([
+//	'auth' => 'Auth\AuthController',
+//	'password' => 'Auth\PasswordController',
+//]);
 
 
 Route::group(['prefix' => 'api'], function() 
