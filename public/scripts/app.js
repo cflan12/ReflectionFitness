@@ -11,7 +11,8 @@
 							'ui.utils',
 							'ngRoute',
 							'ui.router',
-							'ui.tree'
+							'ui.tree',
+							'satellizer',
 						]);
 
 		//Constructor for prototype
