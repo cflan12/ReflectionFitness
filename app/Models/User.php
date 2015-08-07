@@ -31,4 +31,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	/**
+	* The password attribute is hashed for any form input
+	*
+	*
+	*/
+	public function setPasswordAttribute($value) {
+		$this->attributes['password'] = bcrypt($value);
+	}
+
 }
