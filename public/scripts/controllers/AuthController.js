@@ -22,8 +22,8 @@
 				password: vm.password
 			}
 
-			// Use Satellizer's $auth service to login
-			$auth.login(credentials).then(function(date) {
+			// Use Satellizer's $auth service to send credentials to API
+			$auth.login(credentials).then(function(data) {
 
 				// If login is successful, redirect to the users state
 				//$state.go('users', {});

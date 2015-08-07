@@ -8,35 +8,9 @@
 	
 	<!-- define angular controller -->
 	<body ng-controller="WorkoutController as vm">
-
-	<nav class="navbar navbar-default">
-  			<div class="container-fluid">
-    	<!-- Brand and toggle get grouped for better mobile display -->
-    			<div class="navbar-header">
-      				<button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
-        				<span class="sr-only">Toggle navigation</span>
-        				<span class="icon-bar"></span>
-        				<span class="icon-bar"></span>
-        				<span class="icon-bar"></span>
-      				</button>
-      				<a class="navbar-brand" href="#/">Reflection Fitness</a>
-    			</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-    			<div class="collapse navbar-collapse" collapse="isCollapsed">
-      				<ul class="nav navbar-nav navbar-right">
-        				<li><a href="#exercises">Exercises</a></li>
-        				<li><a href="#clients">Users</a></li>
-        				<li><a href="#admin">Admin</a></li>
-        				<li><a href="#analytics">Analytics</a></li>
-      				</ul>
-    			</div><!-- /.navbar-collapse -->
-  			</div><!-- /.container-fluid -->
-	</nav>
 		
 		<!-- Main container and content with injected views -->
 		<div class="container-fluid" id="container-fluid">
-    
-            <!-- <a ui-sref="auth"><btn class="btn btn-primary">Login</btn> -->
 
             <div ui-view></div>
 
