@@ -84,6 +84,11 @@
 				//controller : 'WorkoutController'
 			})
 
+			//route for registration and login page
+			.when('/login', {
+				templateUrl: 'templates/registration.html'
+			})
+
 			//route for analytics page
 			.when('/analytics', {
 				templateUrl : 'templates/analytics.html',
@@ -147,9 +152,9 @@
 			.state("workout.cardio", {
 				templateUrl: 'templates/partials/admin/cardioexercises.html'
 			})
-
 		});
-
+		
+		//login configuration and route filtering
 		workoutApp.config(function($stateProvider, $urlRouterProvider, $authProvider) {
 
 			// Satellizer configuration that specifies which 
@@ -171,11 +176,17 @@
 					templateUrl: 'templates/auth/authView.html',
 					controller: 'AuthController as auth'
 				})
+				/*
 				.state('users', {
 					url: '/users',
 					templateUrl: 'templates/auth/userView.html',
 					controller: 'UserController as user'
-				});
+				}) */
+
+				.state('profile', {
+					url: '/profile',
+					templateUrl: 'templates/profile.html'
+				})
 		}); 
 		
 

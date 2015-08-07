@@ -36,5 +36,4 @@ Route::resource('api/cardios', 'API\CardioAPIController');
 
 Route::resource('api/reps', 'API\RepsAPIController');
 
-//Protect route
 Route::resource('api/users', 'API\UserAPIController');

@@ -35,8 +35,8 @@
 		
 		<!-- Main container and content with injected views -->
 		<div class="container-fluid" id="container-fluid">
-
-            <a ui-sref="auth"><btn class="btn btn-primary">Login</btn>
+    
+            <!-- <a ui-sref="auth"><btn class="btn btn-primary">Login</btn> -->
 
             <div ui-view></div>
 

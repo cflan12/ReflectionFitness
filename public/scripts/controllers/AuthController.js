@@ -4,8 +4,9 @@
 
 	'use strict';
 
-	angular.module('workoutApp')
-	.controller('AuthController', AuthController);
+	angular
+		.module('workoutApp')
+		.controller('AuthController', AuthController);
 
 	// Injecting $auth which is a service from Satellizer to
 	// work communicate with the API 
@@ -25,7 +26,8 @@
 			$auth.login(credentials).then(function(date) {
 
 				// If login is successful, redirect to the users state
-				$state.go('users', {});
+				//$state.go('users', {});
+				$state.go('profile', {});
 
 				// Successful login should see a token stored in local storage
 			});
