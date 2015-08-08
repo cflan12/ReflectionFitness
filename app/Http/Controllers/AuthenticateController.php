@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -29,8 +30,8 @@ class AuthenticateController extends Controller {
 	public function index()
 	{
 		//Show users
-		//$users = User::all();
-		//return $users;
+		$users = User::all();
+		return $users;
 
 	}
 
