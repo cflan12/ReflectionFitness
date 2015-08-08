@@ -3,7 +3,6 @@
 	<head>
 		<title>Reflection Fitness</title>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css">
 	</head>
 	
 	<!-- define angular controller -->
@@ -28,7 +27,6 @@
     <script type="text/javascript" src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script type="text/javascript" src="bower_components/angular-ui-tree/dist/angular-ui-tree.min.js"></script>
     <script type="text/javascript" src="bower_components/satellizer/satellizer.js"></script>
 
     <!-- Application Scripts -->
@@ -36,7 +34,7 @@
 
     <script type="text/javascript" src="scripts/controllers/WorkoutController.js"></script>
     <script type="text/javascript" src="scripts/controllers/AuthController.js"></script>
-    <script type="text/javascript" scr="scripts/controllers/UserController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/UserController.js"></script>
 
     <script type="text/javascript" src="scripts/services/workout.js"></script>
     <script type="text/javascript" src="scripts/services/users.js"></script>
@@ -44,6 +42,18 @@
     <script type="text/javascript" src="scripts/services/rep.js"></script>
     <script type="text/javascript" src="scripts/services/cardio.js"></script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

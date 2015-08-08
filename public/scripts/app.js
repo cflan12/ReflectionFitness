@@ -11,7 +11,6 @@
 							'ui.utils',
 							'ngRoute',
 							'ui.router',
-							'ui.tree',
 							'satellizer',
 						]);
 
@@ -185,7 +184,8 @@
 
 				.state('profile', {
 					url: '/profile',
-					templateUrl: 'templates/profile.html'
+					templateUrl: 'templates/profile.html',
+					controller: 'UserController as user'
 				})
 		}); 
 		

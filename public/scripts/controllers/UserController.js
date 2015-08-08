@@ -8,7 +8,8 @@
 		.module('workoutApp')
 		.controller('UserController', UserController);
 
-	function UserController($http) {
+	// $auth service provided by Satellizer
+	function UserController($http, $auth, $rootScope) {
 
 		var vm = this;
 
@@ -17,15 +18,32 @@
 
 		vm.getUsers = function() {
 
-			vm.users = {"name":"test", "email":"test"};
-			// This request will hit the index method in the 
-			// AuthenticationController for the Laravel API
-			/* Calling the wrong API for users
 			$http.get('api/authenticate').success(function(users) {
-				vm.users = users; 
+				vm.users = users;
+				// returns empty array
+				console.log(vm.users); 
 			}).error(function(error) {
 				vm.error = error;
-			}); */
+				console.log('user error');
+			}); 
+		}
+
+		// Proper structure would have login and logout
+		// method in the same controller
+		vm.logout = function() {
+
+			// $auth service logout function
+			$auth.logout().then(function() {
+
+				// Remove the authenticated user from local storage
+				localStorage.removeItem('user');
+
+				// Authenticated user is now false
+				$rootScope.authenticated = false;
+
+				// Remove current user data from rootScope
+				$rootScope.currentUser = null;
+			});
 		}
 	}
 
