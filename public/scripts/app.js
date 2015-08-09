@@ -154,7 +154,50 @@
 		});
 		
 		//login configuration and route filtering
-		workoutApp.config(function($stateProvider, $urlRouterProvider, $authProvider) {
+		workoutApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
+
+
+			function redirectWhenLoggedOut($q, $injector) {
+
+				return {
+
+					responseError: function(rejection) {
+
+						// use $injector.get to bring in  $state or else
+						// we get circular dependency error
+
+						var $state = $injector.get('$state');
+
+						// Instead of checking for Laravel 400 status code, which could
+						// resut from other errors, we check for the specific rejection
+						// errors to determine if authentication is required
+						var rejectionReasons = ['token_not_provided', 'token_expired', 'token_absent', 'token_invalid'];
+
+						// iterate through reject array and redirect if one state is encountered
+						angular.forEach(rejectionReasons, function(value,key) {
+
+							if(rejection.data.error === value) {
+
+								// if we get a rejection corresponding to one of the array values in 
+								// rejectionReasons, the user has to be authenticated and remove
+								// current user from local storage
+								localStorage.removeItem('user');
+
+								// send user to auth login
+								$state.go('auth');
+							}
+						});
+
+							return $q.reject(rejection);
+					}
+				}
+			}
+
+			// Setup for the $httpInterceptor
+			$provide.factory('redirectWhenLoggedOut', redirectWhenLoggedOut);
+
+			// Push the new factory on the $httpInterceptor array
+			$httpProvider.interceptors.push('redirectWhenLoggedOut');
 
 			// Satellizer configuration that specifies which 
 			// route the JWT should be retrieved from
@@ -175,12 +218,6 @@
 					templateUrl: 'templates/auth/authView.html',
 					controller: 'AuthController as auth'
 				})
-				/*
-				.state('users', {
-					url: '/users',
-					templateUrl: 'templates/auth/userView.html',
-					controller: 'UserController as user'
-				}) */
 
 				.state('profile', {
 					url: '/profile',
@@ -188,6 +225,45 @@
 					controller: 'UserController as user'
 				})
 		}); 
+
+		workoutApp.run(function($rootScope, $state) {
+
+			// $stateChangeStart is fired whenever state changes. We can use
+			// parameters such as toState for details about the state changing
+			$rootScope.$on('$stateChangeStart', function(event, toState) {
+
+				// Grab user from local storage and parse it to an object
+				var user = JSON.parse(localStorage.getItem('user'));
+
+				// If there is user data in local storage then the user
+				// should be authenticated. If their token is expired or
+				// the user is not authenticated, then will be redirected 
+				// to the auth state due to the rejected request
+				if(user) {
+
+					// User's authenicated state get's flipped to true 
+					// to show authenticatd UI
+					$rootScope.authenticated = true;
+
+					// Putting user's data on $rootScope allows us to access
+					// it anywhere across the app. Here we are grabbing what
+					// is in local storage
+					$rootScope.currentUser = user;
+
+					// If the user is logged in and we hit the auth route
+					// redirect the user to the main state
+					if(toState.name === "auth") {
+
+						// Preventing the default behavior allows us to us $state.go
+						// to change states
+						event.preventDefault();
+
+						// go to the profile state 
+						$state.go('profile');
+					}
+				}
+			});
+		});
 		
 
 		/*
