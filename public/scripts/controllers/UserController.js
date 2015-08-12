@@ -18,18 +18,16 @@
 
 		vm.getUsers = function() {
 
+			// $http service for Laravel API 
 			$http.get('api/authenticate').success(function(users) {
 				vm.users = users;
-				// returns empty array
-				console.log(vm.users); 
 			}).error(function(error) {
 				vm.error = error;
-				console.log('user error');
 			}); 
 		}
 
 		// Proper structure would have login and logout
-		// method in the same controller
+		// method in the same place, extracted as a service 
 		vm.logout = function() {
 
 			// $auth service logout function
@@ -38,7 +36,7 @@
 				// Remove the authenticated user from local storage
 				localStorage.removeItem('user');
 
-				// Authenticated user is now false
+				// Authenticated user is now false using $rootScope
 				$rootScope.authenticated = false;
 
 				// Remove current user data from rootScope

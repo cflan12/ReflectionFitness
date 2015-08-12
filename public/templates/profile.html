@@ -1,48 +1,25 @@
+<!-- admin navbar -->
+<div ui-view="navbarAdmin"></div>
 
 
-
-<nav class="navbar navbar-default">
-  			<div class="container-fluid">
-    	<!-- Brand and toggle get grouped for better mobile display -->
-    			<div class="navbar-header">
-      				<button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
-        				<span class="sr-only">Toggle navigation</span>
-        				<span class="icon-bar"></span>
-        				<span class="icon-bar"></span>
-        				<span class="icon-bar"></span>
-      				</button>
-      				<a class="navbar-brand" href="#/">Reflection Fitness</a>
-    			</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-    			<div class="collapse navbar-collapse" collapse="isCollapsed">
-      				<ul class="nav navbar-nav navbar-right">
-        				<li><a href="#exercises">Exercises</a></li>
-        				<li><a href="#clients">Users</a></li>
-        				<li><a href="#admin">Admin</a></li>
-        				<li><a href="#analytics">Analytics</a></li>
-      				</ul>
-    			</div><!-- /.navbar-collapse -->
-  			</div><!-- /.container-fluid -->
-	</nav>
-
-	<div class="col-sm-6 col-sm-offset-3">
-    <div class="well">
-        <!-- added if $rootScope.authenticated = true -->
-        <h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
-        <h3>Users</h3>
+<div class="col-sm-6 col-sm-offset-3">
+  <div class="well">
+    <!-- added if $rootScope.authenticated = true -->
+    <h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
+      <h3>Users</h3>
         <div class="buttons" style="margin-bottom: 10px">  
           <button class="btn btn-primary" ng-click="user.getUsers()">Get Users!</button>
           <button class="btn btn-danger" ng-click="user.logout()">Logout</button>
         </div>
         <ul class="list-group" ng-if="user.users">
-            <li class="list-group-item" ng-repeat="user in user.users">
-                <h4>{{user.name}}</h4>
-                <h5>{{user.email}}</h5>
-            </li>
+          <li class="list-group-item" ng-repeat="user in user.users">
+            <h4>{{user.name}}</h4>
+              <h5>{{user.email}}</h5>
+          </li>
         </ul>
         <div class="alert alert-danger" ng-if="user.error">
-            <strong>There was an error: </strong> {{user.error.error}}
-            <br>Please go back and login again
+          <strong>There was an error: </strong> {{user.error.error}}
+          <br>Please go back and login again
         </div>
-    </div>
   </div>
+</div>

@@ -5,18 +5,20 @@
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
 	</head>
 	
-	<!-- define angular controller -->
-	<body ng-controller="WorkoutController as vm">
+	<!-- define angular controller
+	<body ng-controller="WorkoutController as vm"> -->
+    <body>
 		
 		<!-- Main container and content with injected views -->
 		<div class="container-fluid" id="container-fluid">
-
+            
+            <!-- ui-router view injection -->
             <div ui-view></div>
 
-      <!-- view injection -->
-        <div ng-view></div>
+            <!-- NgRoute view injection -->
+            <!-- <div ng-view></div> -->
       
-    </div> <!-- global container -->
+        </div> <!-- global container -->
 	</body>
 	
 	<!-- Application Dependencies -->

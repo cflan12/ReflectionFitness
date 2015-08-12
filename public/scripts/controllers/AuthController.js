@@ -22,28 +22,24 @@
 		vm.login = function() {
 
 			var credentials = {
-				email: vm.email,
-				password: vm.password
+					email: vm.email,
+					password: vm.password
 			}
 
 			// Use Satellizer's $auth service to send credentials to API
 			$auth.login(credentials).then(function() {
 
-				// If login is successful, redirect to the users state
-				//$state.go('users', {});
-				//$state.go('profile', {});
-
+				// Return an $http request for the now authenticated
+				// user to flatten the promise chain
 				return $http.get('api/authenticate/user');
-				console.log("user authenticated");
 
 				// Handle errors
-				}, function(error) {
-					vm.loginError = true;
-					vm.loginErrorText = error.data.error;
-					console.log("user authentication error");
+			}, function(error) {
+				vm.loginError = true;
+				vm.loginErrorText = error.data.error;
 
-				// Return $http.get request in the $auth.login promise
-				// and chain the next promise to the end here
+				// Because $http.get request returned in $auth.login promise,
+				// now chain the next promise to the end here
 				}).then(function(response) {
 
 					// Stringify returned data to prepare it to
@@ -65,9 +61,7 @@
 					// Redirect user's state to view UI data
 					$state.go('profile');
 				});
-			
 			}
-
 		}
 
 })();

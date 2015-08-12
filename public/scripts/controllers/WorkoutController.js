@@ -9,7 +9,9 @@
 		.controller('WorkoutController', WorkoutController);
 
 		//inject services into controller
-		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope) {
+		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope, $rootScope) {
+
+		if($rootScope.authenticated) {
 
 			var vm = this;
 
@@ -24,9 +26,11 @@
 			vm.exerciseCardio = [];
 
 			//is an array object collections used for angular.extend
+			/*
 			vm.types = [ {"type":"Weighted"}, 
 						 {"type":"Bodyweight"}, 
-						 {"type":"Cardio"}];
+						 {"type":"Cardio"}]; 
+						 */
 
 			vm.calendar = [ {"day":"Monday"},
 							{"day":"Tuesday"},
@@ -51,17 +55,8 @@
 			//last in call stack for nested objects in ui-tree modification
 			getReps();
 
-			/*
-			//Angular ui-tree $callbacks
-			$treeOptions = {
-				accept: function(sourceNodeScope, destNodeScope, destIndex) {
-					return true;
-				},
-			}; 
-			 	*/
-
-			console.log("vm.types:");
-			console.log(vm.types);
+			//console.log("vm.types:");
+			//console.log(vm.types);
 
 			//var list = new List();
 			//console.log(list);
@@ -85,6 +80,7 @@
 					//$resource object returned to controller 
 					vm.exercises = result;
 
+					/*
 					var items = [];
 
 					items = result.functionName();
@@ -101,6 +97,7 @@
 
 						//Check hasOwnProperty()
 						//console.log(vm.types.hasOwnProperty('type'));
+						*/
 
 					console.log(vm.exercises);
 					}, function(error) {
@@ -197,10 +194,12 @@
 			//return JSON object from Bodyweight API and convert to array
 			function getBodyweight() {
 				bodyweight.getBodyweight().then(function(result) {
+
 					vm.exerciseBodyweight = result;
 
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+					/*
 					var items = [];
 
 					items = result.functionName();
@@ -209,7 +208,7 @@
 						if(result.type == "Bodyweight"){
 							result.item = angular.copy(items);
 						}
-					}); 
+					}); */
 					console.log(vm.exerciseBodyweight);
 				}, function(error) {
 					console.log(error);
@@ -219,10 +218,12 @@
 			//return JSON object from Cardios API and convert to array
 			function getCardio() {
 				cardio.getCardio().then(function(result) {
+
 					vm.exerciseCardio = result;
 
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
+					/*
 					var items = [];
 
 					items = result.functionName();
@@ -231,7 +232,7 @@
 						if(result.type == "Cardio") {
 							result.item = angular.copy(items);
 						}
-					}); 
+					}); */
 					console.log(vm.exerciseCardio);
 				}, function(error) {
 					console.log(error);
@@ -248,6 +249,7 @@
 					//$resouce is returned directly rendered to the view without storing array,
 					//add API call to function
 					//array instantiated only on $resource query, not saved as new array
+					/*
 					var items = [];
 
 					items = result.listReps();
@@ -262,5 +264,9 @@
 				});
 			}
 
+		}else {
+			console.log('authentication error');
+			}
 		}
+
 })();

@@ -29,23 +29,22 @@ class AuthenticateController extends Controller {
 	 */
 	public function index()
 	{
-		//Show users
+		//Show users from User model
 		$users = User::all();
 		return $users;
-
 	}
 
 	/**
 	 *
-	 *
-	 *
+	 * Create JWT with user authentication from client and return
+	 * JWT to the client
 	 */
 	public function authenticate(Request $request)
 	{
 		$credentials = $request->only('email', 'password');
 
 		try {
-			// Verify the credentials and create a token for the user
+			// Verify the credentials and return error if false
 			if(!$token = JWTAuth::attempt($credentials)) {
 				return response()->json(['error' =>'invalid_credentials'], 401);
 			}
@@ -54,7 +53,7 @@ class AuthenticateController extends Controller {
 			return response()->json(['error' => 'could_not_create_token'], 500);
 		}
 
-		//if no errors are encountered we can return a JWT to send to the client
+		//if no errors are encountered we can return a JWT to the client
 		return response()->json(compact('token'));
 	}
 
@@ -67,8 +66,7 @@ class AuthenticateController extends Controller {
 	public function getAuthenticatedUser() 
 	{
 		try {
-
-			if(! $user = JWTAuth::parseToken()->authenticate()) {
+				if(! $user = JWTAuth::parseToken()->authenticate()) {
 				return response()->json(['user_not_found'], 404);
 			}
 		} catch(Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {

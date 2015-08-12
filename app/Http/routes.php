@@ -39,4 +39,5 @@ Route::resource('api/cardios', 'API\CardioAPIController');
 
 Route::resource('api/reps', 'API\RepsAPIController');
 
-Route::resource('api/users', 'API\UserAPIController');
+Route::resource('api/users', 'API\UserAPIController'); 
+
