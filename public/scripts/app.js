@@ -14,7 +14,7 @@
 							'satellizer',
 						]);
 		
-		/*
+		
 		Array.prototype.functionName = function() {
 
 			//clear the array in each call stack from API Resource call
@@ -46,120 +46,6 @@
 			});
 				return tmp;
 		} 			
-		
-		/*
-		//configure routes with ngRoute
-		workoutApp.config(function($routeProvider) {
-			
-			$routeProvider
-			//route for home page
-			.when('/', {
-				templateUrl : 'templates/home.html',
-			})
-			//route for exercises page
-			.when('/exercises', {
-				templateUrl : 'templates/exercises.html',
-				controller : 'WorkoutController as vm'
-			})
-			//route for users page
-			.when('/clients', {
-				templateUrl : 'templates/users.html',
-				controller : 'WorkoutController as vm'
-			})
-			//route for admin page
-			.when('/admin', {
-				templateUrl : 'templates/admin.html',
-				controller : 'WorkoutController as vm'
-			})
-			//route for analytics page
-			.when('/analytics', {
-				templateUrl : 'templates/analytics.html',
-				controller : 'WorkoutController as vm'
-			})
-		}); */
-		
-		/*
-		//configure nested views with ui-router
-		workoutApp.config(function($stateProvider) {
-
-			$stateProvider
-
-			.state('/', {
-				url: '/',
-				templateUrl:'templates/home.html',
-			})
-			//route for exercises page
-			.state('/exercises', {
-				url: '/exercises',
-				templateUrl : 'templates/exercises.html',
-				controller : 'WorkoutController as vm'
-			})
-			//route for users page
-			.state('/clients', {
-				url: '/clients',
-				templateUrl : 'templates/users.html',
-				controller : 'WorkoutController as vm'
-			})
-			//route for admin page
-			.state('/admin', {
-				url: '/admin',
-				templateUrl : 'templates/admin.html',
-				controller : 'WorkoutController as vm'
-			})
-			//route for analytics page
-			.state('/analytics', {
-				url: '/analytics',
-				templateUrl : 'templates/analytics.html',
-				controller : 'WorkoutController as vm'
-			})
-
-			//nested weighted exercises view
-			.state("exercises", {
-				templateUrl: 'templates/partials/exercises/weighted.html'
-			})
-			//nested bodyweight view
-			.state("bodyweight", {
-				templateUrl: 'templates/partials/exercises/bodyweight.html'
-			})
-			//nested cardio view
-			.state("cardio", {
-				templateUrl: 'templates/partials/exercises/cardio.html'
-			})
-			//nested reps view
-			.state("reps", {
-				templateUrl: 'templates/partials/exercises/reps.html'
-			})
-
-			//admin customers views
-			.state("customers", {	
-				templateUrl: 'templates/partials/admin/customers.html'
-			})
-			//admin workout build
-			.state("workout", {
-				templateUrl: 'templates/partials/admin/workoutprogram.html'
-			})
-					//admin build workout weighted
-					.state("workout.weighted", {
-					templateUrl: 'templates/partials/admin/weightexercises.html'
-				})
-					//admin build workout bodyweight 
-					.state("workout.bodyweight", {
-					templateUrl: 'templates/partials/admin/bodyweightexercises.html'
-					})
-					//admin build workout cardio
-					.state("workout.cardio", {
-					templateUrl: 'templates/partials/admin/cardioexercises.html'
-				})
-
-			//admin workout plans 
-			.state("workoutplan",{
-				templateUrl: 'templates/partials/admin/workout.html'
-			})
-			//admin exercise database
-			.state("exerciseDatabase", {
-				templateUrl: 'templates/partials/admin/exercisedatabase.html'
-			})
-		}); */
 		
 		//login configuration and route filtering
 		workoutApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $httpProvider, $provide) {
@@ -264,28 +150,33 @@
 				})
 
 			//nested weighted exercises view
-			.state("exercises", {
-				templateUrl: 'templates/partials/exercises/weighted.html'
+			.state('profile.exercises.exercises', {
+				templateUrl: 'templates/partials/exercises/weighted.html',
+				controller: 'WorkoutController as vm'
 			})
 			//nested bodyweight view
-			.state("bodyweight", {
-				templateUrl: 'templates/partials/exercises/bodyweight.html'
+			.state('profile.exercises.bodyweight', {
+				templateUrl: 'templates/partials/exercises/bodyweight.html',
+				controller: 'WorkoutController as vm'
 			})
 			//nested cardio view
-			.state("cardio", {
-				templateUrl: 'templates/partials/exercises/cardio.html'
+			.state('profile.exercises.cardio', {
+				templateUrl: 'templates/partials/exercises/cardio.html',
+				controller: 'WorkoutController as vm'
 			})
 			//nested reps view
-			.state("reps", {
-				templateUrl: 'templates/partials/exercises/reps.html'
+			.state('profile.exercises.reps', {
+				templateUrl: 'templates/partials/exercises/reps.html',
+				controller: 'WorkoutController as vm'
 			})
 
 			//admin customers views
-			.state("customers", {	
-				templateUrl: 'templates/partials/admin/customers.html'
+			.state("profile.admin.customers", {	
+				templateUrl: 'templates/partials/admin/customers.html',
+				controller: 'WorkoutController as vm'
 			})
 			//admin workout build
-			.state("workout", {
+			.state("profile.admin.workout", {
 				templateUrl: 'templates/partials/admin/workoutprogram.html'
 			})
 					//admin nested build workout weighted
@@ -302,11 +193,11 @@
 				})
 
 			//admin workout plans 
-			.state("workoutplan",{
+			.state("profile.admin.workoutplan",{
 				templateUrl: 'templates/partials/admin/workout.html'
 			})
 			//admin exercise database
-			.state("exerciseDatabase", {
+			.state("profile.admin.exerciseDatabase", {
 				templateUrl: 'templates/partials/admin/exercisedatabase.html'
 			});
 		})
