@@ -11,7 +11,8 @@
 		//inject services into controller
 		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope, $rootScope) {
 
-		if($rootScope.authenticated) {
+		// Require JWT for API call by authorization		
+		if ($rootScope.authenticated) {
 
 			var vm = this;
 

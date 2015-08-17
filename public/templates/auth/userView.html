@@ -14,16 +14,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" collapse="isCollapsed">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a ui-sref="/exercises">Exercises</a></li>
-                        <li><a ui-sref="/clients">Users</a></li>
-                        <li><a ui-sref="/admin">Admin</a></li>
-                        <li><a ui-sref="/analytics">Analytics</a></li>
+                        <li><a ui-sref="profile.exercises">Exercises</a></li>
+                        <li><a ui-sref="profile.clients">Users</a></li>
+                        <li><a ui-sref="profile.admin">Admin</a></li>
+                        <li><a ui-sref="profile.analytics">Analytics</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 
-
+    <section ui-view></section>
 
     
 <div class="col-sm-6 col-sm-offset-3">

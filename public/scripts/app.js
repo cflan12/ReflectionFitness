@@ -230,7 +230,7 @@
 					controller: 'AuthController as auth'
 				})
 				.state('profile', {
-					url: '/profile',
+					url: '/profile/',
 					templateUrl: 'templates/auth/userView.html',
 					 controller: 'UserController as user'
 				})
@@ -239,26 +239,26 @@
 					templateUrl: 'templates/auth/adminNavigation.html'
 				}) */
 				//route for exercises page
-				.state('/exercises', {
-					url: 'profile/exercises',
+				.state('profile.exercises', {
+					url: 'userID/exercises',
 					templateUrl : 'templates/exercises.html',
 					controller : 'WorkoutController as vm'
 				})
 				//route for users page
-				.state('/clients', {
-					url: 'profile/clients',
+				.state('profile.clients', {
+					url: 'userID/clients',
 					templateUrl : 'templates/users.html',
 					controller : 'WorkoutController as vm'
 				})
 				//route for admin page
-				.state('/admin', {
-					url: 'profile/admin',
+				.state('profile.admin', {
+					url: 'userID/admin',
 					templateUrl : 'templates/admin.html',
 					controller : 'WorkoutController as vm'
 				})
 				//route for analytics page
-				.state('/analytics', {
-					url: 'profile/analytics',
+				.state('profile.analytics', {
+					url: 'userID/analytics',
 					templateUrl : 'templates/analytics.html',
 					controller : 'WorkoutController as vm'
 				})
