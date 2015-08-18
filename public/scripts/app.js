@@ -180,15 +180,15 @@
 				templateUrl: 'templates/partials/admin/workoutprogram.html'
 			})
 					//admin nested build workout weighted
-					.state("workout.weighted", {
+					.state("profile.admin.workout.weighted", {
 					templateUrl: 'templates/partials/admin/weightexercises.html'
 				})
 					//admin build workout bodyweight 
-					.state("workout.bodyweight", {
+					.state("profile.admin.workout.bodyweight", {
 					templateUrl: 'templates/partials/admin/bodyweightexercises.html'
 					})
 					//admin build workout cardio
-					.state("workout.cardio", {
+					.state("profile.admin.workout.cardio", {
 					templateUrl: 'templates/partials/admin/cardioexercises.html'
 				})
 
