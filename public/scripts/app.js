@@ -128,6 +128,7 @@
 				.state('profile.exercises', {
 					url: 'userID/exercises',
 					templateUrl : 'templates/exercises.html',
+					// controller for nested views
 					controller : 'WorkoutController as vm'
 				})
 				//route for users page
@@ -149,25 +150,26 @@
 					controller : 'WorkoutController as vm'
 				})
 
-			//nested weighted exercises view
+			//nested weighted exercises view from profile.exercises 
+			// WorkoutController is injected
 			.state('profile.exercises.exercises', {
 				templateUrl: 'templates/partials/exercises/weighted.html',
-				controller: 'WorkoutController as vm'
+				//controller: 'WorkoutController as vm'
 			})
 			//nested bodyweight view
 			.state('profile.exercises.bodyweight', {
 				templateUrl: 'templates/partials/exercises/bodyweight.html',
-				controller: 'WorkoutController as vm'
+				//controller: 'WorkoutController as vm'
 			})
 			//nested cardio view
 			.state('profile.exercises.cardio', {
 				templateUrl: 'templates/partials/exercises/cardio.html',
-				controller: 'WorkoutController as vm'
+				//controller: 'WorkoutController as vm'
 			})
 			//nested reps view
 			.state('profile.exercises.reps', {
 				templateUrl: 'templates/partials/exercises/reps.html',
-				controller: 'WorkoutController as vm'
+				//controller: 'WorkoutController as vm'
 			})
 
 			//admin customers views
