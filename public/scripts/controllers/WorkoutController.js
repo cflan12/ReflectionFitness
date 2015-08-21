@@ -46,7 +46,9 @@
 
 			vm.workoutPlan = [];
 
-			
+			vm.workObject = [];
+
+
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
 
@@ -208,10 +210,21 @@
 			// return workout plans from API
 			function getWorkouts() {
 				workout.getWorkouts().then(function(result) {
-					//results were JSON.strinified by returned as array
-					vm.workoutPlan = result;
+					// return only data from $resource object
+					vm.workoutPlan = result.data;
+					vm.workObject = result;
+					/* data.work is (key,value) with value as a JSON string
+					try { 
+						vm.workObject = JSON.parse(vm.workoutPlan);
+					} catch(error) {
+						console.log("error parsing object");
+					} */
+
 					console.log("vm.workoutPlan");
 					console.log(vm.workoutPlan);
+					console.log("vm.workObject");
+					console.log(vm.workObject);
+
 				}, function(error) {
 					console.log(error);
 				});
