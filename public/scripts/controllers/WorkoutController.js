@@ -41,8 +41,8 @@
 							{"day":"Saturday"},
 							{"day":"Sunday"} ];
 
-			//Selected Exercises
-			vm.select = [];
+			//Selected Exercises for workout program JSON object saved to API
+			vm.select = {};
 
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
