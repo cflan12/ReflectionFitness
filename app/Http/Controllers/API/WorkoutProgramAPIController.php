@@ -75,8 +75,8 @@ class WorkoutProgramAPIController extends AppBaseController
 	 */
 	public function store(Request $request)
 	{
-		if(sizeof(WorkoutProgram::$rules) > 0)
-            $this->validateRequest($request, WorkoutProgram::$rules);
+		/* if(sizeof(WorkoutProgram::$rules) > 0)
+            $this->validateRequest($request, WorkoutProgram::$rules); */
 
         $input = $request->all();
 

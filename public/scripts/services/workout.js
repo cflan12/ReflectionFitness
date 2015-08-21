@@ -19,6 +19,17 @@
 				}
 			});
 
+			// $resource URL for workout programs API
+			var Workout = $resource('api/workoutPrograms/:id', {}, {
+				update: {
+					method: 'PUT'
+				},
+				'query': {
+					method: 'GET',
+					isArray: true,
+				}
+			});
+
 
 			//query API for exercises and return JSON object with get method
 			function getExercises() {
@@ -29,8 +40,14 @@
 				});
 			}
 
+			// save function called to POST data to API
 			function saveWorkout(data) {
-				console.log(data);
+				return Workout.save(data).$promise.then(function(success) {
+					console.log("success");
+				}, function(error) {
+					console.log("error");
+				});
+				
 			}
 
 			return {

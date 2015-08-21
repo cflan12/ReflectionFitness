@@ -42,7 +42,7 @@
 							{"day":"Sunday"} ];
 
 			//Selected Exercises for workout program JSON object saved to API
-			vm.select = {};
+			vm.select = [];
 
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
@@ -167,9 +167,13 @@
 				//selected from ng-click
 				var mergedObject = angular.extend(data, item, date);
 
+				// push is an array operation
 				vm.select.push(mergedObject);
-			
-				console.log(item)
+				
+				//console.log("item");
+				//console.log(item);
+				//console.log("vm.select");
+				//console.log(vm.select);
 			}
 
 
@@ -177,19 +181,25 @@
 			//save workout based on user subscription plan
 			vm.logWorkout = function() {
 
-				console.log("clicked saved workout");
-
+				// convert array of objects to JSON
+				var workoutJSONstring = JSON.stringify(vm.select);
+				console.log("JSON");
+				console.log(workoutJSONstring);
 				workout.saveWorkout({
-					"name":vm.workoutType,
-					"identifier":vm.programName,
-					"length":vm.programVariation,
-					"amount":vm.programLength,
-					"day":vm.selectDay,
-					"exercises":vm.select
+					//"name":vm.workoutType,
+					//"identifier":vm.programName,
+					//"length":vm.programVariation,
+					//"amount":vm.programLength,
+					//"day":vm.selectDay,
+					"workout":workoutJSONstring
+				}).then(function(success) {
+					console.log("workout success");
+				}, function(error) {
+					console.log("error");
 				});
 
-				console.log("vm.select");
-				console.log(vm.select);
+				//console.log("vm.select");
+				//console.log(vm.select);
 			}
 
 			//return JSON object from Bodyweight API and convert to array

@@ -41,6 +41,4 @@ Route::resource('api/reps', 'API\RepsAPIController');
 
 Route::resource('api/users', 'API\UserAPIController'); 
 
-
-
 Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
