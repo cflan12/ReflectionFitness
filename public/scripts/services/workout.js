@@ -26,7 +26,7 @@
 				},
 				'query': {
 					method: 'GET',
-					isArray: true,
+					isArray: false,
 				}
 			});
 
@@ -45,14 +45,23 @@
 				return Workout.save(data).$promise.then(function(success) {
 					console.log("success");
 				}, function(error) {
-					console.log("error");
+					console.log(error);
 				});
-				
+			}
+
+			// return workout plans 
+			function getWorkouts() {
+				return Workout.query().$promise.then(function(results) {
+					return results;
+				}, function(error) {
+					console.log(error);
+				});
 			}
 
 			return {
 				getExercises: getExercises,
-				saveWorkout: saveWorkout
+				saveWorkout: saveWorkout,
+				getWorkouts: getWorkouts
 			}
 		}
 })();

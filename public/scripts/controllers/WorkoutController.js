@@ -44,6 +44,9 @@
 			//Selected Exercises for workout program JSON object saved to API
 			vm.select = [];
 
+			vm.workoutPlan = [];
+
+			
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
 
@@ -55,6 +58,9 @@
 
 			//last in call stack for nested objects in ui-tree modification
 			getReps();
+
+			// call workout programs
+			getWorkouts();
 
 			//console.log("vm.types:");
 			//console.log(vm.types);
@@ -197,9 +203,18 @@
 				}, function(error) {
 					console.log("error");
 				});
+			}
 
-				//console.log("vm.select");
-				//console.log(vm.select);
+			// return workout plans from API
+			function getWorkouts() {
+				workout.getWorkouts().then(function(result) {
+					//results were JSON.strinified by returned as array
+					vm.workoutPlan = result;
+					console.log("vm.workoutPlan");
+					console.log(vm.workoutPlan);
+				}, function(error) {
+					console.log(error);
+				});
 			}
 
 			//return JSON object from Bodyweight API and convert to array

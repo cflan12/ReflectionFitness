@@ -183,20 +183,19 @@
 			})
 					//admin nested build workout weighted
 					.state("profile.admin.workout.weighted", {
-					templateUrl: 'templates/partials/admin/weightexercises.html'
-				})
+						templateUrl: 'templates/partials/admin/weightexercises.html'
+					})
 					//admin build workout bodyweight 
 					.state("profile.admin.workout.bodyweight", {
-					templateUrl: 'templates/partials/admin/bodyweightexercises.html'
+						templateUrl: 'templates/partials/admin/bodyweightexercises.html'
 					})
 					//admin build workout cardio
 					.state("profile.admin.workout.cardio", {
-					templateUrl: 'templates/partials/admin/cardioexercises.html'
-				})
-
+						templateUrl: 'templates/partials/admin/cardioexercises.html'
+					})
 			//admin workout plans 
 			.state("profile.admin.workoutplan",{
-				templateUrl: 'templates/partials/admin/workout.html'
+				templateUrl: 'templates/partials/admin/viewWorkoutProgram.html'
 			})
 			//admin exercise database
 			.state("profile.admin.exerciseDatabase", {
