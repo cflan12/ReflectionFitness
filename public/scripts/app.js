@@ -45,6 +45,17 @@
 				tmp.push({range: item.range, rest_time: item.rest_time, time_frame: item.time_frame});
 			});
 				return tmp;
+		}
+
+		// workout program list is returned as an array by the API
+		Array.prototype.listWorkouts = function() {
+
+			var tmp = [];
+
+			this.forEach(function(item) {
+				console.log(item.workout);
+			});
+				return tmp;
 		} 			
 		
 		//login configuration and route filtering

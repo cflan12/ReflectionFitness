@@ -3,7 +3,14 @@
 	<div class="row">
 		<h1>Workout Plans</h1>
 		<ul>
-			<li ng-repeat="workout in vm.workoutPlan">	{{workout.workout}}
+			<li ng-repeat="(key,value) in vm.workoutPlan">
+				Array Key {{key}} : {{value}} <br><br>
+				Workout Value Property : {{value.workout}} <!-- array of JSON objects that needs to be looped through -->
+				<br><br>
+				Array of Json objects : {{value.workout.exercise}}
+			</li>
+			<li ng-repeat="(key,value) in vm.workoutPlan.workout">
+				Workout: {{value.exercise}}
 			</li>
 		</ul>
 	</div>

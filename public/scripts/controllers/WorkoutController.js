@@ -26,12 +26,12 @@
 
 			vm.exerciseCardio = [];
 
-			//is an array object collections used for angular.extend
-			/*
-			vm.types = [ {"type":"Weighted"}, 
-						 {"type":"Bodyweight"}, 
-						 {"type":"Cardio"}]; 
-						 */
+			//Select exercises for workout program as an array of JSON objects
+			vm.select = [];
+
+			vm.workoutPlan = [];
+
+			vm.workObject = [];
 
 			vm.calendar = [ {"day":"Monday"},
 							{"day":"Tuesday"},
@@ -40,13 +40,6 @@
 							{"day":"Friday"},
 							{"day":"Saturday"},
 							{"day":"Sunday"} ];
-
-			//Selected Exercises for workout program JSON object saved to API
-			vm.select = [];
-
-			vm.workoutPlan = [];
-
-			vm.workObject = [];
 
 
 			//callstack for JSON arrays from API as $resoure objects
@@ -58,22 +51,9 @@
 
 			getCardio();
 
-			//last in call stack for nested objects in ui-tree modification
 			getReps();
 
-			// call workout programs
 			getWorkouts();
-
-			//console.log("vm.types:");
-			//console.log(vm.types);
-
-			//var list = new List();
-			//console.log(list);
-
-			//var list = new Object();
-			//console.log("new object with prototype");
-			//console.log(list);
-			
 
 			/*
 			$scope.$watch(vm.types, function(add) {
@@ -88,26 +68,6 @@
 				workout.getExercises().then(function(result) {
 					//$resource object returned to controller 
 					vm.exercises = result;
-
-					/*
-					var items = [];
-
-					items = result.functionName();
-
-					//object array copied from $resource object
-					angular.forEach(vm.types, function(array) {
-						if(array.type == "Weighted") {
-							array.item = angular.copy(items);
-						}
-					}); 
-						//console.log("properties");
-						//console.log(vm.types);
-						//console.log(vm.types.item);
-
-						//Check hasOwnProperty()
-						//console.log(vm.types.hasOwnProperty('type'));
-						*/
-
 					console.log(vm.exercises);
 					}, function(error) {
 					console.log(error);
@@ -152,7 +112,6 @@
 			vm.deleteUser = function(subscribers) {
 
 				var id = subscribers.id;
-
 				users.deleteUser(id).then(function(success) {
 					getUsers();
 					console.log(success);
@@ -167,9 +126,7 @@
 					alert('Select Reps Before Adding to Program');
 				}
 				//data is an object, not any array for the array prototype
-				//var items = [];
-
-				//items = data.functionName();
+				// data structure is an array of $resource objects
 
 				//save objects to array as $resource objects 
 				//selected from ng-click
@@ -178,8 +135,6 @@
 				// push is an array operation
 				vm.select.push(mergedObject);
 				
-				//console.log("item");
-				//console.log(item);
 				//console.log("vm.select");
 				//console.log(vm.select);
 			}
@@ -189,10 +144,10 @@
 			//save workout based on user subscription plan
 			vm.logWorkout = function() {
 
-				// convert array of objects to JSON
+				// convert array of objects to JSON string
 				var workoutJSONstring = JSON.stringify(vm.select);
-				console.log("JSON");
-				console.log(workoutJSONstring);
+				//console.log("JSON");
+				//console.log(workoutJSONstring);
 				workout.saveWorkout({
 					//"name":vm.workoutType,
 					//"identifier":vm.programName,
@@ -210,9 +165,10 @@
 			// return workout plans from API
 			function getWorkouts() {
 				workout.getWorkouts().then(function(result) {
-					// return only data from $resource object
+					// returned as $resource with workout property as a string
 					vm.workoutPlan = result.data;
-					vm.workObject = result;
+					vm.workoutPlan.listWorkouts();
+					//vm.workObject = JSON.parse(result.data);
 					/* data.work is (key,value) with value as a JSON string
 					try { 
 						vm.workObject = JSON.parse(vm.workoutPlan);
@@ -220,10 +176,15 @@
 						console.log("error parsing object");
 					} */
 
+					console.log("angular for each");
+					angular.forEach(vm.workoutPlan, function(result) {
+						console.log(result.workout);
+					});
+
 					console.log("vm.workoutPlan");
 					console.log(vm.workoutPlan);
-					console.log("vm.workObject");
-					console.log(vm.workObject);
+					console.log("vm.workObject.workout");
+					console.log(vm.workObject.workout);
 
 				}, function(error) {
 					console.log(error);
@@ -233,21 +194,7 @@
 			//return JSON object from Bodyweight API and convert to array
 			function getBodyweight() {
 				bodyweight.getBodyweight().then(function(result) {
-
 					vm.exerciseBodyweight = result;
-
-					//$resouce is returned directly rendered to the view without storing array,
-					//add API call to function
-					/*
-					var items = [];
-
-					items = result.functionName();
-
-					angular.forEach(vm.types, function(result) {
-						if(result.type == "Bodyweight"){
-							result.item = angular.copy(items);
-						}
-					}); */
 					console.log(vm.exerciseBodyweight);
 				}, function(error) {
 					console.log(error);
@@ -257,21 +204,7 @@
 			//return JSON object from Cardios API and convert to array
 			function getCardio() {
 				cardio.getCardio().then(function(result) {
-
 					vm.exerciseCardio = result;
-
-					//$resouce is returned directly rendered to the view without storing array,
-					//add API call to function
-					/*
-					var items = [];
-
-					items = result.functionName();
-
-					angular.forEach(vm.types, function(result) {
-						if(result.type == "Cardio") {
-							result.item = angular.copy(items);
-						}
-					}); */
 					console.log(vm.exerciseCardio);
 				}, function(error) {
 					console.log(error);
@@ -279,31 +212,17 @@
 			}
 
 			//return JSON object from Reps API using async promise
-			//Should be last in the callstack due to nested vm.types 
-			//array for the ui-tree
 			function getReps() {
 				rep.getReps().then(function(result) {
-					//return result after promise completed
 					vm.reps = result;
-					//$resouce is returned directly rendered to the view without storing array,
-					//add API call to function
-					//array instantiated only on $resource query, not saved as new array
-					/*
-					var items = [];
-
-					items = result.listReps();
-					
-					/*
-					angular.forEach(vm.types.item, function(result) {
-						result.reps = angular.copy(items);
-					}); */
 					console.log(vm.reps);
 				}, function(error) {
 					console.log(error);
 				});
 			}
-
-		}else {
+		}
+		// Prevent $resource call without JWT authentication  
+		else {
 			console.log('authentication error');
 			}
 		}

@@ -30,7 +30,6 @@
 				}
 			});
 
-
 			//query API for exercises and return JSON object with get method
 			function getExercises() {
 				return Exercise.query().$promise.then(function(results) {
