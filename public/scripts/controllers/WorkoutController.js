@@ -176,15 +176,16 @@
 						console.log("error parsing object");
 					} */
 
+					/*
 					console.log("angular for each");
 					angular.forEach(vm.workoutPlan, function(result) {
 						console.log(result.workout);
-					});
+					}); */
 
 					console.log("vm.workoutPlan");
 					console.log(vm.workoutPlan);
-					console.log("vm.workObject.workout");
-					console.log(vm.workObject.workout);
+					//console.log("vm.workObject.workout");
+					//console.log(vm.workObject.workout);
 
 				}, function(error) {
 					console.log(error);

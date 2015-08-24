@@ -53,7 +53,11 @@
 			var tmp = [];
 
 			this.forEach(function(item) {
+				// convert workout property string of array
+				// of JSON objects to objects
+				var tmp = JSON.parse(item.workout);
 				console.log(item.workout);
+				console.log(tmp);
 			});
 				return tmp;
 		} 			
