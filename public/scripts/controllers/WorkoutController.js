@@ -167,7 +167,7 @@
 				workout.getWorkouts().then(function(result) {
 					// returned as $resource with workout property as a string
 					vm.workoutPlan = result.data;
-					vm.workoutPlan.listWorkouts();
+					vm.workObject = vm.workoutPlan.listWorkouts();
 					//vm.workObject = JSON.parse(result.data);
 					/* data.work is (key,value) with value as a JSON string
 					try { 
@@ -184,8 +184,8 @@
 
 					console.log("vm.workoutPlan");
 					console.log(vm.workoutPlan);
-					//console.log("vm.workObject.workout");
-					//console.log(vm.workObject.workout);
+					console.log("vm.workObject");
+					console.log(vm.workObject);
 
 				}, function(error) {
 					console.log(error);

@@ -55,9 +55,11 @@
 			this.forEach(function(item) {
 				// convert workout property string of array
 				// of JSON objects to objects
-				var tmp = JSON.parse(item.workout);
-				console.log(item.workout);
-				console.log(tmp);
+				var string = JSON.parse(item.workout);
+				// object is stored as an array of nested objects for property
+				tmp.push({program: string});
+				//console.log(item.workout);
+				//console.log(tmp);
 			});
 				return tmp;
 		} 			

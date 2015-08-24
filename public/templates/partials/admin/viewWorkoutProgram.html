@@ -7,10 +7,13 @@
 				Array Key {{key}} : {{value}} <br><br>
 				Workout Value Property : {{value.workout}} <!-- array of JSON objects that needs to be looped through -->
 				<br><br>
-				Array of Json objects : {{value.workout.exercise}}
 			</li>
-			<li ng-repeat="(key,value) in vm.workoutPlan.workout">
-				Workout: {{value.exercise}}
+			<li ng-repeat="(key,value) in vm.workObject">
+				Array key {{key}} : {{value}}
+				workout value : {{value.exercise}}
+			</li>
+			<li ng-repeat="workout in vm.workObject">
+				{{workout.exercise}}
 			</li>
 		</ul>
 	</div>
