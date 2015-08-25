@@ -221,7 +221,6 @@
 		})
 
 
-
 		workoutApp.run(function($rootScope, $state) {
 
 			// $stateChangeStart is fired whenever state changes. We can use
@@ -261,7 +260,6 @@
 			});
 		});
 				
-
 		//function for bootstrap collapsed menu
 		function NavBarCtrl($scope) {
 			$scope.isCollapsed = true;

@@ -3,17 +3,18 @@
 	<div class="row">
 		<h1>Workout Plans</h1>
 		<ul>
+		<!--
 			<li ng-repeat="(key,value) in vm.workoutPlan">
 				Array Key {{key}} : {{value}} <br><br>
-				Workout Value Property : {{value.workout}} <!-- array of JSON objects that needs to be looped through -->
+				Workout Value Property : {{value.workout}} <!-- array of JSON objects that needs to be looped through 
 				<br><br>
-			</li>
-			<li ng-repeat="(key,value) in vm.workObject">
-				Array key {{key}} : {{value}}
-				workout value : {{value.exercise}}
-			</li>
+			</li> -->
+			<!-- Nested ng-repeat loop for array of objects in program property -->
 			<li ng-repeat="workout in vm.workObject">
-				{{workout.exercise}}
+				<span ng-repeat="program in workout.program">{{program.exercise}}</span>
+			</li>
+			<li ng-repeat="(key,value in vm.workObjects)">
+				Array of workout : {{workout.program.value.exercise}}
 			</li>
 		</ul>
 	</div>
