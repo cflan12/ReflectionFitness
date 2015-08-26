@@ -128,6 +128,8 @@
 
 				// push is an array operation
 				vm.select.push(mergedObject);
+
+				//clear selected item on next select
 				
 				//console.log("vm.select");
 				//console.log(vm.select);
@@ -142,11 +144,6 @@
 				//console.log("JSON");
 				//console.log(workoutJSONstring);
 				workout.saveWorkout({
-					//"goal":vm.workoutType,
-					//"name":vm.programName,
-					//"weeks":vm.programVariation,
-					//"frequency":vm.programLength,
-					//"day":vm.selectDay,
 					"workout":workoutJSONstring,
 					"name":vm.programName,
 					"goal":vm.workoutType,
@@ -165,6 +162,7 @@
 				workout.getWorkouts().then(function(result) {
 					// returned as $resource with workout property as a string
 					vm.workoutPlan = result.data;
+					// list of JSON parsed workouts
 					vm.workObject = vm.workoutPlan.listWorkouts();
 					//vm.workObject = JSON.parse(result.data);
 					/* data.work is (key,value) with value as a JSON string
@@ -180,10 +178,10 @@
 						console.log(result.workout);
 					}); */
 
-					//console.log("vm.workoutPlan");
-					//console.log(vm.workoutPlan);
-					//console.log("vm.workObject");
-					//console.log(vm.workObject);
+					console.log("vm.workoutPlan");
+					console.log(vm.workoutPlan);
+					console.log("vm.workObject");
+					console.log(vm.workObject);
 
 				}, function(error) {
 					console.log(error);

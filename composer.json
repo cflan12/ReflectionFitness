@@ -9,7 +9,8 @@
 		"mitulgolakiya/laravel-api-generator": "1.3.*",
 		"fzaninotto/faker": "1.5.*@dev",
 		"barryvdh/laravel-cors": "0.5.x@dev",
-		"tymon/jwt-auth":"0.5.*"
+		"tymon/jwt-auth":"0.5.*",
+		"doctrine/dbal":"2.5.1"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

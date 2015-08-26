@@ -9,3 +9,37 @@
 		</ul>
 	</div>
 </div>
+
+<div class="container">
+	<div class="row">
+
+		<table class="table table-hover table-bordered">
+			<thead>
+				<h4 class="text-center">Assign Users To Workout Programs</h4>
+				<tr>
+					<th>Newest Client</th>
+					<th>Subscription Status</th>
+					<th>Goal</th>
+					<th>Current Workout Program</th>
+					<th>Assign New Program</th>
+					<th>Save</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="subscriber in vm.subscribers">
+					<td>{{subscriber.name}}</td>
+					<td>{{subscriber.subscriber}}</td>
+					<td>Goal</td>
+					<td>Basic</td>
+					<td>
+						<select name="workoutPlan" ng-model="vm.assignProgram" ng-options="workout.name for workout in vm.workoutPlan">
+							<option value="">--Select Workout--</option>
+						</select>
+					</td>
+					<td>Assign Function to FK</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
