@@ -12,7 +12,7 @@ class WorkoutProgram extends Model
 	public $timestamps = true;
 
 	public $fillable = [
-	    "workout"
+	    "workout", "name", "goal", "weeks", "frequency"
 	];
 
 	public static $rules = [

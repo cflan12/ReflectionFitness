@@ -26,7 +26,8 @@
 
 			vm.exerciseCardio = [];
 
-			//Select exercises for workout program as an array of JSON objects
+			// Arrays for building workout program
+			// Select exercises for workout program as an array of JSON objects
 			vm.select = [];
 
 			vm.workoutPlan = [];
@@ -53,14 +54,7 @@
 
 			getReps();
 
-			getWorkouts();
-
-			/*
-			$scope.$watch(vm.types, function(add) {
-
-				angular.extend(vm.types.type, object);
-			}, true);	
-			*/		
+			getWorkouts();		
 			
 			
 			//return JSON object from exercise API, array is result.data
@@ -143,22 +137,26 @@
 			//log New Workout
 			//save workout based on user subscription plan
 			vm.logWorkout = function() {
-
 				// convert array of objects to JSON string
 				var workoutJSONstring = JSON.stringify(vm.select);
 				//console.log("JSON");
 				//console.log(workoutJSONstring);
 				workout.saveWorkout({
-					//"name":vm.workoutType,
-					//"identifier":vm.programName,
-					//"length":vm.programVariation,
-					//"amount":vm.programLength,
+					//"goal":vm.workoutType,
+					//"name":vm.programName,
+					//"weeks":vm.programVariation,
+					//"frequency":vm.programLength,
 					//"day":vm.selectDay,
-					"workout":workoutJSONstring
+					"workout":workoutJSONstring,
+					"name":vm.programName,
+					"goal":vm.workoutType,
+					"weeks":vm.programVariation,
+					"frequency":vm.programLength
 				}).then(function(success) {
-					console.log("workout success");
+					getWorkouts();
+					console.log(success);
 				}, function(error) {
-					console.log("error");
+					console.log(error);
 				});
 			}
 
@@ -182,10 +180,10 @@
 						console.log(result.workout);
 					}); */
 
-					console.log("vm.workoutPlan");
-					console.log(vm.workoutPlan);
-					console.log("vm.workObject");
-					console.log(vm.workObject);
+					//console.log("vm.workoutPlan");
+					//console.log(vm.workoutPlan);
+					//console.log("vm.workObject");
+					//console.log(vm.workObject);
 
 				}, function(error) {
 					console.log(error);

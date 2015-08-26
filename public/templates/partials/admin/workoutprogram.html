@@ -41,13 +41,12 @@
 
 			<div class="container">
 				<div class="row">
-					<h1>Workout Program</h1>
-
 						<form class="navbar-form">
 							<input class="form-control" ng-model="vm.workoutType" type="text" placeholder="Workout Goal">
-							<input class="form-control" ng-model="vm.programName" type="text" placeholder="Program Name">
+							<input class="form-control" ng-model="vm.programName" type="text" placeholder="Workout Name">
 							<input class="form-control" ng-model="vm.programVariation" type="text" placeholder="Weeks">
-							<input class="form-control" ng-model="vm.programLength" type="text" placeholder="Number of Days A Week">
+							<input class="form-control" ng-model="vm.programLength" type="text" placeholder="Days per Week">
+							<h5>Select Day and Exercises</h5>
 							<select name="day" class="form-control" ng-model="vm.selectDay" ng-options="days.day for days in vm.calendar">
 								<option value="">--Select Day--</option>
 							</select>

@@ -42,7 +42,7 @@
 			// save function called to POST data to API
 			function saveWorkout(data) {
 				return Workout.save(data).$promise.then(function(success) {
-					console.log("success");
+					console.log(success);
 				}, function(error) {
 					console.log(error);
 				});
