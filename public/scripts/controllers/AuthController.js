@@ -42,8 +42,10 @@
 				// now chain the next promise to the end here
 				}).then(function(response) {
 
+					console.log("JWT response");
+					console.log(response);
 					// Stringify returned data to prepare it to
-					// go into local storage
+					// go into local storage, allowing to be added as a header
 					var user = JSON.stringify(response.data.user);
 
 					// Set stringified user data into local storage

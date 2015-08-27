@@ -21,6 +21,12 @@ Route::get('/', function()
 //	'password' => 'Auth\PasswordController',
 //]);
 
+// Test JWT Authorization
+Route::get('test', function() {
+	$token = JWTAuth::parseToken('bearer', 'HTTP_AUTHORIZATION')->getToken();
+	dd($token);
+});
+
 
 Route::group(['prefix' => 'api'], function() 
 {
@@ -32,13 +38,8 @@ Route::group(['prefix' => 'api'], function()
 
 // Protect routes with middleware for authenticated JWT
 Route::resource('api/exercises', 'API\ExerciseAPIController');
-
 Route::resource('api/bodyweights', 'API\BodyweightAPIController');
-
 Route::resource('api/cardios', 'API\CardioAPIController');
-
 Route::resource('api/reps', 'API\RepsAPIController');
-
 Route::resource('api/users', 'API\UserAPIController'); 
-
 Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');

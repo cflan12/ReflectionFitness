@@ -14,7 +14,7 @@ use App\Models\User;
 				$user = new User;
 				$user->name = $Faker->name;
 				$user->email = $Faker->email;
-				$user->password = Hash::make('1234');
+				$user->password = '1234'; //Hash::make('1234');
 				$user->subscriber = 1;
 				$user->save();
 			}

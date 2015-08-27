@@ -14,13 +14,14 @@ use App\Models\User;
 
 class AuthenticateController extends Controller {
 
+	
 	public function __construct()
 	{
 		// Apply the jwt.auth middleware to all methods in the controller
 		// except for the authenticate method. We don't want to prevent the
 		// user from retrieving their token if they don't already have it.
 		$this->middleware('jwt.auth', ['except' => ['authenticate']]);
-	}
+	} 
 
 	/**
 	 * Display a listing of the resource.
@@ -45,9 +46,10 @@ class AuthenticateController extends Controller {
 
 		try {
 			// Verify the credentials and return error if false
-			if(!$token = JWTAuth::attempt($credentials)) {
+			if(! $token = JWTAuth::attempt($credentials)) {
 				return response()->json(['error' =>'invalid_credentials'], 401);
 			}
+			
 		} catch (JWTException $e) {
 			//catch something went wrong
 			return response()->json(['error' => 'could_not_create_token'], 500);
