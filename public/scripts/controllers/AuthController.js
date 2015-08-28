@@ -61,7 +61,12 @@
 					$rootScope.currentUser = response.data.user;
 
 					// Redirect user's state to view UI data
-					$state.go('profile');
+					// depending on user role
+					if(response.data.user.role == "admin") {
+						$state.go('admin');
+					} else {
+						$state.go('profile');
+					}
 				});
 			}
 		}

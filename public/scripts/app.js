@@ -129,16 +129,29 @@
 				})
 				.state('auth', {
 					url: '/login',
-					templateUrl: 'templates/auth/authView.html',
+					templateUrl: 'templates/auth/authLogin.html',
 					controller: 'AuthController as auth'
+				})
+				.state('admin', {
+					url: '/admin',
+					//controller: 'UserController as user',
+					views: {
+						'admin': {
+							templateUrl: 'templates/auth/adminView.html',
+							controller: 'UserController as user',
+						},
+						'adminNavbar': {
+							templateUrl: 'templates/auth/adminNavigation.html'
+						}
+					}
 				})
 				.state('profile', {
 					url: '/profile/',
-					//templateUrl: 'templates/auth/userView.html',
-					controller: 'UserController as user',
+					//controller: 'UserController as user',
 					views: {
 						'profile':{
-							templateUrl: 'templates/auth/userView.html'
+							templateUrl: 'templates/auth/userView.html',
+							controller: 'UserController as user',
 						},
 						'adminNavbar': {
 							templateUrl: 'templates/auth/adminNavigation.html'
@@ -148,20 +161,6 @@
 						}
 					}
 				})
-				//admin navbar
-				.state('profile.navbarAdmin', {
-					views: {
-						'adminNavbar': {
-							templateUrl: 'templates/auth/adminNavigation.html'
-						}
-					}
-				})
-				// client navbar
-				.state('profile.userNavbar', {
-					templateUrl: 'templates/auth/userNavigation.html'
-				}) 
-
-
 				//route for exercises page
 				.state('profile.exercises', {
 					url: 'userID/exercises',
@@ -241,7 +240,7 @@
 			});
 		})
 
-
+		// checking state of active user
 		workoutApp.run(function($rootScope, $state) {
 
 			// $stateChangeStart is fired whenever state changes. We can use
@@ -274,9 +273,15 @@
 						// to change states
 						event.preventDefault();
 
-						// go to the main states
+
+						/* manage state for authentication role
+						if(user.role == 'admin') {
+							$state.go('admin');
+						} else {
+						// go to the main states */
 						$state.go('profile');
 					}
+					
 				}
 			});
 		});

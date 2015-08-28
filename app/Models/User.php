@@ -29,7 +29,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $hidden = ['password', 'remember_token', 'role'];
+	protected $hidden = ['password', 'remember_token'];
 
 	/**
 	* The password attribute is hashed for any form input

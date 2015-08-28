@@ -13,8 +13,11 @@
 		<div class="container-fluid" id="container-fluid">
             
             <!-- ui-router view injection -->
-            <!-- <div ui-view></div> -->
+            <div ui-view></div>
+            <!-- Admin view, navbar injected first -->
             <div ui-view="adminNavbar"></div>
+            <div ui-view="admin"></div>
+            <!-- User profile, navbar injected first -->
             <div ui-view="userNavbar"></div>
             <div ui-view="profile"></div>
 
