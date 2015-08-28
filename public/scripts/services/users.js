@@ -16,7 +16,7 @@
 				'query': {method: 'GET', isArray: true}
 			});
 
-			//query API for users and return JSON object with get method
+			// query API for users and return JSON object with get method
 			function getUser() {
 				return User.query().$promise.then(function(results) {
 					return results;
@@ -25,7 +25,7 @@
 				});
 			}
 
-			//send POST data to API
+			// send POST data to API
 			function saveUser(data) {
 				return User.save(data).$promise.then(function(success) {
 					console.log(success);
@@ -43,10 +43,21 @@
 				});
 			}
 
+			// assign Workout foreign id to user
+			// send to API as update method
+			function assignWorkout(data) {
+				return User.update({id:data.id}, data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getUser: getUser,
 				saveUser: saveUser,
-				deleteUser: deleteUser
+				deleteUser: deleteUser,
+				assignWorkout: assignWorkout
 			}
 		}
 })();

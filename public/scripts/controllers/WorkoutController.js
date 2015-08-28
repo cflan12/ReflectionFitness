@@ -150,11 +150,37 @@
 					"weeks":vm.programVariation,
 					"frequency":vm.programLength
 				}).then(function(success) {
-					getWorkouts();
 					console.log(success);
 				}, function(error) {
 					console.log(error);
 				});
+
+				getWorkouts();
+				// clear workout data after POST to API
+				vm.select = "";
+				vm.programName = "";
+				vm.workoutType = "";
+				vm.programVariation = "";
+				vm.programLength = "";
+			}
+
+			vm.assignWorkout = function(subscriber) {
+				var workoutProgram = vm.assignProgram.id;
+				var client = subscriber.id;
+				console.log(client);
+				users.assignWorkout({
+					"id":client,
+					"user_workout":workoutProgram
+				}).then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+				//console.log(workoutProgram);
+				//console.log(client);
+
+				// add form to table row or add ng-select to send subscriber.id
+				//send to user API update method
 			}
 
 			// return workout plans from API
