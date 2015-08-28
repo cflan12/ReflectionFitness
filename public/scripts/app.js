@@ -158,6 +158,8 @@
 						},
 					}
 				})
+
+				// user navigation
 				.state('profile.profile', {
 					url:'userID',
 					templateUrl: 'templates/user/userProfile.html',
@@ -172,25 +174,23 @@
 					url: 'userID/progress',
 					templateURL: 'templates/user/userProgress.html'
 				})
-				//route for exercises page
+
+				// admin navigation
 				.state('admin.exercises', {
 					url: 'exercises',
 					templateUrl : 'templates/exercises.html',
 					controller : 'WorkoutController as vm'
 				})
-				//route for users page
 				.state('admin.clients', {
 					url: 'clients',
 					templateUrl : 'templates/users.html',
 					controller : 'WorkoutController as vm'
 				})
-				//route for admin page
 				.state('admin.admin', {
 					url: 'panel',
 					templateUrl : 'templates/admin.html',
 					controller : 'WorkoutController as vm'
 				})
-				//route for analytics page
 				.state('admin.analytics', {
 					url: 'analytics',
 					templateUrl : 'templates/analytics.html',
@@ -198,33 +198,29 @@
 				})
 
 			//nested weighted exercises view from profile.exercises 
-			// WorkoutController is injected
+			// WorkoutController is injected from parent
 			.state('admin.exercises.exercises', {
 				templateUrl: 'templates/partials/exercises/weighted.html',
-				//controller: 'WorkoutController as vm'
 			})
 			//nested bodyweight view
 			.state('admin.exercises.bodyweight', {
 				templateUrl: 'templates/partials/exercises/bodyweight.html',
-				//controller: 'WorkoutController as vm'
 			})
 			//nested cardio view
 			.state('admin.exercises.cardio', {
 				templateUrl: 'templates/partials/exercises/cardio.html',
-				//controller: 'WorkoutController as vm'
 			})
 			//nested reps view
 			.state('admin.exercises.reps', {
 				templateUrl: 'templates/partials/exercises/reps.html',
-				//controller: 'WorkoutController as vm'
 			})
 
-			//admin customers views
+			//admin panel customers views
 			.state("admin.admin.customers", {	
 				templateUrl: 'templates/partials/admin/customers.html',
 				controller: 'WorkoutController as vm'
 			})
-			//admin workout build
+			//admin panel workout build
 			.state("admin.admin.workout", {
 				templateUrl: 'templates/partials/admin/workoutprogram.html'
 			})
@@ -240,13 +236,9 @@
 					.state("admin.admin.workout.cardio", {
 						templateUrl: 'templates/partials/admin/cardioexercises.html'
 					})
-			//admin workout plans 
+			//admin panel workout plans 
 			.state("admin.admin.workoutplan",{
 				templateUrl: 'templates/partials/admin/viewWorkoutProgram.html'
-			})
-			//admin exercise database
-			.state("admin.admin.exerciseDatabase", {
-				templateUrl: 'templates/partials/admin/exercisedatabase.html'
 			});
 		})
 
@@ -284,14 +276,14 @@
 						event.preventDefault();
 
 
-						/* manage state for authentication role
-						if(user.role == 'admin') {
+						//manage state for authentication role
+						if($rootScope.currentUser.role == 'admin') {
 							$state.go('admin');
 						} else {
 						// go to the main states */
 						$state.go('profile');
 					}
-					
+					}
 				}
 			});
 		});
