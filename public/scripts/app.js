@@ -14,7 +14,7 @@
 							'satellizer',
 						]);
 		
-		
+		/*
 		Array.prototype.functionName = function() {
 
 			//clear the array in each call stack from API Resource call
@@ -45,7 +45,7 @@
 				tmp.push({range: item.range, rest_time: item.rest_time, time_frame: item.time_frame});
 			});
 				return tmp;
-		}
+		} */
 
 		// workout program list is returned as an array by the API
 		Array.prototype.listWorkouts = function() {
@@ -134,13 +134,34 @@
 				})
 				.state('profile', {
 					url: '/profile/',
-					templateUrl: 'templates/auth/userView.html',
-					 controller: 'UserController as user'
+					//templateUrl: 'templates/auth/userView.html',
+					controller: 'UserController as user',
+					views: {
+						'profile':{
+							templateUrl: 'templates/auth/userView.html'
+						},
+						'adminNavbar': {
+							templateUrl: 'templates/auth/adminNavigation.html'
+						},
+						'userNavbar': {
+							templateUrl: 'templates/auth/userNavigation.html'
+						}
+					}
 				})
-				/* Admin Nabvar
+				//admin navbar
 				.state('profile.navbarAdmin', {
-					templateUrl: 'templates/auth/adminNavigation.html'
-				}) */
+					views: {
+						'adminNavbar': {
+							templateUrl: 'templates/auth/adminNavigation.html'
+						}
+					}
+				})
+				// client navbar
+				.state('profile.userNavbar', {
+					templateUrl: 'templates/auth/userNavigation.html'
+				}) 
+
+
 				//route for exercises page
 				.state('profile.exercises', {
 					url: 'userID/exercises',

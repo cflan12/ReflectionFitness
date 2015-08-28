@@ -13,7 +13,10 @@
 		<div class="container-fluid" id="container-fluid">
             
             <!-- ui-router view injection -->
-            <div ui-view></div>
+            <!-- <div ui-view></div> -->
+            <div ui-view="adminNavbar"></div>
+            <div ui-view="userNavbar"></div>
+            <div ui-view="profile"></div>
 
             <!-- NgRoute view injection -->
             <!-- <div ng-view></div> -->
