@@ -137,7 +137,7 @@
 
 
 			//log New Workout
-			//save workout based on user subscription plan
+			// add function to save to a specific user
 			vm.logWorkout = function() {
 				// convert array of objects to JSON string
 				var workoutJSONstring = JSON.stringify(vm.select);
@@ -164,6 +164,7 @@
 				vm.programLength = "";
 			}
 
+			// update user with workout and send to API
 			vm.assignWorkout = function(subscriber) {
 				var workoutProgram = vm.assignProgram.id;
 				var client = subscriber.id;
@@ -176,11 +177,6 @@
 				}, function(error) {
 					console.log(error);
 				});
-				//console.log(workoutProgram);
-				//console.log(client);
-
-				// add form to table row or add ng-select to send subscriber.id
-				//send to user API update method
 			}
 
 			// return workout plans from API

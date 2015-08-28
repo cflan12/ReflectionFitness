@@ -132,9 +132,9 @@
 					templateUrl: 'templates/auth/authLogin.html',
 					controller: 'AuthController as auth'
 				})
+				// admin UI
 				.state('admin', {
-					url: '/admin',
-					//controller: 'UserController as user',
+					url: '/admin/',
 					views: {
 						'admin': {
 							templateUrl: 'templates/auth/adminView.html',
@@ -145,97 +145,107 @@
 						}
 					}
 				})
+				// user UI
 				.state('profile', {
 					url: '/profile/',
-					//controller: 'UserController as user',
 					views: {
 						'profile':{
 							templateUrl: 'templates/auth/userView.html',
 							controller: 'UserController as user',
 						},
-						'adminNavbar': {
-							templateUrl: 'templates/auth/adminNavigation.html'
-						},
 						'userNavbar': {
 							templateUrl: 'templates/auth/userNavigation.html'
-						}
+						},
 					}
 				})
+				.state('profile.profile', {
+					url:'userID',
+					templateUrl: 'templates/user/userProfile.html',
+					controller: 'WorkoutController as vm'
+				})
+				.state('profile.program', {
+					url: 'userID/workout',
+					templateUrl: 'templates/user/userProgram.html',
+					controller: 'WorkoutController as vm'
+				})
+				.state('profile.progress', {
+					url: 'userID/progress',
+					templateURL: 'templates/user/userProgress.html'
+				})
 				//route for exercises page
-				.state('profile.exercises', {
-					url: 'userID/exercises',
+				.state('admin.exercises', {
+					url: 'exercises',
 					templateUrl : 'templates/exercises.html',
-					// controller for nested views
 					controller : 'WorkoutController as vm'
 				})
 				//route for users page
-				.state('profile.clients', {
-					url: 'userID/clients',
+				.state('admin.clients', {
+					url: 'clients',
 					templateUrl : 'templates/users.html',
 					controller : 'WorkoutController as vm'
 				})
 				//route for admin page
-				.state('profile.admin', {
-					url: 'userID/admin',
+				.state('admin.admin', {
+					url: 'panel',
 					templateUrl : 'templates/admin.html',
 					controller : 'WorkoutController as vm'
 				})
 				//route for analytics page
-				.state('profile.analytics', {
-					url: 'userID/analytics',
+				.state('admin.analytics', {
+					url: 'analytics',
 					templateUrl : 'templates/analytics.html',
 					controller : 'WorkoutController as vm'
 				})
 
 			//nested weighted exercises view from profile.exercises 
 			// WorkoutController is injected
-			.state('profile.exercises.exercises', {
+			.state('admin.exercises.exercises', {
 				templateUrl: 'templates/partials/exercises/weighted.html',
 				//controller: 'WorkoutController as vm'
 			})
 			//nested bodyweight view
-			.state('profile.exercises.bodyweight', {
+			.state('admin.exercises.bodyweight', {
 				templateUrl: 'templates/partials/exercises/bodyweight.html',
 				//controller: 'WorkoutController as vm'
 			})
 			//nested cardio view
-			.state('profile.exercises.cardio', {
+			.state('admin.exercises.cardio', {
 				templateUrl: 'templates/partials/exercises/cardio.html',
 				//controller: 'WorkoutController as vm'
 			})
 			//nested reps view
-			.state('profile.exercises.reps', {
+			.state('admin.exercises.reps', {
 				templateUrl: 'templates/partials/exercises/reps.html',
 				//controller: 'WorkoutController as vm'
 			})
 
 			//admin customers views
-			.state("profile.admin.customers", {	
+			.state("admin.admin.customers", {	
 				templateUrl: 'templates/partials/admin/customers.html',
 				controller: 'WorkoutController as vm'
 			})
 			//admin workout build
-			.state("profile.admin.workout", {
+			.state("admin.admin.workout", {
 				templateUrl: 'templates/partials/admin/workoutprogram.html'
 			})
 					//admin nested build workout weighted
-					.state("profile.admin.workout.weighted", {
+					.state("admin.admin.workout.weighted", {
 						templateUrl: 'templates/partials/admin/weightexercises.html'
 					})
 					//admin build workout bodyweight 
-					.state("profile.admin.workout.bodyweight", {
+					.state("admin.admin.workout.bodyweight", {
 						templateUrl: 'templates/partials/admin/bodyweightexercises.html'
 					})
 					//admin build workout cardio
-					.state("profile.admin.workout.cardio", {
+					.state("admin.admin.workout.cardio", {
 						templateUrl: 'templates/partials/admin/cardioexercises.html'
 					})
 			//admin workout plans 
-			.state("profile.admin.workoutplan",{
+			.state("admin.admin.workoutplan",{
 				templateUrl: 'templates/partials/admin/viewWorkoutProgram.html'
 			})
 			//admin exercise database
-			.state("profile.admin.exerciseDatabase", {
+			.state("admin.admin.exerciseDatabase", {
 				templateUrl: 'templates/partials/admin/exercisedatabase.html'
 			});
 		})
