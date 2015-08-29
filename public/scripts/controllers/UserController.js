@@ -9,7 +9,7 @@
 		.controller('UserController', UserController);
 
 	// $auth service provided by Satellizer
-	function UserController($http, $auth, $rootScope) {
+	function UserController($http, $auth, $rootScope, $state) {
 
 		var vm = this;
 
@@ -41,6 +41,7 @@
 
 				// Remove current user data from rootScope
 				$rootScope.currentUser = null;
+
 			});
 		}
 	}

@@ -75,6 +75,9 @@
 
 						// use $injector.get to bring in $state or else
 						// we get circular dependency error
+
+						// inject state to get access to parameters in the URL
+						// but parameters available only from the associated controller
 						var $state = $injector.get('$state');
 
 						// Instead of checking for Laravel 400 status code, which could
@@ -130,15 +133,16 @@
 				.state('auth', {
 					url: '/login',
 					templateUrl: 'templates/auth/authLogin.html',
-					controller: 'AuthController as auth'
+					controller: 'AuthController as auth',
 				})
 				// admin UI
 				.state('admin', {
-					url: '/admin/',
+					url: '/admin/:id',
 					views: {
 						'admin': {
-							templateUrl: 'templates/auth/adminView.html',
+							templateUrl:'templates/auth/adminView.html',
 							controller: 'UserController as user',
+
 						},
 						'adminNavbar': {
 							templateUrl: 'templates/auth/adminNavigation.html'
@@ -147,7 +151,7 @@
 				})
 				// user UI
 				.state('profile', {
-					url: '/profile/',
+					url: '/profile/:id',
 					views: {
 						'profile':{
 							templateUrl: 'templates/auth/userView.html',
@@ -161,38 +165,38 @@
 
 				// user navigation
 				.state('profile.profile', {
-					url:'userID',
+					url:'/profilename',
 					templateUrl: 'templates/user/userProfile.html',
 					controller: 'WorkoutController as vm'
 				})
 				.state('profile.program', {
-					url: 'userID/workout',
+					url: '/workout',
 					templateUrl: 'templates/user/userProgram.html',
 					controller: 'WorkoutController as vm'
 				})
 				.state('profile.progress', {
-					url: 'userID/progress',
+					url: '/progress',
 					templateURL: 'templates/user/userProgress.html'
 				})
 
 				// admin navigation
 				.state('admin.exercises', {
-					url: 'exercises',
+					url: '/exercises',
 					templateUrl : 'templates/exercises.html',
 					controller : 'WorkoutController as vm'
 				})
 				.state('admin.clients', {
-					url: 'clients',
+					url: '/clients',
 					templateUrl : 'templates/users.html',
 					controller : 'WorkoutController as vm'
 				})
 				.state('admin.admin', {
-					url: 'panel',
+					url: '/panel',
 					templateUrl : 'templates/admin.html',
 					controller : 'WorkoutController as vm'
 				})
 				.state('admin.analytics', {
-					url: 'analytics',
+					url: '/analytics',
 					templateUrl : 'templates/analytics.html',
 					controller : 'WorkoutController as vm'
 				})
@@ -275,14 +279,13 @@
 						// to change states
 						event.preventDefault();
 
-
 						//manage state for authentication role
 						if($rootScope.currentUser.role == 'admin') {
 							$state.go('admin');
 						} else {
-						// go to the main states */
-						$state.go('profile');
-					}
+							// go to the user UI
+							$state.go('profile');
+						}
 					}
 				}
 			});

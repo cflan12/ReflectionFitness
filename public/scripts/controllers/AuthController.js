@@ -42,8 +42,9 @@
 				// now chain the next promise to the end here
 				}).then(function(response) {
 
-					console.log("JWT response");
-					console.log(response);
+					//console.log("JWT response");
+					//console.log(response);
+
 					// Stringify returned data to prepare it to
 					// go into local storage, allowing to be added as a header
 					var user = JSON.stringify(response.data.user);
@@ -63,9 +64,9 @@
 					// Redirect user's state to view UI data
 					// depending on user role
 					if(response.data.user.role == "admin") {
-						$state.go('admin');
+						$state.go('admin', {id: $rootScope.currentUser.id});
 					} else {
-						$state.go('profile');
+						$state.go('profile', {id: $rootScope.currentUser.id});
 					}
 				});
 			}

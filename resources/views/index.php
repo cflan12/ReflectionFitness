@@ -20,9 +20,7 @@
             <!-- User profile, navbar injected first -->
             <div ui-view="userNavbar"></div>
             <div ui-view="profile"></div>
-
-            <!-- NgRoute view injection -->
-            <!-- <div ng-view></div> -->
+        
       
         </div> <!-- global container -->
 	</body>

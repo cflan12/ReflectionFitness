@@ -9,10 +9,16 @@
 		.controller('WorkoutController', WorkoutController);
 
 		//inject services into controller
-		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope, $rootScope) {
+		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope, $rootScope, $state) {
 
 		// Require JWT for API call by authorization		
 		if ($rootScope.authenticated) {
+
+			//console.log("rootScope");
+			//console.log($rootScope);
+			//console.log($rootScope.currentUser.id);
+			console.log("state")
+			console.log($state);
 
 			var vm = this;
 
@@ -200,10 +206,10 @@
 						console.log(result.workout);
 					}); */
 
-					console.log("vm.workoutPlan");
-					console.log(vm.workoutPlan);
-					console.log("vm.workObject");
-					console.log(vm.workObject);
+					//console.log("vm.workoutPlan");
+					//console.log(vm.workoutPlan);
+					//console.log("vm.workObject");
+					//console.log(vm.workObject);
 
 				}, function(error) {
 					console.log(error);
