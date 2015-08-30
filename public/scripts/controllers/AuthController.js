@@ -61,6 +61,9 @@
 					// access to it globally on the app
 					$rootScope.currentUser = response.data.user;
 
+					// prevent admin from accesing profile and from
+					// any URL not accepted to route to user profile
+
 					// Redirect user's state to view UI data
 					// depending on user role
 					if(response.data.user.role == "admin") {
