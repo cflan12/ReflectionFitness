@@ -52,6 +52,8 @@
 
 			vm.client = [];
 
+			vm.clientProgram = [];
+
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
 
@@ -213,6 +215,30 @@
 					console.log(result);
 					vm.client = result.data;
 
+					//foreign key on the client side
+					var workout = result.data.user_workout;
+					console.log("workout");
+					console.log(workout);
+
+					//call Foreign key on frontend then backend (optimize)
+					// setup getWorkouts() with null parameter for admin or 
+					// user without program
+					getWorkout(workout);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			// called from getClientWorkout foreign key to API
+			function getWorkout(id) {
+				workout.clientWorkout(id).then(function(result) {
+					vm.clientProgram = result.data;
+					console.log(vm.clientProgram);
+					var JSONstring = JSON.parse(result.data.workout);
+					console.log('JSON string');
+					console.log(JSONstring);
+					vm.clientProgram.program = JSONstring;
+					console.log(vm.clientProgram);
 				}, function(error) {
 					console.log(error);
 				});

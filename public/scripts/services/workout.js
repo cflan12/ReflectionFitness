@@ -57,10 +57,21 @@
 				});
 			}
 
+			// return client workout to specific frontend client 
+			// as $resource from API
+			function clientWorkout(id) {
+				return Workout.query({id:id}).$promise.then(function(result) {
+					return result;
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getExercises: getExercises,
 				saveWorkout: saveWorkout,
-				getWorkouts: getWorkouts
+				getWorkouts: getWorkouts,
+				clientWorkout: clientWorkout
 			}
 		}
 })();

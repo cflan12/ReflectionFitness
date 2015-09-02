@@ -2,5 +2,8 @@
 	<div class="row">
 		<h1>User Program</h1>
 			<p>{{vm.client.name}}</p>
+			<p ng-repeat="(key,value) in vm.clientProgram.program">
+				{{key}} : {{value}}
+			</p>
 	</div>
 </div>
