@@ -14,11 +14,11 @@
 		// Require JWT for API call by authorization		
 		if ($rootScope.authenticated) {
 
-			//console.log("rootScope");
-			//console.log($rootScope);
+			console.log("rootScope");
+			console.log($rootScope);
 			//console.log($rootScope.currentUser.id);
-			console.log("state")
-			console.log($state);
+			//console.log("state")
+			//console.log($state);
 
 			var vm = this;
 
@@ -48,6 +48,9 @@
 							{"day":"Saturday"},
 							{"day":"Sunday"} ];
 
+			var clientID = $rootScope.currentUser.id;
+
+			vm.client = [];
 
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
@@ -60,7 +63,9 @@
 
 			getReps();
 
-			getWorkouts();		
+			getWorkouts();
+
+			getClientWorkout();		
 			
 			
 			//return JSON object from exercise API, array is result.data
@@ -174,7 +179,7 @@
 			vm.assignWorkout = function(subscriber) {
 				var workoutProgram = vm.assignProgram.id;
 				var client = subscriber.id;
-				console.log(client);
+				//console.log(client);
 				users.assignWorkout({
 					"id":client,
 					"user_workout":workoutProgram
@@ -192,24 +197,21 @@
 					vm.workoutPlan = result.data;
 					// list of JSON parsed workouts
 					vm.workObject = vm.workoutPlan.listWorkouts();
-					//vm.workObject = JSON.parse(result.data);
-					/* data.work is (key,value) with value as a JSON string
-					try { 
-						vm.workObject = JSON.parse(vm.workoutPlan);
-					} catch(error) {
-						console.log("error parsing object");
-					} */
-
-					/*
-					console.log("angular for each");
-					angular.forEach(vm.workoutPlan, function(result) {
-						console.log(result.workout);
-					}); */
 
 					//console.log("vm.workoutPlan");
 					//console.log(vm.workoutPlan);
 					//console.log("vm.workObject");
 					//console.log(vm.workObject);
+
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			function getClientWorkout() {
+				users.getClient(clientID).then(function(result) {
+					console.log(result);
+					vm.client = result.data;
 
 				}, function(error) {
 					console.log(error);

@@ -69,7 +69,9 @@ class UserAPIController extends AppBaseController
 		if(empty($users))
 			$this->throwRecordNotFoundException("Users not found", ERROR_CODE_RECORD_NOT_FOUND);
 
-		return Response::json(ResponseManager::makeResult($users->toArray(), "Users retrieved successfully."));
+		//return $users;
+
+		return Response::json(ResponseManager::makeResult($users->toArray(), "User retrieved successfully."));
 	}
 
 	/**

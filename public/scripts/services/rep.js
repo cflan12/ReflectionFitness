@@ -13,7 +13,7 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {method: 'GET', isArray: true}
+				query: {method: 'GET', isArray: true}
 			});
 
 			//query APU for reps and return JSON object with get method

@@ -13,7 +13,7 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {
+				query: {
 					method: 'GET',
 					isArray: true,
 				}
@@ -24,7 +24,7 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {
+				query: {
 					method: 'GET',
 					isArray: false,
 				}
@@ -48,7 +48,7 @@
 				});
 			}
 
-			// return workout plans 
+			// return all workout plans from API index
 			function getWorkouts() {
 				return Workout.query().$promise.then(function(results) {
 					return results;

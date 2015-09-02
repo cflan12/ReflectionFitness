@@ -13,10 +13,22 @@
 				update: {
 					method: 'PUT'
 				},
-				'query': {method: 'GET', isArray: true}
+				query: {
+						method: 'GET', 
+						isArray: true,
+
+				},
+				client: {
+						method: 'GET', 
+						isArray: false,
+					},
 			});
 
-			// query API for users and return JSON object with get method
+			//function for getClient to show object to controller
+
+
+
+			// query API for all users and return JSON object with get method
 			function getUser() {
 				return User.query().$promise.then(function(results) {
 					return results;
@@ -53,11 +65,23 @@
 				});
 			}
 
+			// workout program saved as foreign key
+			// call user with key and then call workout program
+			// return object to UI
+			function getClient(id) {
+				return User.client({id:id}).$promise.then(function(result) {
+					return result;
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getUser: getUser,
 				saveUser: saveUser,
 				deleteUser: deleteUser,
-				assignWorkout: assignWorkout
+				assignWorkout: assignWorkout,
+				getClient: getClient
 			}
 		}
 })();
