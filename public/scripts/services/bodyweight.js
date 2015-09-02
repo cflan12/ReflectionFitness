@@ -24,8 +24,17 @@
 				});
 			}
 
+			function deleteExercise(id) {
+				return Exercise.delete({id:id}).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
-				getBodyweight: getBodyweight
+				getBodyweight: getBodyweight,
+				deleteExercise: deleteExercise
 			}
 		}
 })();

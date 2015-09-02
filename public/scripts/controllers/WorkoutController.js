@@ -81,6 +81,36 @@
 				});
 			}
 
+			vm.deleteExercise = function(factory, id) {
+				factory.deleteExercise(id).then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			/*
+			vm.addExercise = function(factory) {
+				factory.addExercise({
+					"body":vm.addBody,
+					"exercise":vm.newExercise,
+					"type":vm.addtype,
+					"range":vm.addRep,
+					"time_frame":vm.addTime,
+					"rest_time":vm.addRest
+				}).then(function(success) {
+					if(factory == 'workout') {
+						getExercises();
+					}else if(factory == 'bodyweight') {
+						getBodyweight();
+					}else if(factory == 'cardio') {
+						getCardio();
+					}else {
+						getReps();
+					}
+				});
+			} */
+
 			//return JSON object from user API and convert to an array
 			function getUsers() {
 				users.getUser().then(function(result) {

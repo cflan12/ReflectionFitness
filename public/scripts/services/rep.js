@@ -25,8 +25,17 @@
 				});
 			}
 
+			function deleteExercise(id) {
+				return Reps.delete({id:id}).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
-				getReps: getReps
+				getReps: getReps,
+				deleteExercise: deleteExercise
 			}
 		}
 

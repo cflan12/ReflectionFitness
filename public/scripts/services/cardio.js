@@ -25,8 +25,17 @@
 				});
 			}
 
+			function deleteExercise(id) {
+				return Cardio.delete({id:id}).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
-				getCardio: getCardio
+				getCardio: getCardio,
+				deleteExercise: deleteExercise
 			}
 		}
 })();

@@ -9,6 +9,7 @@
 
 		function workout($resource) {
 
+			//weighted exercises URL
 			var Exercise = $resource('api/exercises/:id', {}, {
 				update: {
 					method: 'PUT'
@@ -38,6 +39,16 @@
 					console.log(error);
 				});
 			}
+
+			function deleteExercise(id) {
+				return Exercise.delete({id:id}).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+
 
 			// save function called to POST data to API
 			function saveWorkout(data) {
@@ -69,6 +80,7 @@
 
 			return {
 				getExercises: getExercises,
+				deleteExercise: deleteExercise,
 				saveWorkout: saveWorkout,
 				getWorkouts: getWorkouts,
 				clientWorkout: clientWorkout

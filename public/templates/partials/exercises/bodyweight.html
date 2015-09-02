@@ -1,18 +1,38 @@
 
 <!--<div class="table-responsive"> -->
 		<div>
+			
+			<btn class="btn btn-primary" style="margin-top:20px" ng-click="addExercise = true">Add Exercise</btn>
+
+			<div class="row" ng-show="addExercise === true">
+				<form class="navbar-form">
+					<input class="form-control" type="text" ng-model="vm.addBody" placeholder="Body">
+					<input class="form-control" type="text" ng-model="vm.newExercise" placeholder="Exercise">
+					<btn class="btn btn-primary" ng-click="vm.addExercise(bodyweight)">Submit</btn>
+					<btn class="btn btn-danger" ng-click="addExercise = false">Close</btn>
+				</form>
+			</div>
+
+
+
+
+
 		<table class="table table-hover table-bordered">
 			<thead>
 			<h1 class="text-center">Bodyweight Exercises</h1>
 				<tr>
 					<th>Body Part</th>
 					<th>Exercise</th>
+					<th>Update</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="bodyweight in vm.exerciseBodyweight">
 					<td>{{bodyweight.body}}</td>
 					<td>{{bodyweight.exercise}}</td>
+					<td>Update</td>
+					<td><btn class="btn btn-danger btn-xs" ng-click="vm.deleteExercise(bodyweight, bodyweight.id)">Delete</btn>
 				</tr>
 			</tbody>
 		</table>
