@@ -82,28 +82,41 @@
 			}
 
 			vm.deleteExercise = function(factory, id) {
-				var factory = facttory;
-				factory.deleteExercise(id).then(function(success) {
-					console.log(success);
-
-					// calling function for two-way data binding
-					if(factory == 'workout') {
+	
+				if(factory == 'workout') {
+					workout.deleteExercise(id).then(function(success) {
 						getExercises();
-					}else if(factory == 'bodyweight') {
+						console.log(success)
+					}, function(error) {
+						console.log(error);
+					});
+				} else if(factory == 'bodyweight') {
+					bodyweight.deleteExercise(id).then(function(success) {
 						getBodyweight();
-					}else if(factory == 'cardio') {
+						console.log(success);
+					}, function(error) {
+						console.log(error);
+					});
+				} else if(factory == 'cardio') {
+					cardio.deleteExercise(id).then(function(success) {
 						getCardio();
-					}else {
+						console.log(success);
+					}, function(error) {
+						console.log(error);
+					});
+				} else {
+					rep.deleteExercise(id).then(function(success) {
 						getReps();
-					}
-
-				}, function(error) {
-					console.log(error);
-				});
+						console.log(success);
+					}, function(errror) {
+						console.log(error);
+					});
+				}
 			}
 
 			
 			vm.addExercise = function(factory) {
+
 				if(factory == 'workout') {
 					workout.addExercise({
 						"body":vm.addBody,
