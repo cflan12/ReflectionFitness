@@ -33,9 +33,18 @@
 				});
 			}
 
+			function addExercise(data) {
+				return Reps.save(data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getReps: getReps,
-				deleteExercise: deleteExercise
+				deleteExercise: deleteExercise,
+				addExercise: addExercise
 			}
 		}
 

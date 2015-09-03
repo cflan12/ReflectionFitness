@@ -48,6 +48,14 @@
 				});
 			}
 
+			function addExercise(data) {
+				return Exercise.save(data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 
 
 			// save function called to POST data to API
@@ -81,6 +89,7 @@
 			return {
 				getExercises: getExercises,
 				deleteExercise: deleteExercise,
+				addExercise: addExercise,
 				saveWorkout: saveWorkout,
 				getWorkouts: getWorkouts,
 				clientWorkout: clientWorkout

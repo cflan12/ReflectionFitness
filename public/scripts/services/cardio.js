@@ -33,9 +33,18 @@
 				});
 			}
 
+			function addExercise(data) {
+				return Cardio.save(data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getCardio: getCardio,
-				deleteExercise: deleteExercise
+				deleteExercise: deleteExercise,
+				addExercise: addExercise
 			}
 		}
 })();

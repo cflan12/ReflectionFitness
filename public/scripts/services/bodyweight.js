@@ -25,16 +25,26 @@
 			}
 
 			function deleteExercise(id) {
-				return Exercise.delete({id:id}).$promise.then(function(success) {
+				return Bodyweight.delete({id:id}).$promise.then(function(success) {
 					console.log(success);
 				}, function(error) {
 					console.log(error);
 				});
 			}
 
+			function addExercise(data) {
+				return Bodyweight.save(data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+
 			return {
 				getBodyweight: getBodyweight,
-				deleteExercise: deleteExercise
+				deleteExercise: deleteExercise,
+				addExercise: addExercise
 			}
 		}
 })();

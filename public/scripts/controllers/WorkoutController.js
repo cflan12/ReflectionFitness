@@ -82,23 +82,11 @@
 			}
 
 			vm.deleteExercise = function(factory, id) {
+				var factory = facttory;
 				factory.deleteExercise(id).then(function(success) {
 					console.log(success);
-				}, function(error) {
-					console.log(error);
-				});
-			}
 
-			/*
-			vm.addExercise = function(factory) {
-				factory.addExercise({
-					"body":vm.addBody,
-					"exercise":vm.newExercise,
-					"type":vm.addtype,
-					"range":vm.addRep,
-					"time_frame":vm.addTime,
-					"rest_time":vm.addRest
-				}).then(function(success) {
+					// calling function for two-way data binding
 					if(factory == 'workout') {
 						getExercises();
 					}else if(factory == 'bodyweight') {
@@ -108,8 +96,55 @@
 					}else {
 						getReps();
 					}
+
+				}, function(error) {
+					console.log(error);
 				});
-			} */
+			}
+
+			
+			vm.addExercise = function(factory) {
+				if(factory == 'workout') {
+					workout.addExercise({
+						"body":vm.addBody,
+						"exercise":vm.newExercise
+					}).then(function(success) {
+						getExercises();
+					}, function(error) {
+						console.log(error);
+					});
+
+				}else if(factory == 'bodyweight') {
+						bodyweight.addExercise({
+							"body":vm.addBody,
+							"exercise":vm.newExercise
+						}).then(function(success) {
+							getBodyweight(); 
+					}, function(error) {
+						console.log(error);
+					});
+
+				}else if(factory == 'cardio') {
+						cardio.addExercise({
+							"type":vm.addType,
+							"exercise":vm.newExercise
+						}).then(function(success) {
+							getCardio();
+					}, function(error) {
+						console.log(error);
+					});
+				}else {
+						rep.addExercise({
+							"range":vm.addRep,
+							"time_frame":vm.addTime,
+							"rest_time":vm.addRest
+						}).then(function(success) {
+							getReps();
+					}, function(error) {
+						console.log(error);
+					});
+				}
+			} 
 
 			//return JSON object from user API and convert to an array
 			function getUsers() {
@@ -253,6 +288,8 @@
 					//call Foreign key on frontend then backend (optimize)
 					// setup getWorkouts() with null parameter for admin or 
 					// user without program
+
+					//call if result.data.user_workout is not undefined
 					getWorkout(workout);
 				}, function(error) {
 					console.log(error);
