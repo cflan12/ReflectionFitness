@@ -176,7 +176,7 @@
 				})
 				.state('profile.progress', {
 					url: '/progress',
-					templateURL: 'templates/user/userProgress.html',
+					templateUrl: 'templates/user/userProgress.html',
 					controller: 'WorkoutController as vm'
 				})
 
