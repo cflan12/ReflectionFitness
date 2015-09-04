@@ -82,7 +82,7 @@
 			}
 
 			vm.deleteExercise = function(factory, id) {
-	
+
 				if(factory == 'workout') {
 					workout.deleteExercise(id).then(function(success) {
 						getExercises();
@@ -158,6 +158,63 @@
 					});
 				}
 			} 
+
+			//update $resource object and send to API
+			vm.update = function(factory) {
+				if(factory == 'reps') {
+					rep.update({
+						"range":vm.updateBody,
+						"time_frame":vm.updateExercise,
+						"rest_time":vm.updateRep
+					}).then(function(success){
+						console.log(success);
+						getReps();
+					}, function(error) {
+						console.log(error);
+					});
+				}else if(factory == 'users') {
+					users.update({
+						"name":vm.updateBody,
+						"email":vm.updateExercise,
+						"role":vm.updateRole
+					}).then(function(success) {
+						console.log(success);
+						getUsers();
+					}, function(error) {
+						console.log(error);
+					});
+				}else if(factory == 'workout') {
+					workout.update({
+						"body":vm.updateBody,
+						"exercise":vm.updateExercise
+					}).then(function(success){
+						console.log(success);
+						getExercises();
+					}, function(error) {
+						console.log(error);
+					});
+				}else if (factory == 'bodyweight') {
+					bodyweight.update({
+						"body":vm.updateBody,
+						"exercise":vm.updateExercise
+					}).then(function(success) {
+						console.log(success);
+						getBodyweight();
+					}, function(error) {
+						console.log(error);
+					});
+				}else {
+					cardio.update({
+						"type":vm.updateBody,
+						"exercise":vm.updateExercise
+					}).then(function(success) {
+						console.log(success);
+						getCardio();
+					}, function(error) {
+						console.log(error);
+					});
+				}
+			}
 
 			//return JSON object from user API and convert to an array
 			function getUsers() {

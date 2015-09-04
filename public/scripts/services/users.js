@@ -46,6 +46,15 @@
 				});
 			}
 
+			// send UPDATE to API
+			function update(date) {
+				return User.update({id:data.id}, data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			//send DELETE data to API
 			function deleteUser(id) {
 				return User.delete({id:id}).$promise.then(function(success) {
@@ -79,6 +88,7 @@
 			return {
 				getUser: getUser,
 				saveUser: saveUser,
+				update: update,
 				deleteUser: deleteUser,
 				assignWorkout: assignWorkout,
 				getClient: getClient

@@ -40,11 +40,20 @@
 				});
 			}
 
+			function update(date) {
+				return Bodyweight.update({id:data.id}, data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 
 			return {
 				getBodyweight: getBodyweight,
 				deleteExercise: deleteExercise,
-				addExercise: addExercise
+				addExercise: addExercise,
+				update: update
 			}
 		}
 })();

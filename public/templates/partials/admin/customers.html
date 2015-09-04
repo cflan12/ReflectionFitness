@@ -41,7 +41,24 @@
 					<td>$100</td>
 					<td>User Panel</td>
 					<td><btn class="btn btn-primary btn-xs">Send Email</btn></td>
-					<td><btn class="btn btn-default btn-xs">Update User</btn></td>
+					
+					<td><btn class="btn btn-primary btn-xs" ng-click="updateExercise = true">Update</btn>
+						<div class="container" ng-show="updateExercise === true">
+							<div class="row">
+								<p>Update Model</p>
+								<!-- add modal -->
+								<form class="navbar-form">
+									<input class="form-control" type="text" ng-model="vm.updateBody" placeholder="{{user.name}}">
+									<input class="form-control" type="text" ng-model="vm.updateExercise" placeholder="{{user.email}}">
+									<input class="form-control" type="text" ng-model="vm.updateRole" placeholder="{{user.role}}">
+									<btn class="btn btn-primary" ng-click="vm.update('user')">Update</btn>
+									<btn class="btn btn-danger" ng-click="updateExercise = false">Close</btn>
+								</form>
+							</div>
+						</div>
+					</td>
+
+
 					<td><btn class="btn btn-danger btn-xs" ng-click="vm.deleteUser(user)">Delete User</btn></td>
 				</tr>
 			</tbody>

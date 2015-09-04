@@ -41,10 +41,19 @@
 				});
 			}
 
+			function update(date) {
+				return Reps.update({id:data.id}, data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getReps: getReps,
 				deleteExercise: deleteExercise,
-				addExercise: addExercise
+				addExercise: addExercise,
+				update: update
 			}
 		}
 

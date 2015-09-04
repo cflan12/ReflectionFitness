@@ -33,7 +33,23 @@
 				<tr ng-repeat="cardio in vm.exerciseCardio">
 					<td>{{cardio.type}}</td>
 					<td>{{cardio.exercise}}</td>
-					<td>Update</td>
+					
+					<td><btn class="btn btn-primary btn-xs" ng-click="updateExercise = true">Update</btn>
+						<div class="container" ng-show="updateExercise === true">
+							<div class="row">
+								<p>Update Model</p>
+								<!-- add modal -->
+								<form class="navbar-form">
+									<input class="form-control" type="text" ng-model="vm.updateBody" placeholder="{{cardio.type}}">
+									<input class="form-control" type="text" ng-model="vm.updateExercise" placeholder="{{cardio.exercise}}">
+									<btn class="btn btn-primary" ng-click="vm.update('cardio')">Update</btn>
+									<btn class="btn btn-danger" ng-click="updateExercise = false">Close</btn>
+								</form>
+							</div>
+						</div>
+					</td>
+
+
 					<td><btn class="btn btn-danger btn-xs" ng-click="vm.deleteExercise('cardio', cardio.id)">Delete</btn>
 				</tr>
 			</tbody>

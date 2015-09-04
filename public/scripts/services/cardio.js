@@ -41,10 +41,19 @@
 				});
 			}
 
+			function update(date) {
+				return Cardio.update({id:data.id}, data).$promise.then(function(success) {
+					console.log(success);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 			return {
 				getCardio: getCardio,
 				deleteExercise: deleteExercise,
-				addExercise: addExercise
+				addExercise: addExercise,
+				update: update
 			}
 		}
 })();

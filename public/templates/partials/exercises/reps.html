@@ -36,7 +36,24 @@
 									<td>{{reps.range}}</td>
 									<td>{{reps.time_frame}}</td>
 									<td>{{reps.rest_time}}</td>
-									<td>Update</td>
+									
+									<td><btn class="btn btn-primary btn-xs" ng-click="updateExercise = true">Update</btn>
+						<div class="container" ng-show="updateExercise === true">
+							<div class="row">
+								<p>Update Model</p>
+								<!-- add modal -->
+								<form class="navbar-form">
+									<input class="form-control" type="text" ng-model="vm.updateBody" placeholder="{{reps.range}}">
+									<input class="form-control" type="text" ng-model="vm.updateExercise" placeholder="{{reps.time_frame}}">
+									<input class="form-control" type="text" ng-model="vm.updateRep" placeholder="{{reps.rest_time">
+									<btn class="btn btn-primary" ng-click="vm.update(rep)">Update</btn>
+									<btn class="btn btn-danger" ng-click="updateExercise = false">Close</btn>
+								</form>
+							</div>
+						</div>
+					</td>
+
+
 									<td><btn class="btn btn-danger btn-xs" ng-click="vm.deleteExercise('reps',reps.id)">Delete</btn>
 								</tr>
 							</tbody>
