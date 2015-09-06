@@ -2,6 +2,37 @@
 	<div class="row">
 		<h1>User Progress</h1>
 		<h3>Update your Progress to see how you have been doing!</h3>
-		<p>{{vm.clientProgram.program}}<p>
+		
+
+
+		<!-- Show for specific date with moment.js, save to database using carbon 
+			with object for workout, use D3.js to display as graph -->
+
+
+		<div class="container">
+			<div class="row">
+			<table class="table table-hover table-bordered">
+			<thead>
+				<h1 class="text-center">{{vm.client.name}}'s Workout Program</h1>
+				<tr>
+					<th>Day</th>
+					<th>Exercise</th>
+					<th>Reps</th>
+					<th>Reps Time</th>
+					<th>Weight or Time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="(key, value) in vm.clientProgram.program">
+					<td>{{value.day}}</td>
+					<td>{{value.exercise}}</td>
+					<td>{{value.range}} Reps</td>
+					<td>Time: {{value.time_frame}} Rest: {{value.rest_time}}</td>
+					<td><btn class="btn btn-primary" ng-click="">Save Progress</btn></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 	</div>
 </div>
