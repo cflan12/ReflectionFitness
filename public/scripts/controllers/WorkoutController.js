@@ -54,6 +54,11 @@
 
 			vm.clientProgram = [];
 
+			// call time on the client side for updating progress
+			vm.time = moment().format('LL');
+			console.log('vm.time');
+			console.log(vm.time);
+
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
 
