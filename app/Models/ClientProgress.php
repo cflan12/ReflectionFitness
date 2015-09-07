@@ -1,5 +1,6 @@
 <?php namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class ClientProgress extends Model
@@ -22,8 +23,23 @@ class ClientProgress extends Model
 		"date" => "required"
 	];
 
-	// show relationship to user table
+	// current table uses client_id as a foreign key, show relationship
 
-	// script with Carbon to inset new column given time frame
+	// Carbon date accessors
+	protected $dates = ['date'];
+
+	public function client()
+	{
+		return $this->belongsTo('App\Models\User');
+	}
+
+	//returns Carbon object at timezone
+	public function set$dateAttribute($date)
+	{
+		$this->attributes['date'] = Carbon::parse($date)->timezone('America/Los_Angeles');
+	}
+
+	
+
 
 }

@@ -43,4 +43,4 @@ Route::resource('api/cardios', 'API\CardioAPIController');
 Route::resource('api/reps', 'API\RepsAPIController');
 Route::resource('api/users', 'API\UserAPIController'); 
 Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
-Route::resource('api/clientProgresses', 'API\ClientProgressAPIController');
+Route::resource('api/clientProgress', 'API\ClientProgressAPIController');

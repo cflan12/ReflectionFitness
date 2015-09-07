@@ -54,7 +54,7 @@
 
 			vm.clientProgram = [];
 
-			// call time on the client side for updating progress
+			// call time on the client side for clientProgress API functions
 			vm.time = moment().format('LL');
 			console.log('vm.time');
 			console.log(vm.time);
@@ -366,6 +366,19 @@
 
 					//call if result.data.user_workout is not undefined
 					getWorkout(workout);
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
+			// save client progress and send to API
+			vm.clientProgress = function() {
+				clientProgress.saveProgress({
+					"date":vm.time,
+					"workout_progress":
+				}).then(function(success) {
+					console.log(success);
+					//call function to D3.JS
 				}, function(error) {
 					console.log(error);
 				});
