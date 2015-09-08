@@ -47,6 +47,7 @@
     <script type="text/javascript" src="scripts/services/bodyweight.js"></script>
     <script type="text/javascript" src="scripts/services/rep.js"></script>
     <script type="text/javascript" src="scripts/services/cardio.js"></script>
+    <script type="text/javascript" src="scripts/services/clientProgress.js"></script>
 </html>
 
 

@@ -10,6 +10,7 @@
 
 		<div class="container">
 			<div class="row">
+				<form class="navbar-form">
 			<table class="table table-hover table-bordered">
 			<thead>
 				<h1 class="text-center">{{vm.client.name}}'s Workout Program</h1>
@@ -27,10 +28,14 @@
 					<td>{{value.exercise}}</td>
 					<td>{{value.range}} Reps</td>
 					<td>Time: {{value.time_frame}} Rest: {{value.rest_time}}</td>
-					<td><btn class="btn btn-primary" ng-click="vm.clientProgress()">Save Progress</btn></td>
+					<td>
+						<input class="form-control" type="text" ng-model="vm.progress[key]" placeholder="Enter Weight or Time">
+					</td>
 				</tr>
 			</tbody>
 		</table>
+			<btn class="btn btn-primary" ng-click="vm.clientProgress(vm.clientProgram.program)">Save Progress</btn>
+		</form>
 	</div>
 </div>
 	</div>

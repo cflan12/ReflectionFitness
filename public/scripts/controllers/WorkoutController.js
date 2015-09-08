@@ -9,7 +9,7 @@
 		.controller('WorkoutController', WorkoutController);
 
 		//inject services into controller
-		function WorkoutController(workout, users, bodyweight, rep, cardio, $scope, $rootScope, $state) {
+		function WorkoutController(workout, users, bodyweight, rep, cardio, clientProgress, $scope, $rootScope, $state) {
 
 		// Require JWT for API call by authorization		
 		if ($rootScope.authenticated) {
@@ -372,17 +372,71 @@
 			}
 
 			// save client progress and send to API
-			vm.clientProgress = function() {
+			vm.clientProgress = function(exercises) {
+			
+					var i;
+					var tmpProgress = [];
+					var output = [];
+					var data = vm.progress;
+					//console.log("data");
+					//console.log(data);
+
+					angular.forEach(exercises, function(result) {
+						tmpProgress.push(result.exercise);
+					});
+
+					//vm.progressExercise is an object, each property needs
+					//to save to associated exercise in tmpProgress array
+					/*
+					for(var key in data) {
+						var tempObj = {};
+						tempObj[key] = data[key];
+						output.push(tempObj);
+					} */
+					
+					// Check for exercise workout array key to correspond
+					// with object property key for specific workout
+					// Save to new Array of objects
+					angular.forEach(tmpProgress, function(result, key) {
+						angular.forEach(data, function(object, property) {
+							if(key == property) {
+								output.push({exercise:result, weight:object});
+							}
+						});
+					});
+
+					/*
+					angular.forEach(data, function(result, key) {
+						console.log("object foreach");
+						console.log(result + '.' + key);
+					});
+
+					angular.forEach(tmpProgress, function(result, key) {
+						console.log(key);
+					}); */
+					//convert vm.progressExercise to array
+
+					console.log("output array");
+					console.log(output);
+
+					var outputJSON = JSON.stringify(output);
+					
+					//to save array JSON.stringify output array
+
+					//console.log(tmpProgress);
+					//console.log("tmpProgress with weight");
+					//console.log(tmpProgress);
 				clientProgress.saveProgress({
 					"date":vm.time,
-					"workout_progress":
+					"client_id":$rootScope.currentUser.id,
+					"workout_progress":outputJSON
 				}).then(function(success) {
 					console.log(success);
 					//call function to D3.JS
 				}, function(error) {
 					console.log(error);
-				});
-			}
+				}); 
+			} 
 
 			// called from getClientWorkout foreign key to API
 			function getWorkout(id) {

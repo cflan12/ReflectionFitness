@@ -74,9 +74,12 @@ class ClientProgressAPIController extends AppBaseController
 	 * @return Response
 	 */
 	public function store(Request $request)
-	{
-		if(sizeof(ClientProgress::$rules) > 0)
-            $this->validateRequest($request, ClientProgress::$rules);
+	{	
+		// Rule from API generator is stored incorrectly with rules
+		// but was changed before database migration
+		
+		/*if(sizeof(ClientProgress::$rules) > 0)
+            $this->validateRequest($request, ClientProgress::$rules); */
 
         $input = $request->all();
 
