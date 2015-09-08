@@ -378,6 +378,9 @@
 					var tmpProgress = [];
 					var output = [];
 					var data = vm.progress;
+
+					// Time function for progress save
+					vm.time = moment().format('LL');
 					//console.log("data");
 					//console.log(data);
 

@@ -26,7 +26,7 @@ class ClientProgress extends Model
 	// current table uses client_id as a foreign key, show relationship
 
 	// Carbon date accessors
-	/*
+	
 	protected $dates = ['date'];
 
 	public function client()
@@ -35,11 +35,11 @@ class ClientProgress extends Model
 	}
 
 	//returns Carbon object at timezone
-	public function set$dateAttribute($date)
+	public function setDateAttribute($date)
 	{
-		$this->attributes['date'] = Carbon::parse($date)->timezone('America/Los_Angeles');
+		$this->attributes['date'] = Carbon::parse($date);
 	}
-	*/
+	
 	
 
 
