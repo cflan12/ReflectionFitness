@@ -54,11 +54,6 @@
 
 			vm.clientProgram = [];
 
-			// call time on the client side for clientProgress API functions
-			vm.time = moment().format('LL');
-			console.log('vm.time');
-			console.log(vm.time);
-
 			//callstack for JSON arrays from API as $resoure objects
 			getExercises();
 
@@ -439,6 +434,8 @@
 				}, function(error) {
 					console.log(error);
 				}); 
+
+				//clear input fields
 			} 
 
 			// called from getClientWorkout foreign key to API

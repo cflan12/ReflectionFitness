@@ -34,6 +34,7 @@
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="bower_components/satellizer/satellizer.js"></script>
+    <script type="text/javascript" src="node_modules/d3/d3.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
@@ -41,6 +42,7 @@
     <script type="text/javascript" src="scripts/controllers/WorkoutController.js"></script>
     <script type="text/javascript" src="scripts/controllers/AuthController.js"></script>
     <script type="text/javascript" src="scripts/controllers/UserController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/ClientController.js"></script>
 
     <script type="text/javascript" src="scripts/services/workout.js"></script>
     <script type="text/javascript" src="scripts/services/users.js"></script>

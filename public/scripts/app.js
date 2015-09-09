@@ -62,6 +62,19 @@
 				//console.log(tmp);
 			});
 				return tmp;
+		}
+
+		// client progress report array 
+		Array.prototype.listClientReport = function() {
+
+			var tmp = [];
+
+			this.forEach(function(value, key) {
+				var string = JSON.parse(value.workout_progress);
+				tmp.push({exercise: string, date: value.date})
+			});
+
+				return tmp;
 		} 			
 		
 		//login configuration and route filtering
@@ -179,7 +192,11 @@
 					templateUrl: 'templates/user/userProgress.html',
 					controller: 'WorkoutController as vm'
 				})
-
+				// needs to be nested views, with progress
+				.state('profile.progressDisplay', {
+					templateUrl: 'templates/user/userProgressGraph.html',
+					controller: 'ClientController as vm'
+				})
 				// admin navigation
 				.state('admin.exercises', {
 					url: '/exercises',

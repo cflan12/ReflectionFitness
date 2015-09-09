@@ -13,26 +13,34 @@
 				update: {
 					method: 'PUT'
 				},
+				query: {
+					method: 'GET',
+					isArray: false,
+				}
 			});
 
 			// add all API functions
 
 			function saveProgress(data) {
-
-				//console.log("workout_progress");
-				//console.log(data);
-
-				
-				return Progress.save(data).$promise.then(function(results){
+				return Progress.save(data).$promise.then(function(results) {
 					return results;
 				}, function(error) {
 					console.log(error);
 				}); 
 			}
 
+			function getClientInput(id) {
+				return Progress.query({client_id:id}).$promise.then(function(results) {
+					return results;
+				}, function(error) {
+					console.log(error);
+				});
+			}
+
 
 				return {
-					saveProgress: saveProgress
+					saveProgress: saveProgress,
+					getClientInput: getClientInput
 				}
 			}
 })();
