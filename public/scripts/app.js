@@ -71,7 +71,14 @@
 
 			this.forEach(function(value, key) {
 				var string = JSON.parse(value.workout_progress);
-				tmp.push({exercise: string, date: value.date})
+				tmp.push({progress: string, date: value.date})
+
+				/*
+				this.forEach(tmpJSON, function(value, key) {
+					//parse from first iteration split
+					var string = JSON.parse(tmpJSON.exercise);
+					tmp.push({exercise: string});
+				}); */
 			});
 
 				return tmp;

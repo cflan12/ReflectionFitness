@@ -2,5 +2,13 @@
 <div class="container">
 	<div class="row">
 		<h1>Client Graph</h1>
+		<!-- Create Nested Loop for the data
+		<p ng-repeat="(key,value) in vm.clientReport">{{value.exercise}} {{value.weight}} {{value.date}}</p> -->
+		<p>Nested rows</p>
+		<p ng-repeat="data in vm.clientReport">Date: {{data.date}}
+			<span ng-repeat="(key,value) in data.progress"> {{value.exercise}} {{value.weight}}</span>
+		</p>
+		
+			
 	</div>
 </div>

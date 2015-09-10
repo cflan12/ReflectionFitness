@@ -19,15 +19,8 @@
 
 			vm.clientReport = [];
 
-
-
-			getClientProgress();
-
 			getClientReport();
 
-			function getClientProgress() {
-				console.log("client controller");
-			}
 
 			function getClientReport() {
 				console.log("get client data");
