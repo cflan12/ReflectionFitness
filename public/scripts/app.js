@@ -122,6 +122,11 @@
 					templateUrl: 'templates/auth/authLogin.html',
 					controller: 'AuthController as auth',
 				})
+				.state('signup', {
+					url:'/signup',
+					templateUrl: 'templates/auth/authSignup.html',
+					controller: 'AuthController as auth',
+				})
 				// admin UI
 				.state('admin', {
 					url: '/admin/:id',
