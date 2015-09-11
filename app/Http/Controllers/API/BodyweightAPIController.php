@@ -19,7 +19,9 @@ class BodyweightAPIController extends AppBaseController
 	{
 		$bodyweights = Bodyweight::all();
 
-		return Response::json(ResponseManager::makeResult($bodyweights->toArray(), "Bodyweights retrieved successfully."));
+		return $bodyweights;
+
+		//return Response::json(ResponseManager::makeResult($bodyweights->toArray(), "Bodyweights retrieved successfully."));
 	}
 
 	/**

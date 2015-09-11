@@ -16,20 +16,31 @@ Route::get('/', function()
 		return view('index');
 	});
 
-//Route::get('home', 'HomeController@index');
-
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',
 //	'password' => 'Auth\PasswordController',
 //]);
 
+// Test JWT Authorization
+Route::get('test', function() {
+	$token = JWTAuth::parseToken('bearer', 'HTTP_AUTHORIZATION')->getToken();
+	dd($token);
+});
 
+
+Route::group(['prefix' => 'api'], function() 
+{
+	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+	Route::post('authenticate', 'AuthenticateController@authenticate');
+	Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
+});
+
+
+// Protect routes with middleware for authenticated JWT
 Route::resource('api/exercises', 'API\ExerciseAPIController');
-
 Route::resource('api/bodyweights', 'API\BodyweightAPIController');
-
 Route::resource('api/cardios', 'API\CardioAPIController');
-
 Route::resource('api/reps', 'API\RepsAPIController');
-
-Route::resource('api/users', 'API\UserAPIController');
+Route::resource('api/users', 'API\UserAPIController'); 
+Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
+Route::resource('api/clientProgress', 'API\ClientProgressAPIController');

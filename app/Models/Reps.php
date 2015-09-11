@@ -13,7 +13,8 @@ class Reps extends Model
 
 	public $fillable = [
 	    "range",
-		"timeframe"
+		"time_frame",
+		"rest_time",
 	];
 
 	public static $rules = [

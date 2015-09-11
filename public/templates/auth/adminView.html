@@ -1,0 +1,12 @@
+<div class="row">
+	<h1 class="text-center">Admin View</h1>
+	<div class="col-sm-6 col-sm-offset-3">
+    	<div class="well">
+        	<h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
+          	<button class="btn btn-danger" ng-click="user.logout()">Logout</button>
+    	</div>
+  </div>
+</div>
+
+<!-- ui-router injector -->
+<div ui-view></div>

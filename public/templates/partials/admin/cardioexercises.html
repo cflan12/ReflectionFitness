@@ -1,0 +1,25 @@
+
+
+
+
+<!--<div class="table-responsive"> -->
+							<div>
+							<table class="table table-hover table-bordered">
+							<thead>
+								<h1 class="text-center">Cardio Exercises</h1>
+									<tr>
+										<th>Add to Program</th>
+										<th>Exercise</th>
+									</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="cardio in vm.exerciseCardio">
+									<td>
+										<input class="form-control" name="selectExercise" type="checkbox" ng-click="vm.selectExercise(cardio, vm.selectReps, vm.selectDay)">
+									</td>
+									<td>{{cardio.exercise}}</td>
+								</tr>
+							</tbody>
+							</table>
+							</div>
+							<!--</div> -->

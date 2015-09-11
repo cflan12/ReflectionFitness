@@ -1,0 +1,35 @@
+
+
+
+
+							<!--<div class="table-responsive"> -->
+							<div>
+							<table class="table table-hover table-bordered">
+							<thead>
+								<h1 class="text-center">Bodyweight Exercises</h1>
+									<tr>
+										<th>Add to Program</th>
+										<th>Body Part</th>
+										<th>Exercise</th>
+										<th>Select Reps</th>
+									</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="bodyweight in vm.exerciseBodyweight">
+									<td>
+										<input class="form-control" name="selectExercise" type="checkbox" ng-click="vm.selectExercise(bodyweight, vm.selectReps, vm.selectDay)">
+									</td>
+									<td>{{bodyweight.body}}</td>
+									<td>{{bodyweight.exercise}}</td>
+									<td>
+										
+										<select name="reps"	class="form-control" ng-model="vm.selectReps" ng-options="reps.range for reps in vm.reps">
+											<option value="">--Select Reps--</option>
+										</select>
+
+									</td>
+								</tr>
+							</tbody>
+							</table>
+							</div>
+							<!--</div> -->

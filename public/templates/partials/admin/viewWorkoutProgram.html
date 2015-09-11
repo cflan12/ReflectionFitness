@@ -1,0 +1,45 @@
+
+<div class="container">
+	<div class="row">
+		<h1>Workout Programs</h1>
+		<ul>
+			<li ng-repeat="workout in vm.workObject">
+				<span ng-repeat="program in workout.program"> {{program.exercise}} | </span>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+
+		<table class="table table-hover table-bordered">
+			<thead>
+				<h4 class="text-center">Assign User To Workout Programs</h4>
+				<tr>
+					<th>Newest Client</th>
+					<th>Subscription Status</th>
+					<th>Goal</th>
+					<th>Current Workout Program</th>
+					<th>Assign New Program</th>
+					<th>Save</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="subscriber in vm.subscribers">
+					<td>{{subscriber.name}}</td>
+					<td>{{subscriber.subscriber}}</td>
+					<td>Goal</td>
+					<td>None</td>
+					<td>
+						<select name="workoutPlan" ng-model="vm.assignProgram" ng-options="workout.name for workout in vm.workoutPlan">
+							<option value="">--Select Workout--</option>
+						</select>
+					</td>
+					<td><btn class="btn btn-primary btn-xs" ng-click="vm.assignWorkout(subscriber);">Assign to Client</btn></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>

@@ -19,7 +19,9 @@ class ExerciseAPIController extends AppBaseController
 	{
 		$exercises = Exercise::all();
 
-		return Response::json(ResponseManager::makeResult($exercises->toArray(), "Exercises retrieved successfully."));
+		return $exercises->toArray();
+
+		//return Response::json(ResponseManager::makeResult($exercises->toArray(), "Exercises retrieved successfully."));
 	}
 
 	/**
