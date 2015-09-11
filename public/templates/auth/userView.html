@@ -1,10 +1,11 @@
-<h1>User view</h1>
-<div class="col-sm-6 col-sm-offset-3">
-    <div class="well">
-        <h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
-          <button class="btn btn-danger" ng-click="user.logout()">Logout</button>
-    </div>
-  </div>
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3">
+    	<div class="well">
+        	<h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
+          	<button class="btn btn-danger" ng-click="user.logout()">Logout</button>
+    	</div>
+  	</div>
+</div>
 
-  <!-- ui-router injector -->
+<!-- ui-router injector -->
 <div ui-view></div>

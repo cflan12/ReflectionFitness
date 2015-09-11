@@ -14,8 +14,8 @@
 		// Require JWT for API call by authorization		
 		if ($rootScope.authenticated) {
 
-			console.log("rootScope");
-			console.log($rootScope);
+			//console.log("rootScope");
+			//console.log($rootScope);
 			//console.log($rootScope.currentUser.id);
 			//console.log("state")
 			//console.log($state);
@@ -268,7 +268,7 @@
 					alert('Select Reps Before Adding to Program');
 				}
 				//data is an object, not any array for the array prototype
-				// data structure is an array of $resource objects
+				//data structure is an array of $resource objects
 
 				//save objects to array as $resource objects 
 				//selected from ng-click
@@ -316,7 +316,6 @@
 			vm.assignWorkout = function(subscriber) {
 				var workoutProgram = vm.assignProgram.id;
 				var client = subscriber.id;
-				//console.log(client);
 				users.assignWorkout({
 					"id":client,
 					"user_workout":workoutProgram
@@ -382,15 +381,6 @@
 					angular.forEach(exercises, function(result) {
 						tmpProgress.push(result.exercise);
 					});
-
-					//vm.progressExercise is an object, each property needs
-					//to save to associated exercise in tmpProgress array
-					/*
-					for(var key in data) {
-						var tempObj = {};
-						tempObj[key] = data[key];
-						output.push(tempObj);
-					} */
 					
 					// Check for exercise workout array key to correspond
 					// with object property key for specific workout
@@ -403,23 +393,12 @@
 						});
 					});
 
-					/*
-					angular.forEach(data, function(result, key) {
-						console.log("object foreach");
-						console.log(result + '.' + key);
-					});
-
-					angular.forEach(tmpProgress, function(result, key) {
-						console.log(key);
-					}); */
+					
 					//convert vm.progressExercise to array
-
 					console.log("output array");
 					console.log(output);
 
 					var outputJSON = JSON.stringify(output);
-					
-					//to save array JSON.stringify output array
 
 					//console.log(tmpProgress);
 					//console.log("tmpProgress with weight");
@@ -430,12 +409,12 @@
 					"workout_progress":outputJSON
 				}).then(function(success) {
 					console.log(success);
-					//call function to D3.JS
 				}, function(error) {
 					console.log(error);
 				}); 
 
 				//clear input fields
+				vm.progress = '';
 			} 
 
 			// called from getClientWorkout foreign key to API

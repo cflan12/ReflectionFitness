@@ -7,32 +7,15 @@
 
 			<div class="container">
 				<div class="row">
-					
-				<table class="table table-hover table-bordered">
-							<thead>
-								<h1 class="text-center">{{vm.workoutType}}  {{vm.programName}}</h1>
-									<tr>
-										<th>Day</th>
-										<th>Exercises</th>
-										<th>Reps</th>
-									</tr>
-							</thead>
-							<tbody>
-								<tr ng-repeat="(key, value) in vm.select">
-									<td>{{value.day}}</td>
-									<td>{{value.exercise}}</td>
-									<td>{{value.range}}</td>
-								</tr>
-							</tbody>
-							</table>
-
 					<pre>
-						Type: {{vm.workoutType}} Name: {{vm.programName}} Day: {{vm.selectDay.day}}
-						Exercises: {{vm.select}}
-						<ul>
+						Goal: {{vm.workoutType}} 
+						Name: {{vm.programName}} 
+						Weeks: {{vm.programVariation}}
+						Days per Week: {{vm.programLength}}
+						Workout Program:
+						<ul style="list-style-type:none; text-align:center">
 							<li ng-repeat="(key, value) in vm.select">
-								{{key}} : {{value}}
-								Value: {{value.exercise}}
+								{{value.day}}: {{value.exercise}} Reps: {{value.range}}
 							</li>
 						</ul>
 					</pre>
@@ -47,14 +30,19 @@
 							<input class="form-control" ng-model="vm.programVariation" type="text" placeholder="Weeks">
 							<input class="form-control" ng-model="vm.programLength" type="text" placeholder="Days per Week">
 							<h5>Select Day and Exercises</h5>
-							<select name="day" class="form-control" ng-model="vm.selectDay" ng-options="days.day for days in vm.calendar">
+							<select name="day" style="margin-top:20px;" class="form-control" ng-model="vm.selectDay" ng-options="days.day for days in vm.calendar">
 								<option value="">--Select Day--</option>
 							</select>
+							
+							<div class="row" style="margin-top:20px; margin-bottom:20px;">
+								<btn class="btn btn-primary" ng-click="vm.logWorkout()">Save Workout</btn>
+								<btn class="btn btn-danger" ng-click="buildWorkout = false">Close</btn>
+							</div>
 							
 							<!-- injected views -->
 							<div class="container">
 								<div class="row">
-									<div class="btn-group btn-group-justified">
+									<div class="btn-group btn-group-justified" style="margin-top:40px; margin-bottom:40px;">
 										<div class="btn-group">				
 											<a ui-sref="admin.admin.workout.weighted"><btn class="btn btn-primary">Weighted</btn></a>
 										</div> 
@@ -71,10 +59,6 @@
 							<!-- ui-router view injector via $stateProvider -->
 							<div ui-view></div>
 
-							
-							<btn class="btn btn-primary" ng-click="vm.logWorkout()">Save Workout</btn>
-							<btn class="btn btn-danger" ng-click="buildWorkout = false">Close</btn>
-						</form> 
-						
+					</form> 	
 				</div>
 			</div>

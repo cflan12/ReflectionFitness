@@ -1,10 +1,10 @@
 
 <div class="container">
 	<div class="row">
-		<h1>Workout Plans</h1>
+		<h1>Workout Programs</h1>
 		<ul>
 			<li ng-repeat="workout in vm.workObject">
-				<span ng-repeat="program in workout.program">{{program.exercise}} | </span>
+				<span ng-repeat="program in workout.program"> {{program.exercise}} | </span>
 			</li>
 		</ul>
 	</div>
@@ -15,7 +15,7 @@
 
 		<table class="table table-hover table-bordered">
 			<thead>
-				<h4 class="text-center">Assign Users To Workout Programs</h4>
+				<h4 class="text-center">Assign User To Workout Programs</h4>
 				<tr>
 					<th>Newest Client</th>
 					<th>Subscription Status</th>
@@ -30,7 +30,7 @@
 					<td>{{subscriber.name}}</td>
 					<td>{{subscriber.subscriber}}</td>
 					<td>Goal</td>
-					<td>Basic</td>
+					<td>None</td>
 					<td>
 						<select name="workoutPlan" ng-model="vm.assignProgram" ng-options="workout.name for workout in vm.workoutPlan">
 							<option value="">--Select Workout--</option>

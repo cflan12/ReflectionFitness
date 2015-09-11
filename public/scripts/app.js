@@ -13,39 +13,6 @@
 							'ui.router',
 							'satellizer',
 						]);
-		
-		/*
-		Array.prototype.functionName = function() {
-
-			//clear the array in each call stack from API Resource call
-			var tmp = [];
-
-    		//sorting Resource object to array
-    		//console.log("Array prototype", this, this.length);
-    		//Modify Resource object with prototype for specific properties
-    			this.forEach(function(item) {
-
-					//constructor for prototype properties
-
-    				//specific for the object
-    				var body = item.body
-    				var exercise = item.exercise;
-    				
-    				tmp.push({"body": body, "exercise": exercise});
-    				//tmp.push(item.body, item.exercise);	
-				});
-					return tmp;
-			}
-
-		Array.prototype.listReps = function() {
-
-			var tmp = [];
-
-			this.forEach(function(item) {
-				tmp.push({range: item.range, rest_time: item.rest_time, time_frame: item.time_frame});
-			});
-				return tmp;
-		} */
 
 		// workout program list is returned as an array by the API
 		Array.prototype.listWorkouts = function() {
