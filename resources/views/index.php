@@ -50,6 +50,10 @@
     <script type="text/javascript" src="scripts/services/rep.js"></script>
     <script type="text/javascript" src="scripts/services/cardio.js"></script>
     <script type="text/javascript" src="scripts/services/clientProgress.js"></script>
+
+    <!-- Stripe Integration -->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>Stripe.setPublishableKey('YOUR_PUBLISHABLE_KEY');</script>
 </html>
 
 

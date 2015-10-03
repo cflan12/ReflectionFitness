@@ -12,6 +12,7 @@
 							'ngRoute',
 							'ui.router',
 							'satellizer',
+							'angularPayments'
 						]);
 
 		// workout program list is returned as an array by the API
@@ -117,11 +118,13 @@
 					url: '/',
 					templateUrl:'templates/home.html',
 				})
+				// login
 				.state('auth', {
 					url: '/login',
 					templateUrl: 'templates/auth/authLogin.html',
 					controller: 'AuthController as auth',
 				})
+				// register
 				.state('signup', {
 					url:'/signup',
 					templateUrl: 'templates/auth/authSignup.html',
