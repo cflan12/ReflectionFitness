@@ -35,6 +35,7 @@
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="bower_components/satellizer/satellizer.js"></script>
     <script type="text/javascript" src="node_modules/d3/d3.js"></script>
+    <script type="text/javascript" src="lib/angular-payments/lib/angular-payments.min.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
@@ -43,6 +44,7 @@
     <script type="text/javascript" src="scripts/controllers/AuthController.js"></script>
     <script type="text/javascript" src="scripts/controllers/UserController.js"></script>
     <script type="text/javascript" src="scripts/controllers/ClientController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/RegisterController.js"></script>
 
     <script type="text/javascript" src="scripts/services/workout.js"></script>
     <script type="text/javascript" src="scripts/services/users.js"></script>
@@ -50,10 +52,11 @@
     <script type="text/javascript" src="scripts/services/rep.js"></script>
     <script type="text/javascript" src="scripts/services/cardio.js"></script>
     <script type="text/javascript" src="scripts/services/clientProgress.js"></script>
+    <script type="text/javascript" src="scripts/services/stripe.js"></script>
 
     <!-- Stripe Integration -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script>Stripe.setPublishableKey('YOUR_PUBLISHABLE_KEY');</script>
+    <script>Stripe.setPublishableKey('pk_test_jSzRHK2cWmkIazJ511O8xeVM');</script>
 </html>
 
 

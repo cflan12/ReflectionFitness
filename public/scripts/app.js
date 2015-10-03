@@ -127,8 +127,8 @@
 				// register
 				.state('signup', {
 					url:'/signup',
-					templateUrl: 'templates/auth/authSignup.html',
-					controller: 'AuthController as auth',
+					templateUrl: 'templates/register/register.html',
+					controller: 'RegisterController as vm',
 				})
 				// admin UI
 				.state('admin', {
