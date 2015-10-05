@@ -8,7 +8,7 @@
 
 		function stripe(resource) {
 
-			var Subscriber = $resource('api/stripe/:id', {
+			var Subscriber = $resource('api/subscribe/:id', {
 				update: {
 					method: 'PUT'
 				}

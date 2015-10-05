@@ -128,7 +128,7 @@
 				.state('signup', {
 					url:'/signup',
 					templateUrl: 'templates/register/register.html',
-					controller: 'RegisterController as vm',
+					controller: 'RegisterController',
 				})
 				// admin UI
 				.state('admin', {

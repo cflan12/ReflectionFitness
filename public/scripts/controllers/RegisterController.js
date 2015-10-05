@@ -8,9 +8,14 @@
 		.module('workoutApp')
 		.controller('RegisterController', RegisterController);
 
-		function RegisterController($scope, stripe) {
+		function RegisterController($scope) {
 
-			var vm = this;
+			//var vm = this;
+
+			//stripe token
+			var token;
+
+			//stripe-form directive handles form submit 
 
 			$scope.stripeReflectionFitness = function(status, response) {
 				if(response.error) {
@@ -19,8 +24,8 @@
 					// got stripe token
 					token = response.id
 					//charge stripe token to API
-					stripe.subscribe(token);
 					console.log("token sent response");
+					console.log(token);
 				}
 			}
 		}

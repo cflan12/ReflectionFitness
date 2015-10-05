@@ -4,13 +4,14 @@
 
 		<form stripe-form="stripeReflectionFitness" name="registerForm">
 
-			<input type="text" placeholder="Name on Card"/>
+			<input type="text" placeholder="First Name"/>
+			<input type="text" placeholder="Last Name"/>
 
-			<input type="text" placeholder="Card Number" ng-model="vm.number" payments-validate="card" payments-format="card" payments-type-model="type"/>
+			<input type="text" placeholder="Card Number" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="registerForm.number.$card.type"/>
 
-			<input type="text" placeholder="Expiration" ng-model="vm.expiry" payments-validate="expiry" payments-format="expiry"/>
+			<input type="text" placeholder="Expiration" ng-model="expiry" payments-validate="expiry" payments-format="expiry"/>
 
-			<input type="text" placeholder="CVC" ng-model="vm.cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
+			<input type="text" placeholder="CVC" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
 
 			<button type="submit" class="btn btn-primary">Register</button>
 		</form>

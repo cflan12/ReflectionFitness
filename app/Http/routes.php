@@ -44,3 +44,4 @@ Route::resource('api/reps', 'API\RepsAPIController');
 Route::resource('api/users', 'API\UserAPIController'); 
 Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
 Route::resource('api/clientProgress', 'API\ClientProgressAPIController');
+Route::resource('api/subscribe', 'API\SubscribeAPIController');
