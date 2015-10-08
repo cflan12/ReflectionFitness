@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Libraries\Repositories\SubscribeRepository;
 use Response;
 use Schema;
+use stripe;
 
 class SubscribeAPIController extends AppBaseController
 {
@@ -75,14 +76,14 @@ class SubscribeAPIController extends AppBaseController
 	 */
 	public function store(Request $request)
 	{
-		if(sizeof(Subscribe::$rules) > 0)
-            $this->validateRequest($request, Subscribe::$rules);
-
+		//test for token
+		echo($request);
+		/*
         $input = $request->all();
 
-		$subscribe = $this->subscribeRepository->store($input);
+		$subscribe = $this->subscribeRepository->store($input); 
 
-		return Response::json(ResponseManager::makeResult($subscribe->toArray(), "Subscribe saved successfully."));
+		return Response::json(ResponseManager::makeResult($subscribe->toArray(), "Subscribe saved successfully.")); */
 	}
 
 	/**

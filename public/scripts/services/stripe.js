@@ -6,7 +6,7 @@
 		.module('workoutApp')
 		.factory('stripe', stripe);
 
-		function stripe(resource) {
+		function stripe($resource) {
 
 			var Subscriber = $resource('api/subscribe/:id', {
 				update: {
