@@ -8,7 +8,7 @@
 		.module('workoutApp')
 		.controller('RegisterController', RegisterController);
 
-		function RegisterController(stripe, $scope) {
+		function RegisterController(stripe, $http, $scope) {
 
 			//var vm = this;
 
@@ -28,11 +28,19 @@
 					console.log(token);
 					//send Stripe to backend API to charge and
 					//save new subscriber
+
+					$http.post('/api/subscribe', JSON.stringify(token)).
+						success(function(data, status, headers, config) {
+							console.log('Customer charged');
+						}).error(function(data, status, headers, config) {
+							console.log('Error charging customer');
+						});
+					/*
 					stripe.subscribe(token).then(function(success) {
 						console.log("User added and charged");
 					}, function(error) {
 						console.log("Charge error");
-					});
+					}); */
 				}
 			}
 		}

@@ -31,6 +31,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	public function user_workout()
+	{
+		return $this->belongsTo('App\Models\WorkoutProgram');
+	}
+
 	/**
 	* The password attribute is hashed for any form input
 	*
