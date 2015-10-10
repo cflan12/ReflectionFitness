@@ -12,7 +12,8 @@ class AddColumnsToWorkoutTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('workout_programs', function(Blueprint $table) {
+		Schema::table('workout_programs', function(Blueprint $table) 
+		{
 			$table->string('name')->unique()->after('workout');
 			$table->string('goal')->after('name');
 			$table->string('weeks')->after('goal');

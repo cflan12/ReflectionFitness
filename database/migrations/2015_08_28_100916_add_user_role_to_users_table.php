@@ -14,7 +14,7 @@ class AddUserRoleToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->string('role')->after('subscriber');
+			$table->string('role')->after('user_workout');
 		});
 	}
 
