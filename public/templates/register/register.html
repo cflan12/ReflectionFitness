@@ -4,16 +4,31 @@
 
 		<form stripe-form="stripeReflectionFitness" name="registerForm">
 
-			<input type="text" placeholder="First Name"/>
-			<input type="text" placeholder="Last Name"/>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Full Name" ng-model="name"/>
+			</div>
 
-			<input type="text" placeholder="Card Number" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="registerForm.number.$card.type"/>
+			<div class="form-group">
+				<input type="email" class="form-control" placeholder="Email" ng-model="email"/>
+			</div>
 
-			<input type="text" placeholder="Expiration" ng-model="expiry" payments-validate="expiry" payments-format="expiry"/>
+			<div class="form-group">
+				<input type="password" class="form-control" placeholder="Password" ng-model="password">
+			</div>
 
-			<input type="text" placeholder="CVC" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Card Number" ng-model="number" payments-validate="card" payments-format="card" payments-type-model="type" ng-class="registerForm.number.$card.type"/>
+			</div>
 
-			<button type="submit" class="btn btn-primary">Register</button>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Expiration" ng-model="expiry" payments-validate="expiry" payments-format="expiry"/>
+			</div>
+
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="CVC" ng-model="cvc" payments-validate="cvc" payments-format="cvc" payments-type-model="type"/>
+			</div>
+
+			<button type="submit" class="btn btn-lg btn-primary">Register</button>
 		</form>
 
 	</div>

@@ -27,12 +27,13 @@ Route::get('test', function() {
 	dd($token);
 });
 
-
 Route::group(['prefix' => 'api'], function() 
 {
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
 	Route::post('authenticate', 'AuthenticateController@authenticate');
 	Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
+	Route::resource('subscription', 'SubscriptionController');
+	Route::post('subscription', 'SubscriptionController@store');
 });
 
 
@@ -44,4 +45,4 @@ Route::resource('api/reps', 'API\RepsAPIController');
 Route::resource('api/users', 'API\UserAPIController'); 
 Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
 Route::resource('api/clientProgress', 'API\ClientProgressAPIController');
-Route::resource('api/subscribe', 'API\SubscribeAPIController');
+//Route::resource('api/subscribe', 'API\SubscribeAPIController');

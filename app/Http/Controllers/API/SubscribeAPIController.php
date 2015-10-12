@@ -3,14 +3,13 @@
 use App\Http\Requests;
 use Mitul\Controller\AppBaseController;
 use Mitul\Generator\Utils\ResponseManager;
-use App\Models\Subscribe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Libraries\Repositories\SubscribeRepository;
 use Response;
 use Schema;
-use stripe;
 
-\Stripe\Stripe::setApiKey("sk_test_0b10IIKg8JxLIW1JWuC0qsWS");
+
 
 class SubscribeAPIController extends AppBaseController
 {
@@ -81,12 +80,31 @@ class SubscribeAPIController extends AppBaseController
 
 		try {
 
+			dd($request);
+			echo('request echo');
+			echo($request);
+			/*
+			$user = new User;
+			$user->name = $request.name;
+			$user->email = $request.email;
+			$user->password = $request.password;
+			$user->subscriber = true;
+			$user->role = 'client';
+			$user->save();
+
+			$user->charge(100, [
+				'source' => $request.token]);
+			*/
+			
+
+			/*
   			\Stripe\Charge::create(array(
   				"amount" => 400,
   				"currency" => "usd",
   				"source" => $request, //from angular stripe-payments
   				"description" => "Reflection Fitness Subscription"
-  			));
+  			)); 
+  			*/
 
   			print('API Charge successful');
 

@@ -30,8 +30,8 @@ return [
 	],
 
 	'stripe' => [
-		'model'  => 'App\User',
-		'secret' => '',
+		'model'  => 'App\Models\User',
+		'secret' => env('STRIPE_API_SECRET'),
 	],
 
 ];
