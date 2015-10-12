@@ -49,9 +49,11 @@ class SubscriptionController extends Controller {
 			$user->subscriber = true;
 			$user->role = 'client';
 			$user->save();
+
+			$user->subscription('monthly')->create($request['token']);
 			
-			$user->charge(100, [
-				'source' => $request['token']]);
+			//$user->charge(100, [
+				//'source' => $request['token']]);
 			
 			
 
