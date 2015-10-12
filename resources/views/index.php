@@ -3,6 +3,8 @@
 	<head>
 		<title>Reflection Fitness</title>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="css/flaty_bootstrap.min.css">
+        <link rel="stylesheet" href="css/theme.css">
 	</head>
 	
 	<!-- define angular controller
@@ -23,6 +25,25 @@
         
       
         </div> <!-- global container -->
+
+        <footer>
+            <h3 class="text-center">Reflection Fitness</h3>
+            <h3 class="text-center">San Diego, CA</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>Sign-Up</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>Log In</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p>Terms of Service</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
 	</body>
 	
 	<!-- Application Dependencies -->

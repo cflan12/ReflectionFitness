@@ -36,11 +36,7 @@ class SubscriptionController extends Controller {
 	{
 			try {
 
-			//dd($request);
 			$input = $request->all();
-			//dd($input);
-
-
 			
 			$user = new User;
 			$user->name = $request['name'];
@@ -51,22 +47,6 @@ class SubscriptionController extends Controller {
 			$user->save();
 
 			$user->subscription('monthly')->create($request['token']);
-			
-			//$user->charge(100, [
-				//'source' => $request['token']]);
-			
-			
-
-			/*
-  			\Stripe\Charge::create(array(
-  				"amount" => 400,
-  				"currency" => "usd",
-  				"source" => $request, //from angular stripe-payments
-  				"description" => "Reflection Fitness Subscription"
-  			)); 
-  			*/
-
-  			print('API Charge successful');
 
 		} catch(\Stripe\Error\Card $e) {
   			// Since it's a decline, \Stripe\Error\Card will be caught

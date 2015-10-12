@@ -1,8 +1,44 @@
+<nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" ui-sref="/"><img src="assets/img/ReflectionFitness_navbar.png"/></a>
+                </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" collapse="isCollapsed">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="auth">Log In</a></li>
+                        <li><a ui-sref="signup">Sign-Up</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
-<div class="container">
+<div class="container text-center">
+	<h3>Get Healthy, Get Fit, Have Fun</h3>
+</div>
+
+<div class="jumbotron">
+  <h1>Reflection Fitness</h1>
+</div>
+
+<div class="page-header">
+	<img class="img-responsive center-block" src="../assets/img/ReflectionFitness_Logo.png" alt="">
+</div>
+
+<div class="container text-center">
 	<div class="row">
-		<h1>Reflection Fitness</h1>
-		<a ui-sref="auth"><btn class="btn btn-primary">Login</btn></a>
-		<a ui-sref="signup"><btn class="btn btn-success">Sign-Up</btn></a>
+		<div class="col-md-6"
+			<a ui-sref="auth"><btn class="btn btn-primary btn-lg">Login</btn></a>
+		</div>
+		<div class="col-md-6">
+			<a ui-sref="signup"><btn class="btn btn-success btn-lg">Sign-Up</btn></a>
+		</div>
 	</div>
 </div>
