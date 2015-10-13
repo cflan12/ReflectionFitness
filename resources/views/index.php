@@ -45,9 +45,9 @@
                     </div>
                     <div class="col-sm-8">
                         <p>Follow Us</p>
-                       <span><i class="fa fa-facebook fa-4x"></i></span>
-                       <span><i class="fa fa-twitter fa-4x"></i></span>
-                       <span><i class="fa fa-instagram fa-4x"></i></span>
+                       <span><i class="fa fa-facebook fa-2x"></i></span>
+                       <span><i class="fa fa-twitter fa-2x"></i></span>
+                       <span><i class="fa fa-instagram fa-2x"></i></span>
                     </div>
                 </div>
             </div>
