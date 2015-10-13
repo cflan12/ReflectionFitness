@@ -85,7 +85,7 @@
 								localStorage.removeItem('user');
 
 								// send user to auth login
-								$state.go('auth');
+								$state.go('/');
 							}
 						});
 
