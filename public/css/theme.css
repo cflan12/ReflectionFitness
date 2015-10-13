@@ -15,10 +15,23 @@
 }
 
 footer {
-	margin-top: 100px;
-	padding-top: 100px;
+	padding-top: 50px;
 	height: 300px;
 	background-color: #95a5a6;
-	text-shadow: #34495e 0.3em 0.3em 0.3em;
+	text-shadow: #2c3e50 0.3em 0.3em 0.3em;
+    color: white;
+}
+
+.footer-links {
+    margin-top: 50px;
+}
+
+.pre-footer {
+    margin-top:100px;
+    padding-top:20px;
+    padding-bottom: 150px;
+    height: 100px;
+    background-color: #7f8c8d;
+    text-align: center;
 }
 

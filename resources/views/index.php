@@ -3,8 +3,14 @@
 	<head>
 		<title>Reflection Fitness</title>
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+       <!-- <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css"> -->
         <link rel="stylesheet" href="css/flaty_bootstrap.min.css">
         <link rel="stylesheet" href="css/theme.css">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="lib/font-awesome-4.4.0/css/font-awesome.min.css">
 	</head>
 	
 	<!-- define angular controller
@@ -25,17 +31,38 @@
         
       
         </div> <!-- global container -->
+        <div class="container-fluid pre-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p>Join Our Newsletter</p>
+                        <form>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                                <button class="btn btn-success btn-sm">Subscribe</button>
+                        </form>
+                    </div>
+                    <div class="col-sm-8">
+                        <p>Follow Us</p>
+                       <span><i class="fa fa-facebook fa-4x"></i></span>
+                       <span><i class="fa fa-twitter fa-4x"></i></span>
+                       <span><i class="fa fa-instagram fa-4x"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <footer>
             <h3 class="text-center">Reflection Fitness</h3>
             <h3 class="text-center">San Diego, CA</h3>
             <div class="container">
-                <div class="row">
+                <div class="row text-center footer-links">
                     <div class="col-sm-4">
-                        <p>Sign-Up</p>
+                        <a ui-sref="signup"><p>Sign-Up</p></a>
                     </div>
                     <div class="col-sm-4">
-                        <p>Log In</p>
+                        <a ui-sref="auth"><p>Log In</p></a>
                     </div>
                     <div class="col-sm-4">
                         <p>Terms of Service</p>
@@ -78,6 +105,12 @@
     <!-- Stripe Integration -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>Stripe.setPublishableKey('pk_test_jSzRHK2cWmkIazJ511O8xeVM');</script>
+    
+    <!-- Use Arrive.js for Material Design JQuery requirement -->
+    <script type="text/javascript" src="bower_components/arrive/minified/arrive.min.js"></script>
+
+    <!-- Material Design
+    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script> -->
 </html>
 
 
