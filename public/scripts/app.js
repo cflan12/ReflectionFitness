@@ -130,6 +130,11 @@
 					templateUrl: 'templates/register/register.html',
 					controller: 'RegisterController',
 				})
+				// terms of service
+				.state('terms', {
+					url: '/terms',
+					templateUrl: 'templates/termsOfService.html',
+				})
 				// admin UI
 				.state('admin', {
 					url: '/admin/:id',

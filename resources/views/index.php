@@ -65,7 +65,7 @@
                         <a ui-sref="auth"><p>Log In</p></a>
                     </div>
                     <div class="col-sm-4">
-                        <p>Terms of Service</p>
+                        <a ui-sref="terms"><p>Terms of Service</p></a>
                     </div>
                 </div>
             </div>
