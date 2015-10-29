@@ -12,16 +12,26 @@
 	// work communicate with the API 
 	// $state handles the redirects for $auth
 	// inject user service for ngResource API
-	function AuthController($auth, $state, $http, $rootScope) {
+	function AuthController($auth, $state, $http, $rootScope, stripe) {
 
 		var vm = this;
 
 		vm.loginError = false;
 		vm.loginErrorText;
 
+		var credentials;
+
+		if(stripe.authenticate == !null) {
+
+			credentials = {
+				email: credentials.email,
+				password: credentials.password
+			}
+		}
+
 		vm.login = function() {
 
-			var credentials = {
+			 credentials = {
 					email: vm.email,
 					password: vm.password
 			}
