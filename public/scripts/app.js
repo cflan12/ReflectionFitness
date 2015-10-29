@@ -130,6 +130,11 @@
 					templateUrl: 'templates/register/register.html',
 					controller: 'RegisterController',
 				})
+				//stripe register
+				.state('stripe', {
+					url:'/subscribe',
+					templateUrl: 'templates/register/registerLogin.html',
+				})
 				// terms of service
 				.state('terms', {
 					url: '/terms',

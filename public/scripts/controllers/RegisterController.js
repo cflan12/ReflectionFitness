@@ -35,7 +35,7 @@
 						"token":token
 					}).then(function(success) {
 						console.log('Client Charged');
-						$state.go('auth');
+						$state.go('stripe');
 					}, function(error) {
 						console.log('Charge Error');
 					}); 
