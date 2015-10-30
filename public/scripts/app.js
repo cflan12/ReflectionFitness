@@ -85,7 +85,7 @@
 								localStorage.removeItem('user');
 
 								// send user to auth login
-								$state.go('auth');
+								$state.go('/');
 							}
 						});
 
@@ -127,8 +127,19 @@
 				// register
 				.state('signup', {
 					url:'/signup',
-					templateUrl: 'templates/auth/authSignup.html',
-					controller: 'AuthController as auth',
+					templateUrl: 'templates/register/register.html',
+					controller: 'RegisterController',
+				})
+				//stripe register
+				.state('stripe', {
+					url:'/subscribe',
+					templateUrl: 'templates/register/registerLogin.html',
+					controller: 'AuthController as auth'
+				})
+				// terms of service
+				.state('terms', {
+					url: '/terms',
+					templateUrl: 'templates/termsOfService.html',
 				})
 				// admin UI
 				.state('admin', {

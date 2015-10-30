@@ -12,16 +12,16 @@
 	// work communicate with the API 
 	// $state handles the redirects for $auth
 	// inject user service for ngResource API
-	function AuthController($auth, $state, $http, $rootScope) {
+	function AuthController($auth, $state, $http, $scope, $rootScope) {
 
 		var vm = this;
 
-		vm.loginError = false;
-		vm.loginErrorText;
+		$scope.loginError = false;
+		$scope.loginErrorText;
 
 		vm.login = function() {
 
-			var credentials = {
+			 var credentials = {
 					email: vm.email,
 					password: vm.password
 			}
@@ -35,8 +35,10 @@
 
 				// Handle errors
 			}, function(error) {
-				vm.loginError = true;
-				vm.loginErrorText = error.data.error;
+
+				//send $scope error for login error message on form
+				$scope.loginError = true;
+				$scope.loginErrorText = error.data.error;
 
 				// Because $http.get request returned in $auth.login promise,
 				// now chain the next promise to the end here

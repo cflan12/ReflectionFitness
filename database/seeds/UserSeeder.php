@@ -27,6 +27,6 @@ use App\Models\User;
 				$user->password = '1234';
 				$user->subscriber = 1;
 				$user->role = 'admin';
-				user->save();
+				$user->save();
 		}
 	}

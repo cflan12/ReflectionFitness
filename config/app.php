@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => true,//env('APP_DEBUG'), add .env file for project
+	'debug' => env('APP_DEBUG'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -140,6 +140,7 @@ return [
 		'Mitul\Generator\GeneratorServiceProvider',
 		'Barryvdh\Cors\CorsServiceProvider',
 		'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
+		'Laravel\Cashier\CashierServiceProvider',
 
 		/*
 		 * Application Service Providers...
