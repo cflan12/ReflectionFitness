@@ -14,9 +14,9 @@
     </nav>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="well">
-                <h3>Thanks for Subscribing to Reflection Fitness</h3>
+                <h3 class="text-center">Thanks for Subscribing to Reflection Fitness</h3>
                     <p>Log In Now</p>
                     <form>
                         <div class="form-group">
@@ -26,6 +26,10 @@
                             <input type="password" class="form-control" placeholder="Password" ng-model="auth.password">
                         </div>
                         <button class="btn btn-primary" ng-click="auth.login()">Submit</button>
+                        <div class="well bg-warning text-center" ng-show="loginError == true">
+                            <h5>Please Login Again</h5>
+                            <h5>Incorrect Username or Password</h5>
+                        </div>
                     </form>
                 </div>
                 <div class="well">

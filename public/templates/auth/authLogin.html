@@ -32,11 +32,12 @@
                             <input type="password" class="form-control" placeholder="Password" ng-model="auth.password">
                         </div>
                         <button class="btn btn-primary" ng-click="auth.login()">Submit</button>
+                        <div class="well bg-warning text-center" ng-show="loginError == true">
+                            <h5>Please Login Again</h5>
+                            <h5>Incorrect Username or Password</h5>
+                        </div>
                     </form>
                 </div>
-                <div class="well">
-                        <h5 ng-if="false">Incorrect Username or Password Entered</h5>
-                    </div>
             </div>
             <div class="col-md-6 text-center">
                 <h3>Not a Registered Reflection Fitness Member?</h3>

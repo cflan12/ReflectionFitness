@@ -134,6 +134,7 @@
 				.state('stripe', {
 					url:'/subscribe',
 					templateUrl: 'templates/register/registerLogin.html',
+					controller: 'AuthController as auth'
 				})
 				// terms of service
 				.state('terms', {
