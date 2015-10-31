@@ -34,20 +34,11 @@
         <div class="container-fluid pre-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4">
-                        <p>Join Our Newsletter</p>
-                        <form>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                                <button class="btn btn-success btn-sm">Subscribe</button>
-                        </form>
-                    </div>
-                    <div class="col-sm-8">
+                    <div class="col-sm-12">
                         <p>Follow Us</p>
-                       <span><i class="fa fa-facebook fa-2x"></i></span>
-                       <span><i class="fa fa-twitter fa-2x"></i></span>
-                       <span><i class="fa fa-instagram fa-2x"></i></span>
+                        <span><i class="fa fa-facebook fa-2x"></i></span>
+                        <span><i class="fa fa-twitter fa-2x"></i></span>
+                        <span><i class="fa fa-instagram fa-2x"></i></span>
                     </div>
                 </div>
             </div>
@@ -55,7 +46,6 @@
 
         <footer>
             <h3 class="text-center">Reflection Fitness</h3>
-            <h3 class="text-center">San Diego, CA</h3>
             <div class="container">
                 <div class="row text-center footer-links">
                     <div class="col-sm-4">
