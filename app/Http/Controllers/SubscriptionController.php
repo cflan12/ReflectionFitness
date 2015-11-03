@@ -43,10 +43,11 @@ class SubscriptionController extends Controller {
 			$user->email = $request['email'];
 			$user->password = $request['password'];
 			$user->subscriber = true;
+			$user->stripe_subscription = $request['subscription'];
 			$user->role = 'client';
 			$user->save();
 
-			$user->subscription('monthly')->create($request['token']);
+			$user->subscription('stripe_subscription')->create($request['token']);
 
 		} catch(\Stripe\Error\Card $e) {
   			// Since it's a decline, \Stripe\Error\Card will be caught

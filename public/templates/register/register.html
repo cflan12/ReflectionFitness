@@ -37,13 +37,14 @@
 						<h3 class="text-center">Membership</h3>
 					</thead>
 					<tbody class="text-center">
-						<p>$5.99 Monthly Subscription</p>
-						<p>New Monthly Plans</p>
-						<p>Active Online Trainer</p>
+						<p>$5.99 Monthly Membership</p>
+						<p>4 Week Gym and Body Weight Routines</p>
+						<p>4 Week Cardio Routines</p>
+						<p>Private Group Access for Fitness Questions</p>
 					</tbody>
 				</table>
 				<div class="text-center">
-					<button class="btn btn-warning btn">Subscribe</button>
+					<button class="btn btn-warning btn" ng-click="memberships = 'Monthly'">Subscribe</button>
 				</div>
 			</div>
 		</div>
@@ -55,14 +56,22 @@
 						<h3 class="text-center">Silver Coaching</h3>
 					</thead>
 					<tbody class="text-center">
-						<p>$90 for 8 Week Program</p>
-						<p>Consultation</p>
-						<p>Monthly Reports</p>
-						<p>Active Online Trainer</p>
+						<p>$90 for 8 Week Membership Program</p>
+						<p>8 Weeks of Online Coaching</p>
+						<p>Male and Female Programs</p>
+						<p>Customized Workout and Cardio Routine to Fit Your Goal and Schedule</p>
+						<p>Email Support within 24 Hours</p>
+						<p>Flexible Dieting Outline</p>
+						<p>Supplement Guidance</p>
+						<p>Program Tweaks</p>
+						<p>Food Suggestions for Best Results</p>
+						<p>Weekly Follow Up and Goal Setting</p>
+						<p>14 Day Money Back Guarantee</p>
+						<p>Automatic Membership Access</p>
 					</tbody>
 				</table>
 				<div class="text-center">
-					<button class="btn btn-warning btn">Subscribe</button>
+					<button class="btn btn-warning btn" ng-click="memberships = 'Silver Coaching'">Subscribe</button>
 				</div>
 			</div>
 		</div>
@@ -75,18 +84,27 @@
 					</thead>
 					<tbody class="text-center">
 						<p>$160 for 16 Week Program</p>
-						<p>Consultations</p>
-						<p>New Monthly Plans</p>
-						<p>Active Online Trainer</p>
+						<p>16 Week Online Coaching</p>
+						<p>Male and Female Programs</p>
+						<p>Customized Workout and Cardio Routine to Fit Your Goal and Schedule</p>
+						<p>Emial Support within 24 Hours</p>
+						<p>Flexible Dieting Outline</p>
+						<p>Supplement Guidance</p>
+						<p>Program Tweaks</p>
+						<p>Food Suggestions for Best Results</p>
+						<p>Weekly Follow Up and Goal Setting</p>
+						<p>14 Day Money Back Guarantee</p>
+						<p>Automatic Membership Access</p>
 					</tbody>
 				</table>
 				<div class="text-center">
-					<button class="btn btn-warning btn">Subscribe</button>
+					<button class="btn btn-warning btn" ng-click="memberships = 'Gold Coaching'">Subscribe</button>
 				</div>
 			</div>
-
 		</div>
+
 	</div>
+</div>
 
 
 <div class="container">
@@ -108,7 +126,7 @@
 			</div>
 
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Select a Program" ng-model="program">
+				<input type="text" class="form-control" placeholder="Program Selected" ng-model="memberships">
 			</div>
 
 			<div class="form-group">
