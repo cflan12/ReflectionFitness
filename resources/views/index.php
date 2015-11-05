@@ -73,7 +73,7 @@
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="bower_components/satellizer/satellizer.js"></script>
     <script type="text/javascript" src="node_modules/d3/d3.js"></script>
-    <script type="text/javascript" src="lib/angular-payments/lib/angular-payments.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-payments/lib/angular-payments.min.js"></script>
 
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
