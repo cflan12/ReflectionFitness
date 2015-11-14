@@ -58,6 +58,10 @@
                         <a ui-sref="terms"><p>Terms of Service</p></a>
                     </div>
                 </div>
+                <div class="row" style="margin-top:40px;">
+                    <p class="text-right">
+                        &copy; 2015 Reflection Fitness | Designed By <a href="http://www.copishboutique.com">Copish Boutique</a>
+                    </p>
             </div>
         </footer>
 
