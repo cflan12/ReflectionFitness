@@ -36,9 +36,9 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <p>Follow Us</p>
-                        <span><i class="fa fa-facebook fa-2x"></i></span>
-                        <span><i class="fa fa-twitter fa-2x"></i></span>
-                        <span><i class="fa fa-instagram fa-2x"></i></span>
+                        <a href="https://www.facebook.com/reflectionfitness/"><span><i class="fa fa-facebook fa-2x"></i></span></a>
+                        <a href="https://www.instagram.com/reflectionfitness/"><span><i class="fa fa-twitter fa-2x"></i></span></a>
+                        <a href="https://twitter.com/ReflectFit"><span><i class="fa fa-instagram fa-2x"></i></span></a>
                     </div>
                 </div>
             </div>
