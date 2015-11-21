@@ -2,10 +2,10 @@
 <html ng-app="workoutApp">
 	<head>
 		<title>Reflection Fitness</title>
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu&subset=latin,greek' rel='stylesheet' type='text/css'>
+
 		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-       <!-- <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/roboto.min.css">
-        <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/material.min.css">
-        <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css"> -->
         <link rel="stylesheet" href="css/flaty_bootstrap.min.css">
         <link rel="stylesheet" href="css/theme.css">
 
@@ -35,14 +35,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <p>Follow Us</p>
-                        <a href="https://www.facebook.com/reflectionfitness/"><span><i class="fa fa-facebook fa-2x"></i></span></a>
-                        <a href="https://www.instagram.com/reflectionfitness/"><span><i class="fa fa-twitter fa-2x"></i></span></a>
-                        <a href="https://twitter.com/ReflectFit"><span><i class="fa fa-instagram fa-2x"></i></span></a>
+                        <h3>Join Our Newsletter</h3>
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                    <button class="btn btn-warning btn">Subscribe</button>
+                            </form>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="margin-top:20px;">
+                            <a href="https://www.facebook.com/reflectionfitness/"><span><i class="fa fa-facebook fa-2x"></i></span></a>
+                            <a href="https://www.instagram.com/reflectionfitness/"><span><i class="fa fa-twitter fa-2x"></i></span></a>
+                            <a href="https://twitter.com/ReflectFit"><span><i class="fa fa-instagram fa-2x"></i></span></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
 
         <footer>
             <h3 class="text-center">Reflection Fitness</h3>
@@ -64,7 +75,7 @@
                     </p>
             </div>
         </footer>
-
+        
 	</body>
 	
 	<!-- Application Dependencies -->
@@ -79,15 +90,25 @@
     <script type="text/javascript" src="node_modules/d3/d3.js"></script>
     <script type="text/javascript" src="bower_components/angular-payments/lib/angular-payments.min.js"></script>
 
+    <!-- Notie -->
+    <script type="text/javascript" src="bower_components/notie/notie.js"></script>
+    <script>
+        function success() {
+                notie.alert(1, 'Thank You For Subscribing. Please Fill Out The Form Below.', 2);
+            }
+    </script>
+
     <!-- Application Scripts -->
     <script type="text/javascript" src="scripts/app.js"></script>
-
+    
+    <!-- Controllers -->
     <script type="text/javascript" src="scripts/controllers/WorkoutController.js"></script>
     <script type="text/javascript" src="scripts/controllers/AuthController.js"></script>
     <script type="text/javascript" src="scripts/controllers/UserController.js"></script>
     <script type="text/javascript" src="scripts/controllers/ClientController.js"></script>
     <script type="text/javascript" src="scripts/controllers/RegisterController.js"></script>
-
+    
+    <!-- Services -->
     <script type="text/javascript" src="scripts/services/workout.js"></script>
     <script type="text/javascript" src="scripts/services/users.js"></script>
     <script type="text/javascript" src="scripts/services/bodyweight.js"></script>
@@ -100,11 +121,6 @@
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>Stripe.setPublishableKey('pk_test_jSzRHK2cWmkIazJ511O8xeVM');</script>
     
-    <!-- Use Arrive.js for Material Design JQuery requirement -->
-    <script type="text/javascript" src="bower_components/arrive/minified/arrive.min.js"></script>
-
-    <!-- Material Design
-    <script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script> -->
 </html>
 
 

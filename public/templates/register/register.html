@@ -13,27 +13,21 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" collapse="isCollapsed">
                     <ul class="nav navbar-nav navbar-right">
-                    	<li><a ui-sref="#">Join Our Newsletter
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email">
-                                </div>
-                                 <button class="btn btn-warning btn">Subscribe</button>
-                            </form></a></li>
                         <li><a ui-sref="/">Home</a></li>
-                        <li><a ui-sref="auth">Log In</a></li>
+                        <li><a href="http://blog.reflectionfitness.com">Content</a></li>
+                        <li><a ui-sref="auth">Login</a></li>
                         <li><a ui-sref="signup">Sign-Up</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 
-		<div class="col-xs-4">
+		<div class="col-sm-4">
 			<div class="well register">
-				<table class="table">
+				<table class="table text-center">
 					<thead class="pricing">
 						<h3 class="text-center">Membership</h3>
 					</thead>
@@ -45,14 +39,15 @@
 					</tbody>
 				</table>
 				<div class="text-center">
-					<button class="btn btn-primary btn" ng-click="memberships = 'Monthly'">Subscribe</button>
+					<button class="btn btn-primary btn" onclick="success();" ng-click="memberships = 'Monthly'">Subscribe</button>
 				</div>
 			</div>
 		</div>
+	
 
-		<div class="col-xs-4">
+		<div class="col-sm-4">
 			<div class="well register">
-				<table class="table">
+				<table class="table text-center">
 					<thead class="pricing">
 						<h3 class="text-center">Silver Coaching</h3>
 					</thead>
@@ -72,14 +67,14 @@
 					</tbody>
 				</table>
 				<div class="text-center">
-					<button class="btn btn-primary btn" ng-click="memberships = 'Silver Coaching'">Subscribe</button>
+					<button class="btn btn-primary btn" ng-click="memberships = 'Silver Coaching'" onclick="success();">Subscribe</button>
 				</div>
 			</div>
 		</div>
 
-		<div class="col-xs-4">
+		<div class="col-sm-4">
 			<div class="well register">
-				<table class="table">
+				<table class="table text-center">
 					<thead>
 						<h3 class="text-center">Gold Coaching</h3>
 					</thead>
@@ -99,16 +94,12 @@
 					</tbody>
 				</table>
 				<div class="text-center">
-					<button class="btn btn-primary btn" ng-click="memberships = 'Gold Coaching'">Subscribe</button>
+					<button class="btn btn-primary btn" ng-click="memberships = 'Gold Coaching'" onclick="success();">Subscribe</button>
 				</div>
 			</div>
 		</div>
 
 	</div>
-
-	<div class="row text-center">
-		<h1>Select Subscription and Fill Out The Form Below</h1>
-	</div>	
 </div>
 
 
