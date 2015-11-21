@@ -1,14 +1,4 @@
-.jumbotron {
-    margin-bottom: 0px;
-    margin-bottom: 0px;
-    background-image: url(../assets/img/ReflectionFitness_header.jpg);
-    background-position: 0% 25%;
-    height: 600px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    text-shadow: black 0.3em 0.3em 0.3em;
-}
+
 
 footer {
 	padding-top: 50px;
@@ -16,6 +6,10 @@ footer {
 	background-color: #95a5a6;
 	text-shadow: #2c3e50 0.3em 0.3em 0.3em;
     color: white;
+}
+
+.about {
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .register h3 {
@@ -41,4 +35,37 @@ footer {
 
 .register {
     background-color: #c87f0a;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+}
+
+.pre-footer {
+    height:300px;
+}
+
+footer {
+    height: 400px;
+}
+
+/* Navbar height */
+.navbar {
+    min-height: 40px;
+}
+.navbar-brand,
+.navbar-nav>li>a {
+    line-height: 50px;
+    padding: 1px 5px;
+}
+/* Toggle button size */
+.navbar-toggle {
+    margin: 4px;
+    padding: 4px;
+}
+.navbar-toggle .icon-bar {
+    width: 14px;
+}
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 2px;
 }
