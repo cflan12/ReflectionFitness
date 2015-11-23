@@ -105,6 +105,7 @@
     <script type="text/javascript" src="scripts/controllers/UserController.js"></script>
     <script type="text/javascript" src="scripts/controllers/ClientController.js"></script>
     <script type="text/javascript" src="scripts/controllers/RegisterController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/MailController.js"></script>
     
     <!-- Services -->
     <script type="text/javascript" src="scripts/services/workout.js"></script>
