@@ -41,7 +41,7 @@
 				});
 			}
 
-			function update(date) {
+			function update(data) {
 				return Cardio.update({id:data.id}, data).$promise.then(function(success) {
 					console.log(success);
 				}, function(error) {

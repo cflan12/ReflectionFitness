@@ -160,24 +160,28 @@
 			} 
 
 			//update $resource object and send to API
-			vm.update = function(factory) {
+			/// used for all Controller updates
+			vm.update = function(factory, data) {
 				if(factory == 'reps') {
 					rep.update({
-						"range":vm.updateBody,
-						"time_frame":vm.updateExercise,
-						"rest_time":vm.updateRep
+						"id":data.id,
+						"range":data.updateBody,
+						"time_frame":data.updateExercise,
+						"rest_time":data.updateRep
 					}).then(function(success){
 						console.log(success);
 						getReps();
 					}, function(error) {
 						console.log(error);
 					});
-				}else if(factory == 'users') {
-					users.update({
-						"name":vm.updateBody,
-						"email":vm.updateExercise,
-						"role":vm.updateRole
-					}).then(function(success) {
+				}else if(factory == 'user') {
+					var user = {
+						"id":data.id,
+						"name":data.name,
+						"email":data.email,
+						"role":data.role
+					}
+					users.update(user).then(function(success) {
 						console.log(success);
 						getUsers();
 					}, function(error) {
@@ -185,8 +189,9 @@
 					});
 				}else if(factory == 'workout') {
 					workout.update({
-						"body":vm.updateBody,
-						"exercise":vm.updateExercise
+						"id":data.id,
+						"body":data.updateBody,
+						"exercise":data.updateExercise
 					}).then(function(success){
 						console.log(success);
 						getExercises();
@@ -195,8 +200,9 @@
 					});
 				}else if (factory == 'bodyweight') {
 					bodyweight.update({
-						"body":vm.updateBody,
-						"exercise":vm.updateExercise
+						"id":data.id,
+						"body":data.updateBody,
+						"exercise":data.updateExercise
 					}).then(function(success) {
 						console.log(success);
 						getBodyweight();
@@ -205,8 +211,9 @@
 					});
 				}else {
 					cardio.update({
-						"type":vm.updateBody,
-						"exercise":vm.updateExercise
+						"id":data.id,
+						"type":data.updateBody,
+						"exercise":data.updateExercise
 					}).then(function(success) {
 						console.log(success);
 						getCardio();

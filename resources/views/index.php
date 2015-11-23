@@ -13,8 +13,6 @@
         <link rel="stylesheet" href="lib/font-awesome-4.4.0/css/font-awesome.min.css">
 	</head>
 	
-	<!-- define angular controller
-	<body ng-controller="WorkoutController as vm"> -->
     <body>
 		
 		<!-- Main container and content with injected views -->
@@ -69,8 +67,8 @@
                         <a ui-sref="terms"><p>Terms of Service</p></a>
                     </div>
                 </div>
-                <div class="row" style="margin-top:40px;">
-                    <p class="text-right">
+                <div class="row" style="margin-top:100px;">
+                    <p class="text-center">
                         &copy; 2015 Reflection Fitness | Designed By <a href="http://www.copishboutique.com">Copish Boutique</a>
                     </p>
             </div>
@@ -107,6 +105,7 @@
     <script type="text/javascript" src="scripts/controllers/UserController.js"></script>
     <script type="text/javascript" src="scripts/controllers/ClientController.js"></script>
     <script type="text/javascript" src="scripts/controllers/RegisterController.js"></script>
+    <script type="text/javascript" src="scripts/controllers/MailController.js"></script>
     
     <!-- Services -->
     <script type="text/javascript" src="scripts/services/workout.js"></script>

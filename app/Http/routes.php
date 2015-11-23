@@ -27,6 +27,7 @@ Route::get('test', function() {
 	dd($token);
 });
 
+//Authentication 
 Route::group(['prefix' => 'api'], function() 
 {
 	Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
@@ -46,3 +47,6 @@ Route::resource('api/users', 'API\UserAPIController');
 Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
 Route::resource('api/clientProgress', 'API\ClientProgressAPIController');
 //Route::resource('api/subscribe', 'API\SubscribeAPIController');
+
+//Consultation Form
+Route::post('submitConsultationForm', 'MailController@submitConsultationForm');
