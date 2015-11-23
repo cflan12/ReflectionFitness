@@ -10,18 +10,9 @@
 		function users($resource) {
 
 			var User = $resource('api/users/:id', {}, {
-				update: {
-					method: 'PUT'
-				},
-				query: {
-						method: 'GET', 
-						isArray: true,
-
-				},
-				client: {
-						method: 'GET', 
-						isArray: false,
-					},
+				update: { method: 'PUT' },
+				query: { method: 'GET', isArray: true },
+				client: { method: 'GET', isArray: false },
 			});
 
 			//function for getClient to show object to controller
@@ -47,9 +38,10 @@
 			}
 
 			// send UPDATE to API
-			function update(date) {
-				return User.update({id:data.id}, data).$promise.then(function(success) {
-					console.log(success);
+			function update(data) {
+				return User.update({id:data.id}, data).$promise.then(function(results) {
+					return results;
+					//console.log(success);
 				}, function(error) {
 					console.log(error);
 				});
