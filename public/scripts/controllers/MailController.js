@@ -8,24 +8,16 @@
 
 		function MailController($scope, $http) {
 
-			$scope.success = false;
-			$scope.error = false;
-
-			$scope.sendMessage = function( input ) {
+			$scope.submitConsultation = function() {
+				var data = { 'email': $scope.email };
 				$http({
 					method: 'POST',
 					url: '/submitConsultationForm',
-					data: input,
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
-				})
-				.success( function(data) {
-					if(data.success) {
-						$scope.success = true;
-					} else {
-						$scope.error = true;
-					}
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+					data : $.param(data);
 				});
-			}
-
+			}	
 		}
+
+		
 })();
