@@ -16,7 +16,7 @@ class ContactController extends Controller {
 
 		Mail::raw('Text to e-mail', function($message)
 		{
-			$message->from($email, 'Consultation Request');
+			$message->from('test@gmail.com', 'Consultation Request');
 
 			$message->to('cflan12@gmail.com');
 		});
