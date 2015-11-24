@@ -46,11 +46,11 @@
     
     <div style="padding-top:50px;" class="row">
        <h3>Send Us Your Email for a Free Consultation</h3>
-            <form method="post" name="consultation" role="form" ng-controller="MailController" ng-submit="consultation.$valid && sendMessage(input)" novalidate>
+            <form data-ng-controller="MailController">
                 <div class="form-group">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" placeholder="Email" data-ng-model="email">
                 </div>
-                    <button class="btn btn-warning btn">Submit</button>
+                    <button class="btn btn-warning btn" data-ng-click="submitConsultation();">Submit</button>
             </form>
     </div>
 </div>
