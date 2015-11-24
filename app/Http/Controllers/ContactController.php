@@ -3,9 +3,10 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Mail;
 use Illuminate\Http\Request;
 
-class MailController extends Controller {
+class ContactController extends Controller {
 
 	public function submitConsultationForm() 
 	{
@@ -21,6 +22,3 @@ class MailController extends Controller {
 		});
       }
  }
-
-
-	

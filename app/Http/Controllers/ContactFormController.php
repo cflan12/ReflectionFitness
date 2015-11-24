@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class MailController extends Controller {
+class ContactFormController extends Controller {
 
 	public function submitConsultationForm() 
 	{
@@ -21,6 +21,3 @@ class MailController extends Controller {
 		});
       }
  }
-
-
-	

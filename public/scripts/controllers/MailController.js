@@ -13,8 +13,8 @@
 				$http({
 					method: 'POST',
 					url: '/submitConsultationForm',
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
-					data : $.param(data);
+					data : { 'email': $scope.email },
+					headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 				});
 			}	
 		}
