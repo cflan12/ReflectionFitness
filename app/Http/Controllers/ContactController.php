@@ -14,11 +14,11 @@ class ContactController extends Controller {
 		$data = json_decode($formData);
 		$email = $data->email;
 
-		Mail::raw('Text to e-mail', function($message)
+		Mail::raw('Reflection Fitness Free Consultation Request from:' . $email, function($message)
 		{
-			$message->from('test@gmail.com', 'Consultation Request');
+			$message->from('Jared@ReflectionFitness.com', 'Reflection Fitness Consultation Request');
 
-			$message->to('cflan12@gmail.com');
+			$message->to('cflan12@gmail.com')->subject('Reflection Fitness Consultation Form');
 		});
       }
  }
