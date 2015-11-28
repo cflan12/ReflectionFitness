@@ -34,11 +34,11 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h3>Join Our Newsletter</h3>
-                            <form class="form-inline">
+                            <form class="form-inline" data-ng-controller="MailController">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" class="form-control" placeholder="Email" data-ng-model="subscriber">
                                 </div>
-                                    <button class="btn btn-warning btn">Subscribe</button>
+                                    <button class="btn btn-warning btn" data-ng-click="subscribe();">Subscribe</button>
                             </form>
                     </div>
                     </div>

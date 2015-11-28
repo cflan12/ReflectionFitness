@@ -3,8 +3,14 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Mail;
 use Illuminate\Http\Request;
+
+//Mandrill 
+use Mail;
+
+//MailChimp
+use \DrewM\MailChimp\MailChimp;
+
 
 class ContactController extends Controller {
 
@@ -20,5 +26,17 @@ class ContactController extends Controller {
 
 			$message->to('cflan12@gmail.com')->subject('Reflection Fitness Consultation Form');
 		});
+      }
+
+      public function addEmailToList() 
+      {
+      	$MailChimp = new MailChimp(env('MAILCHIMP_APIKEY'));
+      	$listId = env('MAILCHIMP_LIST');
+
+      	$formData = file_get_contents('php://input', true);
+		$data = json_decode($formData);
+		$email = $data->email;
+
+		$result = $MailChimp->listSubscribe($listId, $email);
       }
  }

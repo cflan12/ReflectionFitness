@@ -141,6 +141,8 @@ return [
 		'Barryvdh\Cors\CorsServiceProvider',
 		'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
 		'Laravel\Cashier\CashierServiceProvider',
+		'Spatie\Newsletter\NewsletterServiceProvider',
+		'Skovmand\Mailchimp\MailchimpServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -205,6 +207,7 @@ return [
 		'Flash'		=> 'Laracasts\Flash\Flash',
 		'JWTAuth'	=> 'Tymon\JWTAuth\Facades\JWTAuth',
 		'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
+		'Newsletter' => 'Spatie\Newsletter\NewsletterFacade',
 
 	],
 
