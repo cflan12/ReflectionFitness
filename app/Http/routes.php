@@ -48,6 +48,7 @@ Route::resource('api/workoutPrograms', 'API\WorkoutProgramAPIController');
 Route::resource('api/clientProgress', 'API\ClientProgressAPIController');
 //Route::resource('api/subscribe', 'API\SubscribeAPIController');
 
-//Consultation Form
+//Contact
 Route::post('submitConsultationForm', 'ContactController@submitConsultationForm');
+Route::post('subscribe', 'ContactController@addEmailToList');
 
