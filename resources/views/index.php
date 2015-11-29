@@ -34,12 +34,13 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h3>Join Our Newsletter</h3>
-                            <form class="form-inline" data-ng-controller="MailController">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email" data-ng-model="subscriber">
+                            <form class="form-inline" action="//reflectionfitness.us12.list-manage.com/subscribe/post?u=78f0700a49be2d8480c2e207c&amp;id=2ddc78feff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate >
+                                <div class="form-group" >
+                                    <input type="email" class="form-control" placeholder="Email" name="EMAIL">
                                 </div>
-                                    <button class="btn btn-warning btn" data-ng-click="subscribe();">Subscribe</button>
+                                    <button class="btn btn-warning btn">Subscribe</button>
                             </form>
+
                     </div>
                     </div>
                     <div class="row">
@@ -118,7 +119,10 @@
 
     <!-- Stripe Integration -->
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script>Stripe.setPublishableKey('pk_test_jSzRHK2cWmkIazJ511O8xeVM');</script>
+    <script>Stripe.setPublishableKey('pk_live_fk9h48amadTT4GxfFcN1P1bn');</script>
+
+    <!-- MailChimp Form -->
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
     
 </html>
 

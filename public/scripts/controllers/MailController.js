@@ -18,15 +18,6 @@
 				});
 			}	
 		
-			$scope.subscribe = function() {
-				var data = { 'email': $scope.subscriber };
-				$http:({
-					method: 'POST',
-					url: '/subscribe',
-					data: { 'email': $scope.subscriber },
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded'}
-				});
-		}
 	}
 		
 

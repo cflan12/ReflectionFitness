@@ -50,5 +50,5 @@ Route::resource('api/clientProgress', 'API\ClientProgressAPIController');
 
 //Contact
 Route::post('submitConsultationForm', 'ContactController@submitConsultationForm');
-Route::post('subscribe', 'ContactController@addEmailToList');
+
 
